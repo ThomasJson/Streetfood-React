@@ -3,31 +3,37 @@ import { GrHomeRounded } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
-
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
     <>
       <div className="h-7vh bg-slate-50">
         <div className="h-full sm:hidden flex flex-row justify-around items-center">
+          <NavLink to="/">
+            <div>
+              <GrHomeRounded  className="text-2xl"/>
+            </div>
+          </NavLink>
+          <NavLink to="/profile">
+            <div>
+              <AiOutlineUser  className="text-2xl"/>
+            </div>
+          </NavLink>
+          <NavLink to="/cart">
+            <div>
+              <FiShoppingCart  className="text-2xl"/>
+            </div>
+          </NavLink>
           <div>
-            <GrHomeRounded />
-          </div>
-          <div>
-            <AiOutlineUser />
-          </div>
-          <div>
-            <FiShoppingCart />
-          </div>
-          <div>
-            <GiHamburgerMenu />
+            <GiHamburgerMenu  className="text-2xl"/>
           </div>
         </div>
 
-        <div className="h-full hidden sm:flex justify-center items-center">Footer</div>
+        <div className="h-full hidden sm:flex justify-center items-center">
+          © 1994-2023, StreetFood.com, Inc. or its affiliates
+        </div>
       </div>
-
-      
     </>
   );
 };

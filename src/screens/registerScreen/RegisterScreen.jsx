@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactScreen = () => {
+const RegisterScreen = () => {
   return (
     <>
       <div className="bg-slate-200 h-86vh"></div>
@@ -8,4 +8,4 @@ const ContactScreen = () => {
   );
 };
 
-export default ContactScreen;
+export default RegisterScreen;
