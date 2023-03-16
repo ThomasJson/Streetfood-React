@@ -3,7 +3,7 @@ import React from "react";
 const HomeScreen = () => {
   return (
     <>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
+      <div className="bg-slate-700 h-4/5">YO</div>
     </>
   );
 };
