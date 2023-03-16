@@ -4,9 +4,10 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        '10vh': '10vh'
-      }
+        "7vh": "9vh",
+        "86vh": "82vh",
+      },
     },
   },
   plugins: [],
-}
+};
