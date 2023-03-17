@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = () => {
+const ProductCardLg = () => {
   return (
     <>
       <div className="flex flex-col rounded-lg bg-white shadow-lg dark:bg-neutral-700 md:max-w-lg md:flex-row">
@@ -26,4 +26,4 @@ const ProductCard = () => {
   );
 };
 
-export default ProductCard;
+export default ProductCardLg;

@@ -1,12 +1,50 @@
 import React from "react";
-import ProductCard from "../../components/productCard/ProductCard";
 
 const HomeScreen = () => {
   return (
     <>
       <div className="bg-slate-200 min-h-82vh">
 
-        <ProductCard />
+        {/* Small Screen */}
+        <div className="flex flex-col items-center">
+
+          <div className="w-full flex flex-col items-center my-4">
+            <h1>Best Sales</h1>
+
+            <div className="w-full flex flex-row justify-center flex-wrap">
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+            </div>
+
+          </div>
+
+          <div className="w-full flex flex-col items-center my-4">
+            <h1>Best Offers</h1>
+
+            <div className="w-full flex flex-row justify-center flex-wrap">
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+            </div>
+
+          </div>
+
+          <div className="w-full flex flex-col items-center my-4">
+            <h1>Latest News</h1>
+
+            <div className="w-full flex flex-row justify-center flex-wrap">
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+              <div className="w-40 h-40 border-solid border-2 border-slate-900 mx-2 my-2"></div>
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
     </>
