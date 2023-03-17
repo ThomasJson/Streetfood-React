@@ -8,10 +8,10 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <div className="h-7vh bg-slate-50">
+      <div className="h-9vh bg-slate-50">
         <div className="flex sm:hidden h-full justify-center items-center bg-slate-100">
           <input
-            placeholder="Search product"
+            placeholder="Search on StreetFood.com"
             className="w-10/12 px-2 rounded focus:outline-none"
           ></input>
         </div>
@@ -24,7 +24,7 @@ const Header = () => {
               </NavLink>
               <div className="w-10/12 px-2">
                 <input
-                  placeholder="Search product"
+                  placeholder="Search on StreetFood.com"
                   className="w-full px-2 rounded focus:outline-none"
                 ></input>
               </div>
@@ -56,11 +56,9 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="h-2/5 flex flex-row justify-between items-center px-2">
-            <div>
-              <GiHamburgerMenu />
-            </div>
-            <div>Chickens</div>
+          <div className="h-2/5 flex flex-row justify-around items-center px-2">
+            <div>Chicken</div>
+            <div>Pork</div>
             <div>Noodles</div>
             <div>Smoothies</div>
             <div>Ice Creams</div>
