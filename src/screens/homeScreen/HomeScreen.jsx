@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 
 const HomeScreen = () => {
 
-  const [img, setImg] = useState(null);
+  // const [img, setImg] = useState(null);
   
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('http://shop-api/image');
-      const result = await response.json();
-      setImg(result);
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch('http://shop-api/image');
+  //     const result = await response.json();
+  //     setImg(result);
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
   
-  console.log('img:', img)
+  // console.log('img:', img)
 
   return (
     <>
