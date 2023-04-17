@@ -64,10 +64,6 @@ const RegisterScreen = () => {
             placeholder="Pseudo *"
             name="pseudo"
             autoComplete="off"
-            // onInput={() => {
-            //   const input = document.getElementById("pseudo-input");
-            //   input.classList.add("onInput");
-            // }}
             {...register("pseudo", { required: true, minLength: 3 })}
           />
           <input
@@ -77,10 +73,6 @@ const RegisterScreen = () => {
             placeholder="Adresse e-mail *"
             name="mail"
             autoComplete="off"
-            // onInput={() => {
-            //   const input = document.getElementById("mailAdress-input");
-            //   input.classList.add("onInput");
-            // }}
             {...register("mail", {
               required: true,
               pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,

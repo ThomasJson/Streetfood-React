@@ -1,15 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AiOutlineUser } from "react-icons/ai";
-import { FiShoppingCart, FiUserPlus } from "react-icons/fi";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BiLogInCircle, BiCrown } from "react-icons/bi";
+// import { AiOutlineUser } from "react-icons/ai";
+import { FiShoppingCart } from "react-icons/fi";
+// import { FiUserPlus } from "react-icons/fi";
+// import { GiHamburgerMenu } from "react-icons/gi";
+// import { BiLogInCircle, BiCrown } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { getCookie } from "../../helpers/cookieHelper";
+import LoginModal from "../loginModal/LoginModal";
+import RegisterModal from "../registerModal/RegisterModal";
 
 const Header = () => {
   const { auth } = useContext(AuthContext);
   const [pseudo, setPseudo] = useState(null);
+
+  // const [showModal, setShowModal] = useState(false);
+
+  // const toggleModal = () => {
+  //   setShowModal(!showModal);
+  // };
 
   useEffect(() => {
     fetch("http://shop-api/app_user/" + auth.id, {
@@ -54,7 +63,6 @@ const Header = () => {
               </div>
             </div>
             <div className="flex flex-row items-center w-3/12 justify-end">
-
               {/* {auth.role === 4 && (
                 <NavLink to="/admin">
                   <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1 ml-3">
@@ -63,23 +71,27 @@ const Header = () => {
                 </NavLink>
               )} */}
 
-              {auth.role < 1 && (
+              {/* {auth.role < 1 && (
                 <NavLink to="/login">
                   <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1">
-                    {/* <BiLogInCircle className="text-2xl" /> */}
+                    <BiLogInCircle className="text-2xl" />
                     <p>Connexion</p>
                   </div>
                 </NavLink>
-              )}
+              )} */}
 
-              {auth.role < 1 && (
+              {auth.role < 1 && <LoginModal />}
+
+              {/* {auth.role < 1 && (
                 <NavLink to="/register" className="ml-2">
                   <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1">
-                    {/* <FiUserPlus className="text-2xl" /> */}
+                    
                     <p>Inscription</p>
                   </div>
                 </NavLink>
-              )}
+              )} */}
+
+              {auth.role < 1 && <RegisterModal className="ml-2" />}
 
               {auth.role > 0 && (
                 <NavLink to="/account">
@@ -94,7 +106,6 @@ const Header = () => {
                   <FiShoppingCart className="text-2xl" />
                 </div>
               </NavLink>
-
             </div>
           </div>
 

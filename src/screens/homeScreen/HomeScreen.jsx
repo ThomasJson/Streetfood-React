@@ -21,7 +21,6 @@ const HomeScreen = () => {
     <>
       <div className="bg-slate-200 min-h-82vh">
 
-        {/* Small Screen */}
         <div className="flex flex-col items-center">
 
           <div className="w-full flex flex-col items-center my-4">

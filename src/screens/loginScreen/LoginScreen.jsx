@@ -60,37 +60,43 @@ const LoginScreen = () => {
   return (
     <>
       <div className="bg-slate-200 min-h-82vh">
-        <form
-          onSubmit={handleSubmit}
-          className=""
-          noValidate
-        >
-          <input
-            id="email-input"
-            type="email"
-            placeholder="Adresse e-mail"
-            name="mail"
-            autoComplete="off"
-            // onInput={() => {
-            //   const input = document.getElementById("email-input");
-            //   input.classList.add("onInput");
-            // }}
-          />
-          <input
-            id="password-input"
-            type="password"
-            placeholder="Mot de passe"
-            name="password"
-            // onInput={() => {
-            //   const input = document.getElementById("password-input");
-            //   input.classList.add("onInput");
-            // }}
-          />
-          <button type="submit" className="">
-            Se connecter
-          </button>
-          <NavLink to="/">Mot de passe oublié ?</NavLink>
-        </form>
+        <div className="h-full flex flex-col items-center justify-center">
+          <form
+            onSubmit={handleSubmit}
+            className="w-4/5 flex flex-col py-3 px-3 space-y-3 border-solid border-2 border-slate-700"
+            noValidate
+          >
+            <input
+              id="email-input"
+              type="email"
+              placeholder="Adresse e-mail"
+              name="mail"
+              autoComplete="off"
+              className="text-center"
+              // onInput={() => {
+              //   const input = document.getElementById("email-input");
+              //   input.classList.add("onInput");
+              // }}
+            />
+            <input
+              id="password-input"
+              type="password"
+              placeholder="Mot de passe"
+              name="password"
+              className="text-center"
+              // onInput={() => {
+              //   const input = document.getElementById("password-input");
+              //   input.classList.add("onInput");
+              // }}
+            />
+            <button type="submit" className="">
+              Se connecter
+            </button>
+            <NavLink to="/" className="text-center">
+              Mot de passe oublié ?
+            </NavLink>
+          </form>
+        </div>
       </div>
     </>
   );
