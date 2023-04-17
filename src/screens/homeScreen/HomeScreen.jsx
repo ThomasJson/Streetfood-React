@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const HomeScreen = () => {
+
+  const [img, setImg] = useState(null);
+  
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('http://shop-api/image');
+      const result = await response.json();
+      setImg(result);
+    }
+
+    fetchData();
+  }, []);
+  
+  console.log('img:', img)
+
   return (
     <>
       <div className="bg-slate-200 min-h-82vh">

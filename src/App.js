@@ -9,7 +9,15 @@ import CartScreen from "./screens/cartScreen/CartScreen";
 import LoginScreen from "./screens/loginScreen/LoginScreen";
 import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 
+import { useContext } from "react";
+import { AuthContext } from "./contexts/AuthContext";
+import AdminScreen from "./screens/adminScreen/AdminScreen";
+import AccountScreen from "./screens/accountScreen/AccountScreen";
+import AccountValidateScreen from "./screens/accountValidateScreen/AccountValidateScreen";
+
 function App() {
+  const { auth } = useContext(AuthContext);
+
   return (
     <>
       <BrowserRouter>
@@ -18,10 +26,25 @@ function App() {
             <Route index element={<HomeScreen />} />
             <Route path="/product" element={<ProductScreen />} />
             <Route path="/contact" element={<ContactScreen />} />
-            <Route path="/profile" element={<ProfileScreen />}/>
-            <Route path="/cart" element={<CartScreen />}/>
-            <Route path="/login" element={<LoginScreen />}/>
-            <Route path="/register" element={<RegisterScreen />}/>
+            <Route path="/profile" element={<ProfileScreen />} />
+            <Route path="/cart" element={<CartScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
+
+            {auth.role === 4 && (
+              <Route path="/admin" element={<AdminScreen />} />
+            )}
+
+            {auth.role > 0 && (
+              <Route path="/account" element={<AccountScreen />} />
+            )}
+
+            {auth.role === 0 && (
+              <Route
+                path="/account/validate/:token"
+                element={<AccountValidateScreen />}
+              />
+            )}
           </Route>
         </Routes>
       </BrowserRouter>
