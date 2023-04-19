@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import doFetch from "../../helpers/fetchHelper";
@@ -8,7 +8,7 @@ import { deleteCookie, setCookie } from "../../helpers/cookieHelper";
 const LoginModal = () => {
   const { setAuth } = useContext(AuthContext);
 
-//   const [valid, setValid] = useState({ email: false, password: false });
+  //   const [valid, setValid] = useState({ email: false, password: false });
 
   const navigate = useNavigate();
 
@@ -60,12 +60,14 @@ const LoginModal = () => {
 
   const [showModal, setShowModal] = useState(false);
 
+  const modalRef = useRef();
+
   const toggleModal = () => {
     setShowModal(!showModal);
   };
 
-  const handleOutsideClick = (e) => {
-    if (e.target === e.currentTarget) {
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
       toggleModal();
     }
   };
@@ -73,19 +75,27 @@ const LoginModal = () => {
   return (
     <div>
       <button
-        className="bg-blue-500 h-1/2 text-white font-bold py-1 px-2 rounded"
+        className="button-custom font-Raleway"
+        data-text="Login"
         onClick={toggleModal}
       >
-        Login
+        <span className="">Login</span>
+        <div className="bottom-border"></div>
+        <div className="right-border"></div>
+        <div className="top-border"></div>
+        <div className="left-border"></div>
       </button>
 
       {showModal && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50"
-          onClick={handleOutsideClick}
+          onClick={handleClickOutside}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="bg-white p-6 w-full max-w-md m-auto rounded-lg shadow-lg z-10">
+          <div
+            ref={modalRef}
+            className="bg-white p-6 w-full max-w-md m-auto rounded-lg shadow-lg z-10"
+          >
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">Login</h2>
               <button
@@ -117,9 +127,14 @@ const LoginModal = () => {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white font-bold w-full py-2 px-4 rounded mt-4 hover:bg-blue-600"
+                className="button-custom font-Raleway"
+                data-text="Login"
               >
-                Login
+                <span className="">Login</span>
+                <div className="bottom-border"></div>
+                <div className="right-border"></div>
+                <div className="top-border"></div>
+                <div className="left-border"></div>
               </button>
             </form>
           </div>

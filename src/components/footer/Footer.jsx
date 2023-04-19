@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="h-9vh bg-slate-50">
+      <div className="h-8vh bg-orange-300">
         <div className="h-full sm:hidden flex flex-row justify-around items-center">
           <NavLink to="/">
             <div>

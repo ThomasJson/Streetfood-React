@@ -4,7 +4,6 @@ import doFetch from "../../helpers/fetchHelper";
 import { useForm } from "react-hook-form";
 
 const RegisterModal = () => {
-
   const {
     register,
     handleSubmit,
@@ -13,7 +12,7 @@ const RegisterModal = () => {
 
   const formInvalid = () => console.log("Erros", errors);
 
-//   const [msg, setMsg] = useState("");
+  //   const [msg, setMsg] = useState("");
 
   const formSubmit = async (formData) => {
     const { data } = await doFetch("auth/register", {
@@ -38,11 +37,12 @@ const RegisterModal = () => {
 
   return (
     <div>
-      <button
-        className="bg-blue-500 h-1/2 text-white font-bold py-1 px-2 rounded ml-2"
-        onClick={toggleModal}
-      >
-        Register
+      <button className="button-custom font-Raleway ml-2" onClick={toggleModal}>
+        <span className="">Register</span>
+        <div className="bottom-border"></div>
+        <div className="right-border"></div>
+        <div className="top-border"></div>
+        <div className="left-border"></div>
       </button>
 
       {showModal && (
@@ -61,7 +61,11 @@ const RegisterModal = () => {
                 &times;
               </button>
             </div>
-            <form className="mt-4" onSubmit={handleSubmit(formSubmit, formInvalid)} noValidate>
+            <form
+              className="mt-4"
+              onSubmit={handleSubmit(formSubmit, formInvalid)}
+              noValidate
+            >
               <div className="mb-4">
                 <input
                   id="firstName-input"
@@ -118,9 +122,13 @@ const RegisterModal = () => {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white font-bold w-full py-2 px-4 rounded mt-4 hover:bg-blue-600"
+                className="button-custom font-Raleway"
               >
-                Register
+                <span className="">Register</span>
+                <div className="bottom-border"></div>
+                <div className="right-border"></div>
+                <div className="top-border"></div>
+                <div className="left-border"></div>
               </button>
             </form>
           </div>

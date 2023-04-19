@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 // import { AiOutlineUser } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
+import { BiCart } from "react-icons/bi";
+
 // import { FiUserPlus } from "react-icons/fi";
 // import { GiHamburgerMenu } from "react-icons/gi";
 // import { BiLogInCircle, BiCrown } from "react-icons/bi";
@@ -13,12 +15,6 @@ import RegisterModal from "../registerModal/RegisterModal";
 const Header = () => {
   const { auth } = useContext(AuthContext);
   const [pseudo, setPseudo] = useState(null);
-
-  // const [showModal, setShowModal] = useState(false);
-
-  // const toggleModal = () => {
-  //   setShowModal(!showModal);
-  // };
 
   useEffect(() => {
     fetch("http://shop-api/app_user/" + auth.id, {
@@ -41,84 +37,57 @@ const Header = () => {
 
   return (
     <>
-      <div className="h-9vh bg-slate-50">
-        <div className="flex sm:hidden h-full justify-center items-center bg-slate-100">
+      {/* <div className="h-11vh bg-slate-50"> */}
+
+        <div className="flex sm:hidden h-8vh justify-center items-center bg-orange-300">
           <input
             placeholder="Search on StreetFood.com"
             className="w-10/12 px-2 rounded focus:outline-none"
           ></input>
         </div>
 
-        <div className="hidden sm:flex h-full w-full flex-col">
-          <div className="h-3/5 bg-slate-100 flex flex-row justify-between items-center px-2">
+        <div className="hidden sm:flex h-8vh w-full flex-col">
+
+          <div className="h-full bg-orange-300 flex flex-row justify-between items-center px-2">
+
             <div className="flex flex-row items-center w-9/12">
+
               <NavLink to="/">
-                <div className="">StreetFood.com</div>
+                <div className="font-Raleway text-white ml-2 mr-2">StreetFood.com</div>
               </NavLink>
+
               <div className="w-10/12 px-2">
                 <input
                   placeholder="Search on StreetFood.com"
                   className="w-full px-2 rounded focus:outline-none"
                 ></input>
               </div>
+
             </div>
+
             <div className="flex flex-row items-center w-3/12 justify-end">
-              {/* {auth.role === 4 && (
-                <NavLink to="/admin">
-                  <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1 ml-3">
-                    <BiCrown className="text-2xl" />
-                  </div>
-                </NavLink>
-              )} */}
-
-              {/* {auth.role < 1 && (
-                <NavLink to="/login">
-                  <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1">
-                    <BiLogInCircle className="text-2xl" />
-                    <p>Connexion</p>
-                  </div>
-                </NavLink>
-              )} */}
-
               {auth.role < 1 && <LoginModal />}
-
-              {/* {auth.role < 1 && (
-                <NavLink to="/register" className="ml-2">
-                  <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1">
-                    
-                    <p>Inscription</p>
-                  </div>
-                </NavLink>
-              )} */}
 
               {auth.role < 1 && <RegisterModal className="ml-2" />}
 
               {auth.role > 0 && (
-                <NavLink to="/account">
-                  <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1">
+                <NavLink to="/account" className="text-white py-1 px-2 rounded ml-2 mr-2">
+                  <div className="">
                     {pseudo?.data[0]?.with[0].pseudo}
                   </div>
                 </NavLink>
               )}
 
-              <NavLink to="/cart" className="ml-2">
-                <div className="hover:border-gray-700 border-transparent border-2 rounded-lg px-1 py-1">
-                  <FiShoppingCart className="text-2xl" />
+              <NavLink to="/cart" className="text-white py-1 px-2 rounded ml-2 mr-2">
+                <div className="">
+                  <BiCart className="text-3xl" />
                 </div>
               </NavLink>
             </div>
-          </div>
 
-          <div className="h-2/5 flex flex-row justify-around items-center px-2">
-            <div>Chicken</div>
-            <div>Pork</div>
-            <div>Noodles</div>
-            <div>Smoothies</div>
-            <div>Ice Creams</div>
-            <div>Desserts</div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

@@ -59,7 +59,7 @@ const LoginScreen = () => {
   };
   return (
     <>
-      <div className="bg-slate-200 min-h-82vh">
+      <div className="bg-slate-200 min-h-84vh">
         <div className="h-full flex flex-col items-center justify-center">
           <form
             onSubmit={handleSubmit}

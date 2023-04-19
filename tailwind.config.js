@@ -4,10 +4,13 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        "9vh": "9vh"
+        "8vh": "8vh"
       },
       minHeight: {
-        "82vh": "82vh"
+        "84vh": "84vh"
+      },
+      fontFamily:{
+        "Raleway": ["Raleway-Light", "sans-serif"]
       }
     },
   },
