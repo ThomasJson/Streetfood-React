@@ -1,16 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-// import { AiOutlineUser } from "react-icons/ai";
-import { FiShoppingCart } from "react-icons/fi";
-import { BiCart } from "react-icons/bi";
-
-// import { FiUserPlus } from "react-icons/fi";
-// import { GiHamburgerMenu } from "react-icons/gi";
-// import { BiLogInCircle, BiCrown } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+
 import { AuthContext } from "../../contexts/AuthContext";
 import { getCookie } from "../../helpers/cookieHelper";
+
 import LoginModal from "../loginModal/LoginModal";
 import RegisterModal from "../registerModal/RegisterModal";
+import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 const Header = () => {
   const { auth } = useContext(AuthContext);
@@ -37,57 +33,54 @@ const Header = () => {
 
   return (
     <>
-      {/* <div className="h-11vh bg-slate-50"> */}
+      <div className="flex sm:hidden h-8vh justify-center items-center bg-zinc-800">
+        <input
+          placeholder="Search on StreetFood.com"
+          className="w-10/12 px-2 rounded focus:outline-none"
+        ></input>
+      </div>
 
-        <div className="flex sm:hidden h-8vh justify-center items-center bg-orange-300">
-          <input
-            placeholder="Search on StreetFood.com"
-            className="w-10/12 px-2 rounded focus:outline-none"
-          ></input>
-        </div>
+      <div className="hidden sm:flex h-8vh w-full flex-col">
+        <div className="h-full bg-zinc-800 flex flex-row justify-between items-center px-2">
 
-        <div className="hidden sm:flex h-8vh w-full flex-col">
-
-          <div className="h-full bg-orange-300 flex flex-row justify-between items-center px-2">
-
-            <div className="flex flex-row items-center w-9/12">
-
-              <NavLink to="/">
-                <div className="font-Raleway text-white ml-2 mr-2">StreetFood.com</div>
-              </NavLink>
-
-              <div className="w-10/12 px-2">
-                <input
-                  placeholder="Search on StreetFood.com"
-                  className="w-full px-2 rounded focus:outline-none"
-                ></input>
+          {/* BRAND + SEARCHBAR */}
+          <div className="flex flex-row items-center w-8/12">
+            <NavLink to="/">
+              <div className="font-Rubik text-white ml-2 mr-2">
+                StreetFood.com
               </div>
-
+            </NavLink>
+            <div className="w-8/12 px-2">
+              <input
+                placeholder="Search on StreetFood.com"
+                className="w-full px-2 rounded focus:outline-none"
+              ></input>
             </div>
+          </div>
 
-            <div className="flex flex-row items-center w-3/12 justify-end">
-              {auth.role < 1 && <LoginModal />}
-
-              {auth.role < 1 && <RegisterModal className="ml-2" />}
-
-              {auth.role > 0 && (
-                <NavLink to="/account" className="text-white py-1 px-2 rounded ml-2 mr-2">
-                  <div className="">
-                    {pseudo?.data[0]?.with[0].pseudo}
-                  </div>
-                </NavLink>
-              )}
-
-              <NavLink to="/cart" className="text-white py-1 px-2 rounded ml-2 mr-2">
-                <div className="">
-                  <BiCart className="text-3xl" />
+          {/* LOGIN + CART */}
+          <div className="flex flex-row items-center w-4/12 justify-end">
+            {auth.role < 1 && <LoginModal />}
+            {auth.role < 1 && <RegisterModal className="ml-2" />}
+            {auth.role > 0 && (
+              <NavLink
+                to="/account"
+                className="text-white py-1 px-2 rounded ml-2 mr-2"
+              >
+                <div className="button-custom font-Raleway">
+                  <span className="">{pseudo?.data[0]?.with[0].firstName}</span>
+                  <div className="bottom-border"></div>
+                  <div className="right-border"></div>
+                  <div className="top-border"></div>
+                  <div className="left-border"></div>
                 </div>
               </NavLink>
-            </div>
-
+            )}
+            <ShoppingCart />
           </div>
+
         </div>
-      {/* </div> */}
+      </div>
     </>
   );
 };

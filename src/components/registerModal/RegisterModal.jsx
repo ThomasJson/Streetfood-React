@@ -3,6 +3,8 @@ import { useState } from "react";
 import doFetch from "../../helpers/fetchHelper";
 import { useForm } from "react-hook-form";
 
+import { FiUserPlus } from "react-icons/fi";
+
 const RegisterModal = () => {
   const {
     register,
@@ -37,8 +39,13 @@ const RegisterModal = () => {
 
   return (
     <div>
-      <button className="button-custom font-Raleway ml-2" onClick={toggleModal}>
-        <span className="">Register</span>
+      <button className="button-custom ml-2" onClick={toggleModal}>
+        <div className="flex flex-row items-center">
+          <span className="">
+            <FiUserPlus className="text-2xl" />
+          </span>
+          <span className="hidden lg:flex ml-1 font-Rubik">Sign up</span>
+        </div>
         <div className="bottom-border"></div>
         <div className="right-border"></div>
         <div className="top-border"></div>
@@ -120,10 +127,7 @@ const RegisterModal = () => {
                   autoComplete="off"
                 />
               </div>
-              <button
-                type="submit"
-                className="button-custom font-Raleway"
-              >
+              <button type="submit" className="button-custom font-Raleway">
                 <span className="">Register</span>
                 <div className="bottom-border"></div>
                 <div className="right-border"></div>

@@ -5,6 +5,8 @@ import doFetch from "../../helpers/fetchHelper";
 import { AuthContext } from "../../contexts/AuthContext";
 import { deleteCookie, setCookie } from "../../helpers/cookieHelper";
 
+import { BiLogInCircle, BiCrown } from "react-icons/bi";
+
 const LoginModal = () => {
   const { setAuth } = useContext(AuthContext);
 
@@ -79,7 +81,12 @@ const LoginModal = () => {
         data-text="Login"
         onClick={toggleModal}
       >
-        <span className="">Login</span>
+        <div className="flex flex-row items-center">
+          <span className="">
+            <BiLogInCircle className="text-2xl" />
+          </span>
+          <span className="hidden lg:flex ml-1 font-Rubik">Sign in</span>
+        </div>
         <div className="bottom-border"></div>
         <div className="right-border"></div>
         <div className="top-border"></div>
@@ -94,40 +101,46 @@ const LoginModal = () => {
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div
             ref={modalRef}
-            className="bg-white p-6 w-full max-w-md m-auto rounded-lg shadow-lg z-10"
+            className="bg-zinc-800 p-6 w-full max-w-sm m-auto shadow-lg z-10"
           >
             <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold">Login</h2>
-              <button
-                className="text-gray-700 hover:text-gray-900 focus:outline-none"
+              <h2 className="w-full text-2xl text-white text-center">Login</h2>
+              {/* <button
+                className="text-white text-2xl focus:outline-none"
                 onClick={toggleModal}
               >
                 &times;
-              </button>
+              </button> */}
             </div>
-            <form className="mt-4" onSubmit={handleSubmit} noValidate>
-              <div className="mb-4">
+            <form
+              className="mt-4 w-full flex flex-col items-center"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              <div className="mb-4 w-full">
+                {/* <label htmlFor="email-input" className="text-white pb-4">E-mail Adress :</label> */}
                 <input
                   id="email-input"
                   type="email"
                   name="mail"
                   autoComplete="off"
-                  className="border border-gray-300 w-full p-2 rounded focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                  className="border border-gray-300 w-full p-2 focus:outline-none"
                   placeholder="example@email.com"
                 />
               </div>
-              <div className="mb-4">
+              <div className="mb-4 w-full">
+                {/* <label htmlFor="password-input" className="text-white">Password :</label> */}
                 <input
                   id="password-input"
                   type="password"
                   name="password"
-                  className="border border-gray-300 w-full p-2 rounded focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                  className="border border-gray-300 w-full p-2 focus:outline-none"
                   placeholder="Password"
                 />
               </div>
               <button
                 type="submit"
-                className="button-custom font-Raleway"
+                className="button-custom font-Raleway w-2/5"
                 data-text="Login"
               >
                 <span className="">Login</span>

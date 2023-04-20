@@ -1,0 +1,17 @@
+.cart-counter {
+  position: absolute;
+  top: 0;
+  left: 26px;
+
+  display: flex;
+  justify-content: center;
+  height: 25px;
+  width: 15px;
+
+  font-size: 1.2em;
+  border-radius: 50px;
+  background-color: #27272a;
+  // background-color: white;
+  color: orange;
+  font-weight: bold;
+}
