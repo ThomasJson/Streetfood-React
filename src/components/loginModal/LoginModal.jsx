@@ -95,16 +95,15 @@ const LoginModal = () => {
 
       {showModal && (
         <div
-          className="fixed inset-0 flex items-center justify-center z-50"
+          className="fixed inset-0 flex items-center justify-center z-5"
           onClick={handleClickOutside}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div
-            ref={modalRef}
-            className="bg-zinc-800 p-6 w-full max-w-sm m-auto shadow-lg z-10"
-          >
-            <div className="flex justify-between items-center">
-              <h2 className="w-full text-2xl text-white text-center">Login</h2>
+          <div ref={modalRef} className="w-full max-w-sm m-auto rounded-lg shadow-lg z-10 bg-white">
+            <div className="flex justify-between items-center bg-zinc-800">
+              <h2 className="p-3 w-full text-2xl text-white text-center">
+                Sign in
+              </h2>
               {/* <button
                 className="text-white text-2xl focus:outline-none"
                 onClick={toggleModal}
@@ -112,44 +111,45 @@ const LoginModal = () => {
                 &times;
               </button> */}
             </div>
-            <form
-              className="mt-4 w-full flex flex-col items-center"
-              onSubmit={handleSubmit}
-              noValidate
-            >
-              <div className="mb-4 w-full">
-                {/* <label htmlFor="email-input" className="text-white pb-4">E-mail Adress :</label> */}
-                <input
-                  id="email-input"
-                  type="email"
-                  name="mail"
-                  autoComplete="off"
-                  className="border border-gray-300 w-full p-2 focus:outline-none"
-                  placeholder="example@email.com"
-                />
-              </div>
-              <div className="mb-4 w-full">
-                {/* <label htmlFor="password-input" className="text-white">Password :</label> */}
-                <input
-                  id="password-input"
-                  type="password"
-                  name="password"
-                  className="border border-gray-300 w-full p-2 focus:outline-none"
-                  placeholder="Password"
-                />
-              </div>
-              <button
-                type="submit"
-                className="button-custom font-Raleway w-2/5"
-                data-text="Login"
+            <div className="p-3">
+              <form
+                className="w-full flex flex-col items-center"
+                onSubmit={handleSubmit}
+                noValidate
               >
-                <span className="">Login</span>
-                <div className="bottom-border"></div>
-                <div className="right-border"></div>
-                <div className="top-border"></div>
-                <div className="left-border"></div>
-              </button>
-            </form>
+                <div className="mb-4 w-full">
+                  {/* <label htmlFor="email-input" className="text-white">E-mail Adress :</label> */}
+                  <input
+                    id="email-input"
+                    type="email"
+                    name="mail"
+                    autoComplete="off"
+                    className="border border-gray-300 w-full p-2 focus:outline-none"
+                    placeholder="example@email.com"
+                  />
+                </div>
+                <div className="mb-4 w-full">
+                  {/* <label htmlFor="password-input" className="text-white">Password :</label> */}
+                  <input
+                    id="password-input"
+                    type="password"
+                    name="password"
+                    className="border border-gray-300 w-full p-2 focus:outline-none"
+                    placeholder="Password"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="font-Rubik p-2 mb-4 w-full flex flex-row items-center justify-center bg-green-800"
+                >
+                  <div className="flex flex-row items-center">
+                    <BiLogInCircle className="text-2xl text-white" />
+                    <span className="ml-1 text-white">Sign in</span>
+                  </div>
+                </button>
+              </form>
+              <div className="text-center">Forgot your Password ?</div>
+            </div>
           </div>
         </div>
       )}

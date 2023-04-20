@@ -1,29 +1,42 @@
-import React from "react";
-import { GrHomeRounded } from "react-icons/gr";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
+
+import { SlHome } from "react-icons/sl";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineUser } from "react-icons/ai";
-import { FiShoppingCart } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 
+import { AuthContext } from "../../contexts/AuthContext";
+import LoginModal from "../loginModal/LoginModal";
+
 const Footer = () => {
+
+  const {auth} = useContext(AuthContext);
+
   return (
     <>
       <div className="h-8vh bg-zinc-800">
-        <div className="h-full sm:hidden flex flex-row justify-around items-center text-white">
+        <div className="h-full sm:hidden flex flex-row justify-around items-center">
           <NavLink to="/">
             <div>
-              <GrHomeRounded  className="text-2xl text-white"/>
+              <SlHome className="text-2xl text-white"/>
             </div>
           </NavLink>
-          <NavLink to="/profile">
+
+          {auth.role < 1 && <LoginModal/>}
+
+          {auth.role > 0 && (
+            <NavLink to="/account">
             <div>
-              <AiOutlineUser  className="text-2xl"/>
+              <AiOutlineUser className="text-2xl"/>
             </div>
           </NavLink>
+          )}
+          
           <ShoppingCart />
           <div>
-            <GiHamburgerMenu  className="text-2xl"/>
+            <GiHamburgerMenu className="text-2xl text-white"/>
           </div>
         </div>
 
