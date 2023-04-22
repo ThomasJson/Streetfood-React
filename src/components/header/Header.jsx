@@ -6,7 +6,6 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { getCookie } from "../../helpers/cookieHelper";
 
 import LoginModal from "../loginModal/LoginModal";
-import RegisterModal from "../registerModal/RegisterModal";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 const Header = () => {

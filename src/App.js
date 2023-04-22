@@ -6,7 +6,6 @@ import HomeScreen from "./screens/homeScreen/HomeScreen";
 import ProductScreen from "./screens/productScreen/ProductScreen";
 import ContactScreen from "./screens/contactScreen/ContactScreen";
 import CartScreen from "./screens/cartScreen/CartScreen";
-import LoginScreen from "./screens/loginScreen/LoginScreen";
 import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 
 import { useContext } from "react";
@@ -27,7 +26,6 @@ function App() {
             <Route path="/product" element={<ProductScreen />} />
             <Route path="/contact" element={<ContactScreen />} />
             <Route path="/cart" element={<CartScreen />} />
-            <Route path="/login" element={<LoginScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
 
             {auth.role === 4 && (
