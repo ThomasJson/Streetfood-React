@@ -1,11 +1,12 @@
-import React, { useContext, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useRef } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import doFetch from "../../helpers/fetchHelper";
 import { AuthContext } from "../../contexts/AuthContext";
 import { deleteCookie, setCookie } from "../../helpers/cookieHelper";
 
-import { BiLogInCircle, BiCrown } from "react-icons/bi";
+import { BiLogInCircle } from "react-icons/bi";
+import { FiUserPlus } from "react-icons/fi";
 
 const LoginModal = () => {
   const { setAuth } = useContext(AuthContext);
@@ -74,13 +75,21 @@ const LoginModal = () => {
     }
   };
 
+  useEffect(() => {
+    if (showModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal]);
+
   return (
     <div>
-      <button
-        className="button-custom font-Raleway"
-        data-text="Login"
-        onClick={toggleModal}
-      >
+      <button className="button-custom" onClick={toggleModal}>
         <div className="flex flex-row items-center">
           <span className="">
             <BiLogInCircle className="text-2xl" />
@@ -94,61 +103,65 @@ const LoginModal = () => {
       </button>
 
       {showModal && (
-        <div
-          className="fixed inset-0 flex items-center justify-center z-5"
-          onClick={handleClickOutside}
-        >
+        <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div ref={modalRef} className="w-full max-w-sm m-auto rounded-lg shadow-lg z-10 bg-white">
-            <div className="flex justify-between items-center bg-zinc-800">
-              <h2 className="p-3 w-full text-2xl text-white text-center">
-                Sign in
-              </h2>
-              {/* <button
-                className="text-white text-2xl focus:outline-none"
-                onClick={toggleModal}
-              >
-                &times;
-              </button> */}
-            </div>
-            <div className="p-3">
-              <form
-                className="w-full flex flex-col items-center"
-                onSubmit={handleSubmit}
-                noValidate
-              >
-                <div className="mb-4 w-full">
-                  {/* <label htmlFor="email-input" className="text-white">E-mail Adress :</label> */}
-                  <input
-                    id="email-input"
-                    type="email"
-                    name="mail"
-                    autoComplete="off"
-                    className="border border-gray-300 w-full p-2 focus:outline-none"
-                    placeholder="example@email.com"
-                  />
-                </div>
-                <div className="mb-4 w-full">
-                  {/* <label htmlFor="password-input" className="text-white">Password :</label> */}
-                  <input
-                    id="password-input"
-                    type="password"
-                    name="password"
-                    className="border border-gray-300 w-full p-2 focus:outline-none"
-                    placeholder="Password"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="font-Rubik p-2 mb-4 w-full flex flex-row items-center justify-center bg-green-800"
+          <div className="relative w-4/5 lg:w-2/5">
+            <div
+              ref={modalRef}
+              className="w-full max-w-sm m-auto rounded-lg shadow-lg z-10 bg-white"
+            >
+              <div className="flex p-3 justify-center items-center bg-zinc-800 rounded-t-lg">
+                <BiLogInCircle className="text-3xl text-white" />
+                <span className="ml-1 text-white text-xl">Sign in</span>
+              </div>
+              <div className="p-3">
+                <form
+                  className="w-full flex flex-col items-center"
+                  onSubmit={handleSubmit}
+                  noValidate
                 >
-                  <div className="flex flex-row items-center">
-                    <BiLogInCircle className="text-2xl text-white" />
-                    <span className="ml-1 text-white">Sign in</span>
+                  <div className="mb-4 w-full">
+                    <input
+                      id="email-input"
+                      type="email"
+                      name="mail"
+                      autoComplete="off"
+                      className="border border-gray-300 w-full p-2 focus:outline-none rounded-lg"
+                      placeholder="example@email.com"
+                    />
                   </div>
-                </button>
-              </form>
-              <div className="text-center">Forgot your Password ?</div>
+                  <div className="mb-2 w-full">
+                    <input
+                      id="password-input"
+                      type="password"
+                      name="password"
+                      className="border border-gray-300 w-full p-2 focus:outline-none rounded-lg"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div className="text-center mb-3">Forgot your Password ?</div>
+                  <button
+                    type="submit"
+                    className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-green-600 hover:bg-green-500 active:bg-green-700 rounded-lg"
+                  >
+                    <div className="flex flex-row items-center">
+                      <BiLogInCircle className="text-2xl text-white" />
+                      <span className="ml-1 text-white">Sign in</span>
+                    </div>
+                  </button>
+                </form>
+              </div>
+              <div className="bg-zinc-800 p-3 rounded-b-lg">
+                <div className="text-center mb-2 text-white">No account ?</div>
+                <NavLink to="/register">
+                  <button onClick={toggleModal} className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-orange-500 hover:bg-orange-400 active:bg-orange-600 rounded-lg">
+                    <div className="flex flex-row items-center">
+                      <FiUserPlus className="text-2xl text-white" />
+                      <span className="ml-1 text-white">Create an account</span>
+                    </div>
+                  </button>
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>

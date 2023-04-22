@@ -11,33 +11,64 @@ import { AuthContext } from "../../contexts/AuthContext";
 import LoginModal from "../loginModal/LoginModal";
 
 const Footer = () => {
-
-  const {auth} = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   return (
     <>
       <div className="h-8vh bg-zinc-800">
         <div className="h-full sm:hidden flex flex-row justify-around items-center">
           <NavLink to="/">
-            <div>
-              <SlHome className="text-2xl text-white"/>
-            </div>
+            <button className="button-custom">
+              <div className="flex flex-row items-center">
+                <span className="">
+                  <SlHome className="text-2xl" />
+                </span>
+                <span className="hidden lg:flex ml-1 font-Rubik">Sign in</span>
+              </div>
+              <div className="bottom-border"></div>
+              <div className="right-border"></div>
+              <div className="top-border"></div>
+              <div className="left-border"></div>
+            </button>
           </NavLink>
 
-          {auth.role < 1 && <LoginModal/>}
+          {auth.role < 1 && <LoginModal />}
 
           {auth.role > 0 && (
             <NavLink to="/account">
-            <div>
-              <AiOutlineUser className="text-2xl"/>
-            </div>
-          </NavLink>
+              <button className="button-custom">
+                <div className="flex flex-row items-center">
+                  <span className="">
+                    <AiOutlineUser className="text-2xl" />
+                  </span>
+                  <span className="hidden lg:flex ml-1 font-Rubik">
+                    Sign in
+                  </span>
+                </div>
+                <div className="bottom-border"></div>
+                <div className="right-border"></div>
+                <div className="top-border"></div>
+                <div className="left-border"></div>
+              </button>
+            </NavLink>
           )}
-          
+
           <ShoppingCart />
-          <div>
-            <GiHamburgerMenu className="text-2xl text-white"/>
-          </div>
+
+          <NavLink to="/">
+            <button className="button-custom">
+              <div className="flex flex-row items-center">
+                <span className="">
+                  <GiHamburgerMenu className="text-2xl" />
+                </span>
+                <span className="hidden lg:flex ml-1 font-Rubik">Sign in</span>
+              </div>
+              <div className="bottom-border"></div>
+              <div className="right-border"></div>
+              <div className="top-border"></div>
+              <div className="left-border"></div>
+            </button>
+          </NavLink>
         </div>
 
         <div className="h-full hidden sm:flex justify-center items-center text-white font-Rubik">

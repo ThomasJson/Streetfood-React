@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FiUserPlus } from "react-icons/fi";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { getCookie } from "../../helpers/cookieHelper";
@@ -42,7 +43,6 @@ const Header = () => {
 
       <div className="hidden sm:flex h-8vh w-full flex-col">
         <div className="h-full bg-zinc-800 flex flex-row justify-between items-center px-2">
-
           {/* BRAND + SEARCHBAR */}
           <div className="flex flex-row items-center w-8/12">
             <NavLink to="/">
@@ -61,7 +61,24 @@ const Header = () => {
           {/* LOGIN + CART */}
           <div className="flex flex-row items-center w-4/12 justify-end">
             {auth.role < 1 && <LoginModal />}
-            {auth.role < 1 && <RegisterModal className="ml-2" />}
+            {auth.role < 1 && (
+              <NavLink to="/register">
+                <button className="button-custom ml-2">
+                  <div className="flex flex-row items-center">
+                    <span className="">
+                      <FiUserPlus className="text-2xl" />
+                    </span>
+                    <span className="hidden lg:flex ml-1 font-Rubik">
+                      Sign up
+                    </span>
+                  </div>
+                  <div className="bottom-border"></div>
+                  <div className="right-border"></div>
+                  <div className="top-border"></div>
+                  <div className="left-border"></div>
+                </button>
+              </NavLink>
+            )}
             {auth.role > 0 && (
               <NavLink
                 to="/account"
@@ -78,7 +95,6 @@ const Header = () => {
             )}
             <ShoppingCart />
           </div>
-
         </div>
       </div>
     </>
