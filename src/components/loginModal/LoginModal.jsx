@@ -11,7 +11,8 @@ import { FiUserPlus } from "react-icons/fi";
 const LoginModal = () => {
   const { setAuth } = useContext(AuthContext);
 
-  //   const [valid, setValid] = useState({ email: false, password: false });
+  const [valid, setValid] = useState({ email: true, password: true });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -30,7 +31,7 @@ const LoginModal = () => {
       isValid.password = true;
     }
 
-    // setValid(isValid);
+    setValid(isValid);
 
     return isValid.email === true && isValid.password === true;
   };
@@ -49,16 +50,20 @@ const LoginModal = () => {
       method: "POST",
       body: JSON.stringify(jsonData),
     });
-    console.log("data:", data);
 
     if (data?.data?.result) {
       setAuth({ role: +data.data?.role, id: data.data?.id });
       setCookie("blog", data.data?.token, { "max-age": 60 * 60 * 24 });
       navigate("/");
     } else {
+      if (data?.data?.result === false) {
+        setErrorMessage("Incorrect email or password.");
+      }
       setAuth({ role: 0, id: "0" });
       deleteCookie("blog");
     }
+
+    console.log("data:", data);
   };
 
   const [showModal, setShowModal] = useState(false);
@@ -71,6 +76,9 @@ const LoginModal = () => {
 
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
+      valid.email = true;
+      valid.password = true;
+      setErrorMessage("");
       toggleModal();
     }
   };
@@ -116,32 +124,58 @@ const LoginModal = () => {
               </div>
               <div className="p-3">
                 <form
-                  className="w-full flex flex-col items-center"
+                  className="w-full flex flex-col"
                   onSubmit={handleSubmit}
                   noValidate
                 >
-                  <div className="mb-4 w-full">
+                  <div className="w-full mt-1">
+                    <label htmlFor="email-input" className="text-gray-500">
+                      Email Adress
+                    </label>
                     <input
                       id="email-input"
                       type="email"
                       name="mail"
                       autoComplete="off"
-                      className="border border-gray-300 w-full p-2 focus:outline-none rounded-lg"
-                      placeholder="example@email.com"
+                      className="border border-gray-300 w-full p-2 focus:outline-none"
+                      placeholder="exemple@gmail.com"
                     />
                   </div>
-                  <div className="mb-2 w-full">
+
+                  {!valid.email && (
+                    <p className="text-red-400">
+                      Please enter a valid email address.
+                    </p>
+                  )}
+
+                  <div className="mt-4 w-full">
+                    <label htmlFor="password-input" className=" text-gray-500">
+                      Password
+                    </label>
                     <input
                       id="password-input"
                       type="password"
                       name="password"
-                      className="border border-gray-300 w-full p-2 focus:outline-none rounded-lg"
-                      placeholder="Password"
+                      className="border border-gray-300 w-full p-2 focus:outline-none"
+                      placeholder="••••••"
                     />
                   </div>
-                  <div className="text-center mb-3">Forgot your Password ?</div>
+
+                  {!valid.password && (
+                    <p className="text-red-400">
+                      The password must contain at least 6 characters, including
+                      at least one uppercase letter.
+                    </p>
+                  )}
+
+                  <p className="text-red-400">{errorMessage}</p>
+
+                  <div className="text-center mt-2 mb-3">
+                    Forgot your Password ?
+                  </div>
                   <button
                     type="submit"
+                    onClick={() => setErrorMessage("")}
                     className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-green-600 hover:bg-green-500 active:bg-green-700 rounded-lg"
                   >
                     <div className="flex flex-row items-center">
@@ -154,7 +188,10 @@ const LoginModal = () => {
               <div className="bg-zinc-800 p-3 rounded-b-lg">
                 <div className="text-center mb-2 text-white">No account ?</div>
                 <NavLink to="/register">
-                  <button onClick={toggleModal} className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-orange-500 hover:bg-orange-400 active:bg-orange-600 rounded-lg">
+                  <button
+                    onClick={toggleModal}
+                    className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-orange-500 hover:bg-orange-400 active:bg-orange-600 rounded-lg"
+                  >
                     <div className="flex flex-row items-center">
                       <FiUserPlus className="text-2xl text-white" />
                       <span className="ml-1 text-white">Create an account</span>

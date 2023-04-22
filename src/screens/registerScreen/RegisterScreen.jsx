@@ -27,62 +27,56 @@ const RegisterScreen = () => {
     <>
       <div className="bg-slate-200 min-h-84vh">
         <form
-          className=""
+          className="p-3"
           onSubmit={handleSubmit(formSubmit, formInvalid)}
           noValidate
         >
-          <div className="">
-            <input
-              id="firstName-input"
-              className=""
-              type="text"
-              placeholder="Prénom"
-              name="firstName"
-              autoComplete="off"
-              // onInput={() => {
-              //   const input = document.getElementById("firstName-input");
-              //   input.classList.add("onInput");
-              // }}
-            />
+          <div className="flex flex-col">
             <input
               id="lastName-input"
-              className=""
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
               type="text"
-              placeholder="Nom de famille"
+              placeholder="Last Name"
               name="lastName"
               autoComplete="off"
-              // onInput={() => {
-              //   const input = document.getElementById("lastName-input");
-              //   input.classList.add("onInput");
-              // }}
+            />
+            <input
+              id="firstName-input"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              type="text"
+              placeholder="First Name "
+              name="firstName"
+              autoComplete="off"
             />
           </div>
-          <input
-            id="pseudo-input"
-            className=""
-            type="text"
-            placeholder="Pseudo *"
-            name="pseudo"
-            autoComplete="off"
-            {...register("pseudo", { required: true, minLength: 3 })}
-          />
-          <input
-            id="mailAdress-input"
-            className=""
-            type="email"
-            placeholder="Adresse e-mail *"
-            name="mail"
-            autoComplete="off"
-            {...register("mail", {
-              required: true,
-              pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-            })}
-          />
+          <div className="flex flex-col">
+            <input
+              id="pseudo-input"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              type="text"
+              placeholder="Pseudo *"
+              name="pseudo"
+              autoComplete="off"
+              {...register("pseudo", { required: true, minLength: 3 })}
+            />
+            <input
+              id="mailAdress-input"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              type="email"
+              placeholder="E-mail Adress *"
+              name="mail"
+              autoComplete="off"
+              {...register("mail", {
+                required: true,
+                pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,
+              })}
+            />
+          </div>
           <label htmlFor="birthday" className="">
             Date de naissance
           </label>
           <input
-            className=""
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
             type="date"
             id="birthday"
             name="birthday"
