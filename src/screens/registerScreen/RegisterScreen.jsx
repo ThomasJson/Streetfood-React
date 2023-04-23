@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import doFetch from "../../helpers/fetchHelper";
 
+import { FiUserPlus } from "react-icons/fi";
+
 const RegisterScreen = () => {
   const {
     register,
@@ -37,7 +39,7 @@ const RegisterScreen = () => {
             </label>
             <input
               id="firstName-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
               type="text"
               placeholder="John"
               name="firstName"
@@ -49,7 +51,7 @@ const RegisterScreen = () => {
             </label>
             <input
               id="lastName-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
               type="text"
               placeholder="Doe"
               name="lastName"
@@ -63,7 +65,7 @@ const RegisterScreen = () => {
             </label>
             <input
               id="pseudo-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
               type="text"
               placeholder="Rocket78"
               name="pseudo"
@@ -75,7 +77,7 @@ const RegisterScreen = () => {
             </label>
             <input
               id="mailAdress-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
               type="email"
               placeholder="exemple@gmail.com"
               name="mail"
@@ -87,10 +89,10 @@ const RegisterScreen = () => {
             />
           </div>
           <label htmlFor="birthday" className="text-gray-500">
-            Date de naissance <span className="text-red-400">*</span>
+            Birthday <span className="text-red-400">*</span>
           </label>
           <input
-            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-500"
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-600"
             type="date"
             id="birthday"
             name="birthday"
@@ -98,8 +100,28 @@ const RegisterScreen = () => {
             {...register("birthday", { required: true })}
           ></input>
 
-          <button type="submit" className="">
-            S'inscrire
+          <label htmlFor="gender" className="text-gray-500">
+            Gender <span className="text-red-400">*</span>
+          </label>
+          <select
+            name="gender"
+            id="gender"
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
+            {...register("gender", { required: true })}
+          >
+            <option value="">Select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+
+          <button
+            type="submit"
+            className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-orange-500 hover:bg-orange-400 active:bg-orange-600 rounded-lg"
+          >
+            <div className="flex flex-row items-center">
+              <FiUserPlus className="text-2xl text-white" />
+              <span className="ml-1 text-white">Create an account</span>
+            </div>
           </button>
         </form>
       </div>
