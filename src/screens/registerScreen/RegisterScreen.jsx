@@ -10,7 +10,7 @@ const RegisterScreen = () => {
     formState: { errors },
   } = useForm();
 
-  const formInvalid = () => console.log("Erros", errors);
+  const formInvalid = () => console.log("Errors", errors);
 
   const [msg, setMsg] = useState("");
 
@@ -33,7 +33,7 @@ const RegisterScreen = () => {
         >
           <div className="flex flex-col">
             <label htmlFor="firstName-input" className="text-gray-500">
-              First Name
+              First Name <span className="text-red-400">*</span>
             </label>
             <input
               id="firstName-input"
@@ -42,9 +42,10 @@ const RegisterScreen = () => {
               placeholder="John"
               name="firstName"
               autoComplete="off"
+              {...register("firstName", { required: true, minLength: 3 })}
             />
             <label htmlFor="lastName-input" className="text-gray-500">
-              Last Name
+              Last Name <span className="text-red-400">*</span>
             </label>
             <input
               id="lastName-input"
@@ -53,6 +54,7 @@ const RegisterScreen = () => {
               placeholder="Doe"
               name="lastName"
               autoComplete="off"
+              {...register("lastName", { required: true, minLength: 3 })}
             />
           </div>
           <div className="flex flex-col">
@@ -85,7 +87,7 @@ const RegisterScreen = () => {
             />
           </div>
           <label htmlFor="birthday" className="text-gray-500">
-            Date de naissance
+            Date de naissance <span className="text-red-400">*</span>
           </label>
           <input
             className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-500"
@@ -93,10 +95,7 @@ const RegisterScreen = () => {
             id="birthday"
             name="birthday"
             autoComplete="off"
-            // onInput={() => {
-            //   const input = document.getElementById("birthday");
-            //   input.classList.add("onInput");
-            // }}
+            {...register("birthday", { required: true })}
           ></input>
 
           <button type="submit" className="">

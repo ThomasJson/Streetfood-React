@@ -29,7 +29,7 @@ const AccountValidateScreen = () => {
       body: JSON.stringify(formData),
     });
     if (created.data?.result) {
-      navigate("/login");
+      navigate("/");
     }
   };
 
