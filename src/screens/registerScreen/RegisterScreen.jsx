@@ -32,38 +32,50 @@ const RegisterScreen = () => {
           noValidate
         >
           <div className="flex flex-col">
-            <input
-              id="lastName-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
-              type="text"
-              placeholder="Last Name"
-              name="lastName"
-              autoComplete="off"
-            />
+            <label htmlFor="firstName-input" className="text-gray-500">
+              First Name
+            </label>
             <input
               id="firstName-input"
               className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
               type="text"
-              placeholder="First Name "
+              placeholder="John"
               name="firstName"
+              autoComplete="off"
+            />
+            <label htmlFor="lastName-input" className="text-gray-500">
+              Last Name
+            </label>
+            <input
+              id="lastName-input"
+              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+              type="text"
+              placeholder="Doe"
+              name="lastName"
               autoComplete="off"
             />
           </div>
           <div className="flex flex-col">
+            <label htmlFor="pseudo-input" className="text-gray-500">
+              Pseudo <span className="text-red-400">*</span>
+            </label>
             <input
               id="pseudo-input"
               className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
               type="text"
-              placeholder="Pseudo *"
+              placeholder="Rocket78"
               name="pseudo"
               autoComplete="off"
               {...register("pseudo", { required: true, minLength: 3 })}
             />
+            <label htmlFor="mailAdress-input" className="text-gray-500">
+              E-mail Adress <span className="text-red-400">*</span>
+            </label>
             <input
               id="mailAdress-input"
               className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
               type="email"
-              placeholder="E-mail Adress *"
+              placeholder="exemple@gmail.com"
               name="mail"
               autoComplete="off"
               {...register("mail", {
@@ -72,11 +84,11 @@ const RegisterScreen = () => {
               })}
             />
           </div>
-          <label htmlFor="birthday" className="">
+          <label htmlFor="birthday" className="text-gray-500">
             Date de naissance
           </label>
           <input
-            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none"
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-500"
             type="date"
             id="birthday"
             name="birthday"

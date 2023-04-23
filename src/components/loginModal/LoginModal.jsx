@@ -72,13 +72,13 @@ const LoginModal = () => {
 
   const toggleModal = () => {
     setShowModal(!showModal);
+    valid.email = true;
+    valid.password = true;
+    setErrorMessage("");
   };
 
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
-      valid.email = true;
-      valid.password = true;
-      setErrorMessage("");
       toggleModal();
     }
   };
