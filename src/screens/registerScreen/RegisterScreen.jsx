@@ -27,9 +27,15 @@ const RegisterScreen = () => {
 
   return (
     <>
-      <div className="bg-gray-50 min-h-84vh">
+      <div className="bg-gray-50 min-h-84vh flex flex-col justify-center items-center">
+        {/* <div className="flex flex-row items-center">
+          <span className="">
+            <FiUserPlus className="text-2xl" />
+          </span>
+          <span className="ml-1 font-Rubik">Sign in</span>
+        </div> */}
         <form
-          className="p-3 flex flex-col md:w-full lg:w-9/12"
+          className="p-3 flex flex-col w-full md:w-full lg:w-9/12"
           onSubmit={handleSubmit(formSubmit, formInvalid)}
           noValidate
         >
@@ -60,7 +66,7 @@ const RegisterScreen = () => {
                 placeholder="Doe"
                 name="lastName"
                 autoComplete="off"
-                {...register("lastName", { required: true, minLength: 3 })}
+                {...register("lastName", { required: true, minLength: 2 })}
               />
             </div>
           </div>

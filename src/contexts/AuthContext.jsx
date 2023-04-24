@@ -6,7 +6,6 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({ role: 0, id: "0" }); 
-  console.log('auth:', auth)
 
   useEffect(() => {
     const check = async () => {
