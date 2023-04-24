@@ -27,38 +27,44 @@ const RegisterScreen = () => {
 
   return (
     <>
-      <div className="bg-slate-200 min-h-84vh">
+      <div className="bg-gray-50 min-h-84vh">
         <form
           className="p-3"
           onSubmit={handleSubmit(formSubmit, formInvalid)}
           noValidate
         >
-          <div className="flex flex-col">
-            <label htmlFor="firstName-input" className="text-gray-500">
-              First Name <span className="text-red-400">*</span>
-            </label>
-            <input
-              id="firstName-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
-              type="text"
-              placeholder="John"
-              name="firstName"
-              autoComplete="off"
-              {...register("firstName", { required: true, minLength: 3 })}
-            />
-            <label htmlFor="lastName-input" className="text-gray-500">
-              Last Name <span className="text-red-400">*</span>
-            </label>
-            <input
-              id="lastName-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
-              type="text"
-              placeholder="Doe"
-              name="lastName"
-              autoComplete="off"
-              {...register("lastName", { required: true, minLength: 3 })}
-            />
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-2/5">
+              <label htmlFor="firstName-input" className="text-gray-500">
+                First Name <span className="text-red-400">*</span>
+              </label>
+              <input
+                id="firstName-input"
+                className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
+                type="text"
+                placeholder="John"
+                name="firstName"
+                autoComplete="off"
+                {...register("firstName", { required: true, minLength: 3 })}
+              />
+            </div>
+
+            <div className="lg:w-2/5">
+              <label htmlFor="lastName-input" className="text-gray-500">
+                Last Name <span className="text-red-400">*</span>
+              </label>
+              <input
+                id="lastName-input"
+                className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
+                type="text"
+                placeholder="Doe"
+                name="lastName"
+                autoComplete="off"
+                {...register("lastName", { required: true, minLength: 3 })}
+              />
+            </div>
           </div>
+
           <div className="flex flex-col">
             <label htmlFor="pseudo-input" className="text-gray-500">
               Pseudo <span className="text-red-400">*</span>
@@ -114,9 +120,57 @@ const RegisterScreen = () => {
             <option value="Female">Female</option>
           </select>
 
+          <label htmlFor="postalAdress" className="text-gray-500">
+            Postal Adress <span className="text-red-400">*</span>
+          </label>
+          <input
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-600"
+            type="text"
+            id="postalAdress"
+            name="postalAdress"
+            autoComplete="off"
+            {...register("postalAdress", { required: true })}
+          ></input>
+
+          <label htmlFor="city" className="text-gray-500">
+            City <span className="text-red-400">*</span>
+          </label>
+          <input
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-600"
+            type="text"
+            id="city"
+            name="city"
+            autoComplete="off"
+            {...register("city", { required: true })}
+          ></input>
+
+          <label htmlFor="postCode" className="text-gray-500">
+            Post Code <span className="text-red-400">*</span>
+          </label>
+          <input
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-600"
+            type="text"
+            id="postCode"
+            name="postCode"
+            autoComplete="off"
+            {...register("postCode", { required: true })}
+          ></input>
+
+          <label htmlFor="country" className="text-gray-500">
+            Country <span className="text-red-400">*</span>
+          </label>
+          <input
+            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-600"
+            type="text"
+            id="country"
+            name="country"
+            autoComplete="off"
+            {...register("country", { required: true })}
+          ></input>
+
           <button
             type="submit"
-            className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-orange-500 hover:bg-orange-400 active:bg-orange-600 rounded-lg"
+            className="font-Rubik p-2 mb-1 mt-2 w-full flex flex-row items-center justify-center bg-orange-500 hover:bg-orange-400 active:bg-orange-600 rounded-lg"
           >
             <div className="flex flex-row items-center">
               <FiUserPlus className="text-2xl text-white" />

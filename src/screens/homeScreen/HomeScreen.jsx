@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      <div className="bg-slate-200 min-h-84vh">
+      <div className="bg-gray-50 min-h-84vh">
 
         {/* <div className="flex flex-col items-center">
 

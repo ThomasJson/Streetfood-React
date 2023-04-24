@@ -116,7 +116,7 @@ const LoginModal = () => {
           <div className="relative w-4/5 lg:w-2/5">
             <div
               ref={modalRef}
-              className="w-full max-w-sm m-auto rounded-lg shadow-lg z-10 bg-white"
+              className="w-full max-w-sm m-auto rounded-lg shadow-lg z-10 bg-gray-50"
             >
               <div className="flex p-3 justify-center items-center bg-zinc-800 rounded-t-lg">
                 <BiLogInCircle className="text-3xl text-white" />
