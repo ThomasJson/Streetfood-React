@@ -29,12 +29,12 @@ const RegisterScreen = () => {
     <>
       <div className="bg-gray-50 min-h-84vh">
         <form
-          className="p-3"
+          className="p-3 flex flex-col md:w-full lg:w-9/12"
           onSubmit={handleSubmit(formSubmit, formInvalid)}
           noValidate
         >
-          <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-2/5">
+          <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
+            <div className="sm:w-49 lg:w-49">
               <label htmlFor="firstName-input" className="text-gray-500">
                 First Name <span className="text-red-400">*</span>
               </label>
@@ -49,7 +49,7 @@ const RegisterScreen = () => {
               />
             </div>
 
-            <div className="lg:w-2/5">
+            <div className="sm:w-49 lg:w-49">
               <label htmlFor="lastName-input" className="text-gray-500">
                 Last Name <span className="text-red-400">*</span>
               </label>
@@ -65,61 +65,70 @@ const RegisterScreen = () => {
             </div>
           </div>
 
-          <div className="flex flex-col">
-            <label htmlFor="pseudo-input" className="text-gray-500">
-              Pseudo <span className="text-red-400">*</span>
-            </label>
-            <input
-              id="pseudo-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
-              type="text"
-              placeholder="Rocket78"
-              name="pseudo"
-              autoComplete="off"
-              {...register("pseudo", { required: true, minLength: 3 })}
-            />
-            <label htmlFor="mailAdress-input" className="text-gray-500">
-              E-mail Adress <span className="text-red-400">*</span>
-            </label>
-            <input
-              id="mailAdress-input"
-              className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
-              type="email"
-              placeholder="exemple@gmail.com"
-              name="mail"
-              autoComplete="off"
-              {...register("mail", {
-                required: true,
-                pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-              })}
-            />
+          <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
+            <div className="sm:w-49 lg:w-49">
+              <label htmlFor="pseudo-input" className="text-gray-500">
+                Pseudo <span className="text-red-400">*</span>
+              </label>
+              <input
+                id="pseudo-input"
+                className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
+                type="text"
+                placeholder="Rocket78"
+                name="pseudo"
+                autoComplete="off"
+                {...register("pseudo", { required: true, minLength: 3 })}
+              />
+            </div>
+            <div className="sm:w-49 lg:w-49">
+              <label htmlFor="mailAdress-input" className="text-gray-500">
+                E-mail Adress <span className="text-red-400">*</span>
+              </label>
+              <input
+                id="mailAdress-input"
+                className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
+                type="email"
+                placeholder="exemple@gmail.com"
+                name="mail"
+                autoComplete="off"
+                {...register("mail", {
+                  required: true,
+                  pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,
+                })}
+              />
+            </div>
           </div>
-          <label htmlFor="birthday" className="text-gray-500">
-            Birthday <span className="text-red-400">*</span>
-          </label>
-          <input
-            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-600"
-            type="date"
-            id="birthday"
-            name="birthday"
-            autoComplete="off"
-            {...register("birthday", { required: true })}
-          ></input>
 
-          <label htmlFor="gender" className="text-gray-500">
-            Gender <span className="text-red-400">*</span>
-          </label>
-          <select
-            name="gender"
-            id="gender"
-            className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
-            {...register("gender", { required: true })}
-          >
-            <option value="">Select your gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-
+          <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
+            <div className="sm:w-49 lg:w-49">
+              <label htmlFor="birthday" className="text-gray-500">
+                Birthday <span className="text-red-400">*</span>
+              </label>
+              <input
+                className="border border-gray-300 w-full p-2 mb-2 focus:outline-none tracking-wider text-gray-600"
+                type="date"
+                id="birthday"
+                name="birthday"
+                autoComplete="off"
+                {...register("birthday", { required: true })}
+              ></input>
+            </div>
+            <div className="sm:w-49 lg:w-49">
+              <label htmlFor="gender" className="text-gray-500">
+                Gender <span className="text-red-400">*</span>
+              </label>
+              <select
+                name="gender"
+                id="gender"
+                className="border border-gray-300 w-full p-2 mb-2 focus:outline-none text-gray-600"
+                {...register("gender", { required: true })}
+              >
+                <option value="">Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
           <label htmlFor="postalAdress" className="text-gray-500">
             Postal Adress <span className="text-red-400">*</span>
           </label>
