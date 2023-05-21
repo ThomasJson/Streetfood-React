@@ -15,6 +15,8 @@ import { AuthContext } from "./contexts/AuthContext";
 import AdminScreen from "./screens/adminScreen/AdminScreen";
 import AccountScreen from "./screens/accountScreen/AccountScreen";
 import AccountValidateScreen from "./screens/accountValidateScreen/AccountValidateScreen";
+import CategoryScreen from "./screens/categoryScreen/CategoryScreen";
+import SingleCategoryScreen from "./screens/singleCategoryScreen/SingleCategoryScreen";
 
 function App() {
   const { auth } = useContext(AuthContext);
@@ -26,6 +28,8 @@ function App() {
           <Route path="/" element={<BaseScreen />}>
             <Route index element={<HomeScreen />} />
             <Route path="/product" element={<ProductScreen />} />
+            <Route path="/category" element={<CategoryScreen />} />
+            <Route path="/category/:id" element={<SingleCategoryScreen />} />
             <Route path="/contact" element={<ContactScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/register" element={<RegisterScreen />} />

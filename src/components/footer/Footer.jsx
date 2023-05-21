@@ -23,7 +23,6 @@ const Footer = () => {
                 <span className="">
                   <SlHome className="text-2xl" />
                 </span>
-                <span className="hidden lg:flex ml-1 font-Rubik">Sign in</span>
               </div>
               <div className="bottom-border"></div>
               <div className="right-border"></div>
@@ -41,9 +40,6 @@ const Footer = () => {
                   <span className="">
                     <AiOutlineUser className="text-2xl" />
                   </span>
-                  <span className="hidden lg:flex ml-1 font-Rubik">
-                    Sign in
-                  </span>
                 </div>
                 <div className="bottom-border"></div>
                 <div className="right-border"></div>
@@ -55,13 +51,12 @@ const Footer = () => {
 
           <ShoppingCart />
 
-          <NavLink to="/">
+          <NavLink to="/category">
             <button className="button-custom">
               <div className="flex flex-row items-center">
                 <span className="">
                   <GiHamburgerMenu className="text-2xl" />
                 </span>
-                <span className="hidden lg:flex ml-1 font-Rubik">Sign in</span>
               </div>
               <div className="bottom-border"></div>
               <div className="right-border"></div>

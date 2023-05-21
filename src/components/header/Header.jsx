@@ -59,7 +59,9 @@ const Header = () => {
 
           {/* LOGIN + CART */}
           <div className="flex flex-row items-center w-4/12 justify-end">
+
             {auth.role < 1 && <LoginModal />}
+            
             {auth.role < 1 && (
               <NavLink to="/register">
                 <button className="button-custom ml-2">
