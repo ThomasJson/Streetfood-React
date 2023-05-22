@@ -7,7 +7,8 @@ module.exports = {
         "49": "49%"
       },
       height: {
-        "8vh": "67px"
+        "8vh": "67px",
+        "84vh": "calc(100vh - 134px)"
       },
       minHeight: {
         "84vh": "calc(100vh - 134px)"
