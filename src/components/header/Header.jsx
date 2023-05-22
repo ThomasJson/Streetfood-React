@@ -34,10 +34,10 @@ const Header = () => {
   return (
     <>
       <div className="flex sm:hidden h-8vh justify-center items-center bg-zinc-800">
-        <input
+        {/* <input
           placeholder="Search on StreetFood.com"
           className="w-10/12 px-2 rounded focus:outline-none"
-        ></input>
+        ></input> */}
       </div>
 
       <div className="hidden sm:flex h-8vh w-full flex-col">
@@ -50,10 +50,10 @@ const Header = () => {
               </div>
             </NavLink>
             <div className="w-8/12 px-2">
-              <input
+              {/* <input
                 placeholder="Search on StreetFood.com"
                 className="w-full px-2 rounded focus:outline-none"
-              ></input>
+              ></input> */}
             </div>
           </div>
 

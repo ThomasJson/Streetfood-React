@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCardLg from "../../components/productCardLg/ProductCardLg"
+import CategoryNav from "../../components/categoryNav/CategoryNav";
 
 const HomeScreen = () => {
 
@@ -21,6 +22,8 @@ const HomeScreen = () => {
   return (
     <>
       <div className="bg-gray-50 min-h-84vh">
+
+        <CategoryNav />
 
         {/* <div className="flex flex-col items-center">
 

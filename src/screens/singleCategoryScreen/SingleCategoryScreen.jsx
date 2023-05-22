@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCardLg from "../../components/productCardLg/ProductCardLg";
+import CategoryNav from "../../components/categoryNav/CategoryNav";
 
 const SingleCategoryScreen = () => {
   const { id } = useParams();
@@ -25,6 +26,9 @@ const SingleCategoryScreen = () => {
   return (
     <>
       <div className="bg-gray-50 min-h-84vh">
+
+        <CategoryNav />
+        
         {products &&
           products?.data?.map((product) => {
             if (product.Id_category === id) {
