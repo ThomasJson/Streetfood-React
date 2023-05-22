@@ -22,8 +22,6 @@ const SingleCategoryScreen = () => {
       });
   }, []);
 
-  console.log(products);
-
   return (
     <>
       <div className="bg-gray-50 min-h-84vh">
