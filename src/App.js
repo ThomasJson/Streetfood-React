@@ -29,7 +29,9 @@ function App() {
             <Route index element={<HomeScreen />} />
             <Route path="/product" element={<ProductScreen />} />
             <Route path="/category" element={<CategoryScreen />} />
+
             <Route path="/category/:id" element={<SingleCategoryScreen />} />
+            
             <Route path="/contact" element={<ContactScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/register" element={<RegisterScreen />} />

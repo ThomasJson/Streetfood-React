@@ -10,7 +10,7 @@ const CategoryNav = () => {
   });
   return (
     <>
-      <div className="hidden h-2/5 sm:flex flex-row justify-around items-center px-2">
+      <div className="hidden h-2/5 sm:flex flex-row justify-around items-center py-2 bg-gray-200">
         {data &&
           data?.data.map((category) => {
             return (

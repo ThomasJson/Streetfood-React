@@ -4,7 +4,9 @@ import ProductCardLg from "../../components/productCardLg/ProductCardLg";
 import CategoryNav from "../../components/categoryNav/CategoryNav";
 
 const SingleCategoryScreen = () => {
+  
   const { id } = useParams();
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -31,18 +33,24 @@ const SingleCategoryScreen = () => {
         
         {products &&
           products?.data?.map((product) => {
+
             if (product.Id_category === id) {
+
               return (
                 <div key={product.Id_product}>
+
                   <ProductCardLg
                     title={product.title}
                     content={product.content}
                     src={product?.with[0]?.src}
                   />
+                  
                 </div>
               );
+              
             }
           })}
+
       </div>
     </>
   );
