@@ -50,6 +50,7 @@ function App() {
                 element={<AccountValidateScreen />}
               />
             )}
+
           </Route>
         </Routes>
       </BrowserRouter>

@@ -17,12 +17,15 @@ const RegisterScreen = () => {
   const [msg, setMsg] = useState("");
 
   const formSubmit = async (formData) => {
-    const { data } = await doFetch("auth/register", {
+
+    const { data } = await doFetch("auth-api/auth/register", {
       method: "POST",
       body: JSON.stringify(formData),
     });
+
     console.log(data);
-    setMsg(data?.data?.message);
+    setMsg(data?.message);
+
   };
 
   return (

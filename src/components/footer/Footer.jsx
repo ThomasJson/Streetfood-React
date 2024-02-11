@@ -11,6 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import LoginModal from "../loginModal/LoginModal";
 
 const Footer = () => {
+
   const { auth } = useContext(AuthContext);
 
   return (

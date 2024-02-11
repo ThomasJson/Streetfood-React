@@ -1,12 +1,13 @@
 import { getCookie } from "../helpers/cookieHelper";
 
 const doFetch = async (endpoint, options = {}) => {
+
   options.credentials = "include";
   options.headers = {
     Authorization: getCookie("blog"),
   };
 
-  const url = "http://shop-api/" + endpoint;
+  const url = "http://streetfood.localhost/" + endpoint;
 
   let data = null, loading = true, error = null, text = null;
   
@@ -26,6 +27,7 @@ const doFetch = async (endpoint, options = {}) => {
   }
 
   return { data, loading, error, text };
+  
 };
 
 export default doFetch;

@@ -9,26 +9,40 @@ import LoginModal from "../loginModal/LoginModal";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 const Header = () => {
+
   const { auth } = useContext(AuthContext);
   const [pseudo, setPseudo] = useState(null);
 
   useEffect(() => {
-    fetch("http://shop-api/app_user/" + auth.id, {
-      method: "POST",
-      headers: {
-        Authorization: getCookie("blog"),
-      },
-      body: JSON.stringify({
-        with: ["account"],
-      }),
-    })
-      .then((resp) => {
-        return resp.json();
-      })
 
-      .then((json) => {
-        setPseudo(json);
-      });
+    if (auth && auth.id) {
+
+      const url = `http://streetfood.localhost/rest-api/account/${auth.id}`;
+      console.log("Fetching user data for ID : ", auth.id);
+
+      fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: getCookie("blog"),
+        },
+
+      })
+        .then((resp) => {
+          if (!resp.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return resp.json();
+
+        })
+        .then((json) => {
+          setPseudo(json);
+
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+
+        });
+    }
   }, [auth]);
 
   return (
@@ -61,7 +75,7 @@ const Header = () => {
           <div className="flex flex-row items-center w-4/12 justify-end">
 
             {auth.role < 1 && <LoginModal />}
-            
+
             {auth.role < 1 && (
               <NavLink to="/register">
                 <button className="button-custom ml-2">
@@ -86,7 +100,7 @@ const Header = () => {
                 className="text-white py-1 px-2 rounded ml-2 mr-2"
               >
                 <div className="button-custom font-Raleway">
-                  <span className="">{pseudo?.data[0]?.with[0].firstName}</span>
+                  <span className="">{pseudo?.pseudo}</span>
                   <div className="bottom-border"></div>
                   <div className="right-border"></div>
                   <div className="top-border"></div>

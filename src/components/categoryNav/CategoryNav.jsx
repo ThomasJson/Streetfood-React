@@ -5,9 +5,10 @@ import useFetch from "../../hooks/useFetch";
 const CategoryNav = () => {
   const navigate = useNavigate();
 
-  const { data } = useFetch("category", {
+  const { data } = useFetch("rest-api/category", {
     method: "GET",
   });
+  
   return (
     <>
       <div className="hidden h-2/5 sm:flex flex-row justify-around items-center py-2 bg-gray-200">

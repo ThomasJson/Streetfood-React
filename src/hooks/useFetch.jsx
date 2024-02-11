@@ -9,13 +9,17 @@ const useFetch = (endpoint, options = {}) => {
   const [text, setText] = useState(null);
 
   useEffect(() => {
+
     const fetchData = async () => {
-      const url = "http://shop-api/" + endpoint;
+
+      const url = "http://streetfood.localhost/" + endpoint;
       options.credentials = "include";
       options.headers = {
-        Authorization: getCookie("blog"),
+        Authorization: getCookie("StreetF"),
       };
+
       try {
+
         const resp = await fetch(url, options);
         const textValue = await resp.text();
         setText(textValue);
@@ -24,8 +28,10 @@ const useFetch = (endpoint, options = {}) => {
         try {
           const json = JSON.parse(textValue);
           setData(json);
+
         } catch (e) {
           setError(e);
+
         }
 
       } catch (e) {

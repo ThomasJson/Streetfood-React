@@ -5,12 +5,15 @@ import useFetch from "../../hooks/useFetch";
 import doFetch from "../../helpers/fetchHelper";
 
 const AccountValidateScreen = () => {
-    const token = useParams("token");
+
+  const token = useParams("token");
   const navigate = useNavigate();
 
-  const { data: account, loading } = useFetch("auth/validate", {
+  const { data: account, loading } = useFetch("auth-api/auth/validate", {
+
     method: "POST",
     body: JSON.stringify(token),
+
   });
 
   const {
@@ -22,30 +25,37 @@ const AccountValidateScreen = () => {
   const formInvalid = (errors) => console.log("Errors", errors);
 
   const formSubmit = async (formData) => {
+
     Object.assign(formData, account);
 
-    const { data: created } = await doFetch("auth/create", {
+    const { data: created } = await doFetch("auth-api/auth/create", {
       method: "PUT",
       body: JSON.stringify(formData),
     });
+
     if (created.data?.result) {
       navigate("/");
     }
+
   };
 
   const validPw = () => {
+
     return (
       document.getElementById("pass-input").value ===
       document.getElementById("confirm-input").value
     );
+
   };
 
   if (loading) {
     return "Veuillez patienter ...";
   }
+
   if (!account.data?.result) {
     return "Votre inscription n'a pas pu être validée, envoyez une nouvelle demande";
   }
+  
     return (
         <div className="bg-gray-50 min-h-84vh">
 

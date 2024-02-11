@@ -10,19 +10,23 @@ const SingleCategoryScreen = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://shop-api/product/*", {
+
+    fetch("http://streetfood.localhost/rest-api/product", {
+
       method: "POST",
-      body: JSON.stringify({
-        with: ["image"],
-      }),
+      // body: JSON.stringify({
+      //   with: ["image"],
+      // }),
     })
       .then((resp) => {
         return resp.json();
-      })
 
+      })
       .then((json) => {
         setProducts(json);
+
       });
+
   }, []);
 
   return (

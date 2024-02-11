@@ -8,7 +8,7 @@ import CategoryCard from "../../components/categoryCard/CategoryCard";
 const CategoryScreen = () => {
   const navigate = useNavigate();
 
-  const { data } = useFetch("category", {
+  const { data } = useFetch("rest-api/category", {
     method: "GET",
   });
 

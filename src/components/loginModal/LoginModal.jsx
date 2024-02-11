@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import doFetch from "../../helpers/fetchHelper";
 import { AuthContext } from "../../contexts/AuthContext";
 import { deleteCookie, setCookie } from "../../helpers/cookieHelper";
 
@@ -9,6 +7,7 @@ import { BiLogInCircle } from "react-icons/bi";
 import { FiUserPlus } from "react-icons/fi";
 
 const LoginModal = () => {
+
   const { setAuth } = useContext(AuthContext);
 
   const [valid, setValid] = useState({ email: true, password: true });
@@ -46,44 +45,74 @@ const LoginModal = () => {
       return;
     }
 
-    const { data } = await doFetch("auth/login", {
-      method: "POST",
+    await fetch('http://streetfood.localhost/auth-api/auth/login', {
+
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(jsonData),
+
+    })
+    .then(response => {
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+
+    })
+    .then(data => {
+
+      console.log(data)
+
+      if (data?.result) {
+
+        setAuth({ role: +data?.roleWeight, id: data?.userId });
+        setCookie("StreetF", data?.token, { "max-age": 60 * 60 * 10 });
+        navigate("/");
+
+      } else {
+
+        if (data?.result === false) {
+          setErrorMessage("Incorrect email or password.");
+        }
+
+        setAuth({ role: 0, id: "0" });
+        deleteCookie("StreetF");
+      }
+
+    })
+    .catch(e => {
+
+      console.log(e);
     });
 
-    if (data?.data?.result) {
-      setAuth({ role: +data.data?.role, id: data.data?.id });
-      setCookie("blog", data.data?.token, { "max-age": 60 * 60 * 24 });
-      navigate("/");
-    } else {
-      if (data?.data?.result === false) {
-        setErrorMessage("Incorrect email or password.");
-      }
-      setAuth({ role: 0, id: "0" });
-      deleteCookie("blog");
-    }
-
-    console.log("data:", data);
-  };
+  }
 
   const [showModal, setShowModal] = useState(false);
 
   const modalRef = useRef();
 
   const toggleModal = () => {
+
     setShowModal(!showModal);
     valid.email = true;
     valid.password = true;
     setErrorMessage("");
+
   };
 
   const handleClickOutside = (event) => {
+
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       toggleModal();
     }
+
   };
 
   useEffect(() => {
+
     if (showModal) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
@@ -93,10 +122,13 @@ const LoginModal = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+
   }, [showModal]);
 
   return (
+
     <div>
+
       <button className="button-custom" onClick={toggleModal}>
         <div className="flex flex-row items-center">
           <span className="">
@@ -122,6 +154,7 @@ const LoginModal = () => {
                 <BiLogInCircle className="text-3xl text-white" />
                 <span className="ml-1 text-white text-xl">Sign in</span>
               </div>
+
               <div className="p-3">
                 <form
                   className="w-full flex flex-col"

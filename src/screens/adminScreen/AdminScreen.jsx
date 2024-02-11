@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const AdminScreen = () => {
+  
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [src, setSrc] = useState("");
@@ -10,27 +11,36 @@ const AdminScreen = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
+
     const fetchCategories = async () => {
+
       try {
-        const response = await fetch("http://shop-api/category");
+        const response = await fetch("http://streetfood.localhost/rest-api/category");
         const result = await response.json();
+        
         if (Array.isArray(result.data)) {
           setCategories(result.data);
-        } else {
-          console.error("The API response data is not an array:", result);
+        } 
+        
+        else {
+          console.error("The API response data is not an array :", result);
           setCategories([]);
         }
+
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error("Error fetching categories :", error);
         setCategories([]);
+
       }
+
     };
+
     fetchCategories();
+
   }, []);
 
-  // console.log("categories:", categories);
-
   const submitForm = async () => {
+
     if (!title || !content || !src || !category) return;
 
     const selectedCategory = categories.find(
@@ -46,16 +56,20 @@ const AdminScreen = () => {
     };
 
     try {
-      const response = await fetch("http://shop-api/insert/product", {
+
+      const response = await fetch("http://streetfood.localhost/rest-api/product/insert", {
         method: "POST",
         body: JSON.stringify(requestBody),
       });
 
       const result = await response.json();
       console.log("Product added successfully:", result);
+
     } catch (error) {
       console.error("Error adding product:", error);
+
     }
+
   };
 
   return (

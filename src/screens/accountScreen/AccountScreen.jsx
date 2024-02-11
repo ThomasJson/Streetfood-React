@@ -19,8 +19,8 @@ const AccountScreen = () => {
               <button
                 className=""
                 onClick={(e) => {
-                  setAuth({ role: 0, id: 0 });
-                  deleteCookie("blog");
+                  setAuth({ role: 0, id: "0" });
+                  deleteCookie("StreetF");
                   window.location.href = "/";
                 }}
               >
