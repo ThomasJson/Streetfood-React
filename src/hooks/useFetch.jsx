@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCookie } from "../helpers/cookieHelper";
 
+// Fetch to Rest-api
 const useFetch = (endpoint, options = {}) => {
 
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,9 @@ const useFetch = (endpoint, options = {}) => {
 
     const fetchData = async () => {
 
-      const url = "http://streetfood.localhost/" + endpoint;
+      const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
+      const url = `${baseUrl}${endpoint}`;
+
       options.credentials = "include";
       options.headers = {
         Authorization: getCookie("StreetF"),

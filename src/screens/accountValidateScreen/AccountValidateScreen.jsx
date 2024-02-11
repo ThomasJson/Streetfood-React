@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
 import doFetch from "../../helpers/fetchHelper";
 
 const AccountValidateScreen = () => {
@@ -9,7 +8,7 @@ const AccountValidateScreen = () => {
   const token = useParams("token");
   const navigate = useNavigate();
 
-  const { data: account, loading } = useFetch("auth-api/auth/validate", {
+  const { data: account, loading } = doFetch("/auth/validate", {
 
     method: "POST",
     body: JSON.stringify(token),
@@ -28,7 +27,7 @@ const AccountValidateScreen = () => {
 
     Object.assign(formData, account);
 
-    const { data: created } = await doFetch("auth-api/auth/create", {
+    const { data: created } = await doFetch("/auth/create", {
       method: "PUT",
       body: JSON.stringify(formData),
     });

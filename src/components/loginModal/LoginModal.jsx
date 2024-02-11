@@ -45,7 +45,10 @@ const LoginModal = () => {
       return;
     }
 
-    await fetch('http://streetfood.localhost/auth-api/auth/login', {
+    const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
+    const url = `${baseUrl}/auth/login`;
+
+    await fetch(url, {
 
       method: 'POST',
       headers: {

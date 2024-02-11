@@ -1,14 +1,14 @@
 import React from "react";
 import useFetch from "../../hooks/useFetch";
-
 import { useNavigate } from "react-router-dom";
 
 import CategoryCard from "../../components/categoryCard/CategoryCard";
 
 const CategoryScreen = () => {
+
   const navigate = useNavigate();
 
-  const { data } = useFetch("rest-api/category", {
+  const { data } = useFetch("/category", {
     method: "GET",
   });
 

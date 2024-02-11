@@ -6,6 +6,7 @@ import doFetch from "../../helpers/fetchHelper";
 import { FiUserPlus } from "react-icons/fi";
 
 const RegisterScreen = () => {
+
   const {
     register,
     handleSubmit,
@@ -14,17 +15,17 @@ const RegisterScreen = () => {
 
   const formInvalid = () => console.log("Errors", errors);
 
-  const [msg, setMsg] = useState("");
+  // const [msg, setMsg] = useState("");
 
   const formSubmit = async (formData) => {
 
-    const { data } = await doFetch("auth-api/auth/register", {
+    const { data } = await doFetch("/auth/register", {
       method: "POST",
       body: JSON.stringify(formData),
     });
 
     console.log(data);
-    setMsg(data?.message);
+    // setMsg(data?.message);
 
   };
 

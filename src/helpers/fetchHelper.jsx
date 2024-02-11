@@ -1,13 +1,15 @@
 import { getCookie } from "../helpers/cookieHelper";
 
+// Fetch to Auth-api
 const doFetch = async (endpoint, options = {}) => {
 
   options.credentials = "include";
   options.headers = {
-    Authorization: getCookie("blog"),
+    Authorization: getCookie("StreetF"),
   };
 
-  const url = "http://streetfood.localhost/" + endpoint;
+  const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
+  const url = `${baseUrl}${endpoint}`;
 
   let data = null, loading = true, error = null, text = null;
   

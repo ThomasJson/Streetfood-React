@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 
 const CategoryNav = () => {
+  
   const navigate = useNavigate();
 
-  const { data } = useFetch("rest-api/category", {
+  const { data } = useFetch("/category", {
     method: "GET",
   });
   

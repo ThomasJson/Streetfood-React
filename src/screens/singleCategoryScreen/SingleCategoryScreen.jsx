@@ -7,11 +7,14 @@ const SingleCategoryScreen = () => {
   
   const { id } = useParams();
 
-  const [products, setProducts] = useState([]);
+  const [ products, setProducts ] = useState([]);
 
   useEffect(() => {
 
-    fetch("http://streetfood.localhost/rest-api/product", {
+    const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
+    const url = `${baseUrl}/product`;
+
+    fetch(url, {
 
       method: "POST",
       // body: JSON.stringify({

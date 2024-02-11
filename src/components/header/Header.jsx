@@ -11,13 +11,15 @@ import ShoppingCart from "../shoppingCart/ShoppingCart";
 const Header = () => {
 
   const { auth } = useContext(AuthContext);
-  const [pseudo, setPseudo] = useState(null);
+  const [ pseudo, setPseudo ] = useState(null);
 
   useEffect(() => {
 
     if (auth && auth.id) {
 
-      const url = `http://streetfood.localhost/rest-api/account/${auth.id}`;
+      const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
+      const url = `${baseUrl}/account/${auth.id}`;
+
       console.log("Fetching user data for ID : ", auth.id);
 
       fetch(url, {
