@@ -8,18 +8,20 @@ const CategoryNav = () => {
 
   const { data } = useFetch("/category", {
     method: "GET",
-  });
+  })
+
+  console.log(data);
   
   return (
     <>
       <div className="hidden h-2/5 sm:flex flex-row justify-around items-center py-2 bg-gray-200">
         {data &&
-          data?.data.map((category) => {
+          data?.map((category) => {
             return (
               <div
-                key={category.Id_category}
+                key={category.id}
                 onClick={() => {
-                  navigate(`/category/${category.Id_category}`);
+                  navigate(`/category/${category.id}`);
                 }}
                 className=""
               >

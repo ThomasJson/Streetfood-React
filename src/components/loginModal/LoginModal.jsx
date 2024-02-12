@@ -1,3 +1,4 @@
+import './loginModal.scss';
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -147,7 +148,7 @@ const LoginModal = () => {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0 bg-black opacity-50 backdrop-blur"></div>
           <div className="relative w-4/5 lg:w-2/5">
             <div
               ref={modalRef}
