@@ -12,10 +12,10 @@ const AuthProvider = ({ children }) => {
 
     const check = async () => {
 
-      const { data } = await doFetch("auth-api/auth/check");
+      const { data } = await doFetch("/auth/check");
 
       if (data?.result) { 
-        setAuth({ role: +data?.roleWeight, id: data?.userId });
+        setAuth({ role: +data?.roleWeight, id: data?.accountId });
       } 
       
       else {

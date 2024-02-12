@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import doFetch from "../../helpers/fetchHelper";
 
 import { FiUserPlus } from "react-icons/fi";
 
@@ -15,36 +14,53 @@ const RegisterScreen = () => {
 
   const formInvalid = () => console.log("Errors", errors);
 
-  // const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState("");
 
   const formSubmit = async (formData) => {
 
-    const { data } = await doFetch("/auth/register", {
-      method: "POST",
-      body: JSON.stringify(formData),
-    });
+    const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
+    const url = `${baseUrl}/auth/register`;
 
-    console.log(data);
-    // setMsg(data?.message);
+    await fetch(url, {
+
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData),
+
+    }).then(data => {
+      console.log(data);
+
+      if(data.statusText === "OK"){
+        setMsg("A confirmation email has been sent.");
+      }
+
+    })
+
+  };
+
+  const validPw = () => {
+
+    return (
+      document.getElementById("password-input").value ===
+      document.getElementById("confirm-input").value
+    );
 
   };
 
   return (
     <>
-      <div className="bg-gray-50 min-h-84vh flex flex-col justify-center items-center">
-        {/* <div className="flex flex-row items-center">
-          <span className="">
-            <FiUserPlus className="text-2xl" />
-          </span>
-          <span className="ml-1 font-Rubik">Sign in</span>
-        </div> */}
+      <div className="bg-gray-50 min-h-84vh flex flex-col items-center">
+        
         <form
-          className="p-3 flex flex-col w-full md:w-full lg:w-9/12"
+          className="p-3 mt-8 flex flex-col w-full md:w-full lg:w-4/12"
           onSubmit={handleSubmit(formSubmit, formInvalid)}
           noValidate
         >
           <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
-            <div className="sm:w-49 lg:w-49 mt-2">
+
+            <div className="mt-2 w-full">
               <label htmlFor="firstName-input" className="text-gray-500">
                 First Name <span className="text-red-400">*</span>
               </label>
@@ -62,7 +78,7 @@ const RegisterScreen = () => {
               )}
             </div>
 
-            <div className="sm:w-49 lg:w-49 mt-2">
+            {/* <div className="sm:w-49 lg:w-49 mt-2">
               <label htmlFor="lastName-input" className="text-gray-500">
                 Last Name <span className="text-red-400">*</span>
               </label>
@@ -78,11 +94,10 @@ const RegisterScreen = () => {
               {errors.lastName && (
                 <p className="text-red-400">Last Name is required.</p>
               )}
-            </div>
+            </div> */}
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
-            <div className="sm:w-49 lg:w-49 mt-2">
+            <div className="mt-2 w-full">
               <label htmlFor="pseudo-input" className="text-gray-500">
                 Pseudo <span className="text-red-400">*</span>
               </label>
@@ -99,9 +114,10 @@ const RegisterScreen = () => {
                 <p className="text-red-400">Pseudo is required.</p>
               )}
             </div>
-            <div className="sm:w-49 lg:w-49 mt-2">
+            
+            <div className="mt-2 w-full">
               <label htmlFor="mailAdress-input" className="text-gray-500">
-                E-mail Adress <span className="text-red-400">*</span>
+                Email Adress <span className="text-red-400">*</span>
               </label>
               <input
                 id="mailAdress-input"
@@ -119,10 +135,49 @@ const RegisterScreen = () => {
                 <p className="text-red-400">Valid email adress is required.</p>
               )}
             </div>
-          </div>
+
+            <div className="mt-2 w-full">
+              <label htmlFor="password-input" className="text-gray-500">
+                Password <span className="text-red-400">*</span>
+              </label>
+              <input
+                id="password-input"
+                className="border border-gray-300 w-full p-2 focus:outline-none text-gray-600"
+                type="text"
+                placeholder="••••••"
+                name="password"
+                autoComplete="off"
+                {...register("password", { required: true,
+                  regex: /^(?=.*[A-Z]).{6,}$/, })}
+              />
+              {errors.password && (
+                <p className="text-red-400">Password is required.</p>
+              )}
+            </div>
+
+            <div className="mt-2 w-full">
+              <label htmlFor="confirm-input" className="text-gray-500">
+                Confirm Password <span className="text-red-400">*</span>
+              </label>
+              <input
+                id="confirm-input"
+                className="border border-gray-300 w-full p-2 focus:outline-none text-gray-600"
+                type="text"
+                placeholder="••••••"
+                autoComplete="off"
+                {...register("confirm", { required: true,
+                  regex: /^(?=.*[A-Z]).{6,}$/,
+                  validate: validPw,})}
+              />
+              <i className={"text-danger d-block"}>
+                    {errors.confirm
+                      ? "* must be the same as entered password"
+                      : " "}
+                  </i>
+            </div>
 
           <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
-            <div className="sm:w-49 lg:w-49 mt-2">
+            {/* <div className="sm:w-49 lg:w-49 mt-2">
               <label htmlFor="birthday" className="text-gray-500">
                 Birthday <span className="text-red-400">*</span>
               </label>
@@ -137,8 +192,8 @@ const RegisterScreen = () => {
               {errors.birthday && (
                 <p className="text-red-400">Birthday is required.</p>
               )}
-            </div>
-            <div className="sm:w-49 lg:w-49 mt-2">
+            </div> */}
+            {/* <div className="sm:w-49 lg:w-49 mt-2">
               <label htmlFor="gender" className="text-gray-500">
                 Gender <span className="text-red-400">*</span>
               </label>
@@ -155,9 +210,10 @@ const RegisterScreen = () => {
               {errors.gender && (
                 <p className="text-red-400">Gender is required.</p>
               )}
-            </div>
+            </div> */}
           </div>
-          <div className="mt-2">
+
+          {/* <div className="mt-2">
             <label htmlFor="postalAdress" className="text-gray-500">
               Postal Adress <span className="text-red-400">*</span>
             </label>
@@ -188,6 +244,7 @@ const RegisterScreen = () => {
             ></input>
             {errors.city && <p className="text-red-400">City is required.</p>}
           </div>
+
           <div className="mt-2">
             <label htmlFor="postCode" className="text-gray-500">
               Post Code <span className="text-red-400">*</span>
@@ -204,6 +261,7 @@ const RegisterScreen = () => {
               <p className="text-red-400">Post Code is required.</p>
             )}
           </div>
+
           <div className="mt-2">
             <label htmlFor="country" className="text-gray-500">
               Country <span className="text-red-400">*</span>
@@ -219,7 +277,7 @@ const RegisterScreen = () => {
             {errors.country && (
               <p className="text-red-400">Country is required.</p>
             )}
-          </div>
+          </div> */}
 
           <button
             type="submit"
@@ -231,6 +289,11 @@ const RegisterScreen = () => {
             </div>
           </button>
         </form>
+
+        {msg !== "" && (
+          <div>{msg}</div>
+        )}
+
       </div>
     </>
   );

@@ -71,7 +71,7 @@ const LoginModal = () => {
 
       if (data?.result) {
 
-        setAuth({ role: +data?.roleWeight, id: data?.userId });
+        setAuth({ role: +data?.roleWeight, id: data?.accountId });
         setCookie("StreetF", data?.token, { "max-age": 60 * 60 * 10 });
         navigate("/");
 
