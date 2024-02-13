@@ -6,7 +6,7 @@ const AdminScreen = () => {
   const [content, setContent] = useState("");
   const [src, setSrc] = useState("");
   const [alt, setAlt] = useState("");
-  const [category, setCategory] = useState("");
+  const [categoryId, setCategoryId] = useState("");
 
   const [categories, setCategories] = useState([]);
 
@@ -15,14 +15,15 @@ const AdminScreen = () => {
     const fetchCategories = async () => {
 
       try {
+
         const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
         const url = `${baseUrl}/category`;
 
         const response = await fetch(url);
         const result = await response.json();
         
-        if (Array.isArray(result.data)) {
-          setCategories(result.data);
+        if (Array.isArray(result)) {
+          setCategories(result);
         } 
         
         else {
@@ -42,12 +43,14 @@ const AdminScreen = () => {
 
   }, []);
 
+  console.log(categoryId)
+
   const submitForm = async () => {
 
-    if (!title || !content || !src || !category) return;
+    if (!title || !content || !src || !categoryId) return;
 
     const selectedCategory = categories.find(
-      (cat) => cat.Id_category === category
+      (cat) => cat.id === categoryId
     );
 
     const requestBody = {
@@ -55,13 +58,19 @@ const AdminScreen = () => {
       content,
       src: `/assets/img/${selectedCategory.title}/${src}`,
       alt,
-      category,
+      categoryId,
     };
 
     try {
 
-      const response = await fetch("http://streetfood.localhost/rest-api/product/insert", {
+      const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
+      const url = `${baseUrl}/admin/product/insert`;
+
+      const response = await fetch(url, {
         method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(requestBody),
       });
 
@@ -87,7 +96,7 @@ const AdminScreen = () => {
             setContent("");
             setSrc("");
             setAlt("");
-            setCategory("");
+            setCategoryId("");
           }}
         >
           <div className="mb-4">
@@ -160,14 +169,16 @@ const AdminScreen = () => {
             <select
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              value={categoryId}
+              onChange={(e) => setCategoryId(e.target.value)}
             >
               <option value="">Sélectionner une catégorie</option>
               {categories.map((cat) => (
-                <option key={cat.Id_category} value={cat.Id_category}>
+
+                <option key={cat.id} value={cat.id}>
                   {cat.title}
                 </option>
+
               ))}
             </select>
           </div>

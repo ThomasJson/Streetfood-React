@@ -15,7 +15,7 @@ const Header = () => {
 
   useEffect(() => {
 
-    if (auth && auth.id) {
+    if (auth && auth.id !== "0") {
 
       const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
       const url = `${baseUrl}/account/${auth.id}`;

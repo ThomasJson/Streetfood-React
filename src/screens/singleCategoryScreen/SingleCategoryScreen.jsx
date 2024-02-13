@@ -12,25 +12,19 @@ const SingleCategoryScreen = () => {
   useEffect(() => {
 
     const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
-    const url = `${baseUrl}/product`;
+    const url = `${baseUrl}/category/${id}/products?withImages=true`;
 
-    fetch(url, {
-
-      method: "POST",
-      // body: JSON.stringify({
-      //   with: ["image"],
-      // }),
-    })
-      .then((resp) => {
-        return resp.json();
-
-      })
+    fetch(url)
+      .then((resp) => resp.json())
       .then((json) => {
         setProducts(json);
-
-      });
+        
+      })
+      .catch((error) => console.error("Error:", error));
 
   }, []);
+
+  console.log(products)
 
   return (
     <>
@@ -39,23 +33,22 @@ const SingleCategoryScreen = () => {
         <CategoryNav />
         
         {products &&
-          products?.data?.map((product) => {
+          products?.map((product) => {
 
-            if (product.Id_category === id) {
+            console.log(product?.images)
 
               return (
-                <div key={product.Id_product}>
+                <div key={product.id}>
 
                   <ProductCardLg
                     title={product.title}
                     content={product.content}
-                    src={product?.with[0]?.src}
+                    src={product?.images[0]?.src}
                   />
                   
                 </div>
               );
-              
-            }
+            
           })}
 
       </div>
