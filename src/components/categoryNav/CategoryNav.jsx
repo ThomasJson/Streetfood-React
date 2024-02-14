@@ -10,8 +10,6 @@ const CategoryNav = () => {
     method: "GET",
   })
 
-  console.log(data);
-  
   return (
     <>
       <div className="hidden h-2/5 sm:flex flex-row justify-around items-center py-2 bg-gray-200">

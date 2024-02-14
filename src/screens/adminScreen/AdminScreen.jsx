@@ -43,8 +43,6 @@ const AdminScreen = () => {
 
   }, []);
 
-  console.log(categoryId)
-
   const submitForm = async () => {
 
     if (!title || !content || !src || !categoryId) return;

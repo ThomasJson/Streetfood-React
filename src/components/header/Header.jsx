@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiUserPlus } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { getCookie } from "../../helpers/cookieHelper";
@@ -102,7 +103,12 @@ const Header = () => {
                 className="text-white py-1 px-2 rounded ml-2 mr-2"
               >
                 <div className="button-custom font-Raleway">
-                  <span className="">{pseudo?.pseudo}</span>
+                  <div className="flex flex-row items-center">
+                    <span className="">
+                      <AiOutlineUser className="text-2xl" />
+                    </span>
+                    <span className="font-bold tracking-wide">{pseudo?.pseudo}</span>
+                  </div>
                   <div className="bottom-border"></div>
                   <div className="right-border"></div>
                   <div className="top-border"></div>

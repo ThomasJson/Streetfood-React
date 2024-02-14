@@ -24,32 +24,35 @@ const SingleCategoryScreen = () => {
 
   }, []);
 
-  console.log(products)
-
   return (
     <>
       <div className="bg-gray-50 min-h-84vh">
 
         <CategoryNav />
-        
-        {products &&
-          products?.map((product) => {
 
-            console.log(product?.images)
+        <div className="flex flex-row flex-wrap mt-6">
 
-              return (
-                <div key={product.id}>
+          {products &&
+            products?.map((product) => {
 
-                  <ProductCardLg
-                    title={product.title}
-                    content={product.content}
-                    src={product?.images[0]?.src}
-                  />
+                return (
                   
-                </div>
-              );
-            
-          })}
+                    <ProductCardLg
+                      key={product.id}
+                      title={product.title}
+                      content={product.content}
+                      price={product.price}
+                      stock={product.stock}
+                      isBestOffer={product.bestOffer}
+                      isBestSale={product.bestSale}
+                      src={product?.images[0]?.src}
+                    />
+                    
+                );
+              
+            })}
+
+        </div>
 
       </div>
     </>
