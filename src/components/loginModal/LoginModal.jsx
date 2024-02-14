@@ -1,6 +1,7 @@
 import './loginModal.scss';
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ThemeContext } from '../../contexts/ThemeContext';
 import { AuthContext } from "../../contexts/AuthContext";
 import { deleteCookie, setCookie } from "../../helpers/cookieHelper";
 
@@ -9,8 +10,8 @@ import { FiUserPlus } from "react-icons/fi";
 
 const LoginModal = () => {
 
+  const { theme } = useContext(ThemeContext);
   const { setAuth } = useContext(AuthContext);
-
   const [valid, setValid] = useState({ email: true, password: true });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -135,10 +136,10 @@ const LoginModal = () => {
 
       <button className="button-custom" onClick={toggleModal}>
         <div className="flex flex-row items-center">
-          <span className="">
-            <BiLogInCircle className="text-2xl" />
+          <span>
+            <BiLogInCircle className={`text-2xl ${theme.text}`} />
           </span>
-          <span className="hidden lg:flex ml-1 font-Rubik">Sign in</span>
+          <span className={`hidden lg:flex ml-1 font-Rubik ${theme.text}`}>Sign in</span>
         </div>
         <div className="bottom-border"></div>
         <div className="right-border"></div>
