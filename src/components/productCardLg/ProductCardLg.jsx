@@ -1,5 +1,7 @@
 import React from "react";
 
+import { FiPlus } from "react-icons/fi";
+
 const ProductCardLg = ({ title, content, src, price, isBestOffer, isBestSale, stock }) => {
   return (
     <>
@@ -9,17 +11,17 @@ const ProductCardLg = ({ title, content, src, price, isBestOffer, isBestSale, st
           <div className="relative">
             
             <img
-              className="h-full w-full rounded-t-lg object-fit md:w-60 md:rounded-none md:rounded-l-lg"
+              className="h-full w-full rounded-tl-lg object-fit md:w-60 md:rounded-none md:rounded-l-lg"
               src={src}
               alt=""
             />
 
             {isBestOffer && (
-              <span className="absolute top-0 w-full px-2 py-1 text-xs font-semibold text-orange-600 bg-orange-200">Best Offers -10%</span>
+              <span className="absolute top-0 w-full rounded-tl-lg px-2 py-1 text-xs text-center font-semibold text-orange-600 bg-orange-200">Best Offers -10%</span>
             )}
 
             {isBestSale && (
-              <span className="absolute top-0 w-full px-2 py-1 text-xs font-semibold text-green-600 bg-green-200">Best Sales</span>
+              <span className="absolute top-0 w-full rounded-tl-lg px-2 py-1 text-xs text-center font-semibold text-green-600 bg-green-200">Best Sales</span>
             )}
           </div>
 
@@ -52,7 +54,9 @@ const ProductCardLg = ({ title, content, src, price, isBestOffer, isBestSale, st
                 ) : <span className="text-lg font-semibold text-neutral-800 dark:text-neutral-50">${price.toFixed(2)}</span>
               }
 
-              <button>Add</button>
+              <button className="bg-orange-400 text-white p-1 rounded-sm">
+                <FiPlus />
+              </button>
 
             </div>
             

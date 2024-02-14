@@ -9,8 +9,7 @@ const SingleCategoryScreen = () => {
 
   const [ products, setProducts ] = useState([]);
 
-  useEffect(() => {
-
+  const fetchProducts = () => {
     const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
     const url = `${baseUrl}/category/${id}/products?withImages=true`;
 
@@ -18,11 +17,15 @@ const SingleCategoryScreen = () => {
       .then((resp) => resp.json())
       .then((json) => {
         setProducts(json);
-        
       })
       .catch((error) => console.error("Error:", error));
+  };
 
-  }, []);
+  useEffect(() => {
+
+    fetchProducts();
+
+  }, [id]);
 
   return (
     <>

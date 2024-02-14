@@ -152,14 +152,14 @@ const LoginModal = () => {
           <div className="relative w-4/5 lg:w-2/5">
             <div
               ref={modalRef}
-              className="w-full max-w-sm m-auto rounded-lg shadow-lg z-10 bg-gray-50"
+              className="w-full max-w-sm m-auto rounded-lg border-2 border-orange-400 shadow-lg z-10 bg-zinc-800"
             >
               <div className="flex p-3 justify-center items-center bg-zinc-800 rounded-t-lg">
                 <BiLogInCircle className="text-3xl text-white" />
                 <span className="ml-1 text-white text-xl">Sign in</span>
               </div>
 
-              <div className="p-3">
+              <div className="p-3 mx-2 bg-gray-50">
                 <form
                   className="w-full flex flex-col"
                   onSubmit={handleSubmit}
