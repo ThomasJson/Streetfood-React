@@ -15,8 +15,6 @@ const ThemeContextProvider = (props) => {
     if(!themes[themeName] || themeName === theme.name)
       return;
 
-    console.log(themes)
-      
     setTheme(themes[themeName]);
     localStorage.setItem('usedTheme', themeName);   
   }
@@ -30,7 +28,7 @@ const ThemeContextProvider = (props) => {
             return previousValue;
           });
         }).then(() => {
-          const thm = themes[localStorage.getItem('usedTheme') ?? 'dark'];
+          const thm = themes[localStorage.getItem('usedTheme') ?? 'light'];
           
           if(thm)
             setTheme(thm)
@@ -38,8 +36,6 @@ const ThemeContextProvider = (props) => {
       }
     });
   }, [themes])
-  
-  console.log(theme)
   
   return (<ThemeContext.Provider value={{theme, changeThemeTo}}>{props.children}</ThemeContext.Provider>)
 }
