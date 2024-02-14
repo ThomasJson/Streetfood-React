@@ -8,6 +8,7 @@ import { getCookie } from "../../helpers/cookieHelper";
 
 import LoginModal from "../loginModal/LoginModal";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
+import ContextSettings from "../contextSettings/ContextSettings";
 
 const Header = () => {
 
@@ -59,14 +60,20 @@ const Header = () => {
 
       <div className="hidden sm:flex h-8vh w-full flex-col">
         <div className="h-full bg-zinc-800 flex flex-row justify-between items-center px-2">
+
           {/* BRAND + SEARCHBAR */}
           <div className="flex flex-row items-center w-8/12">
+
             <NavLink to="/">
               <div className="font-Rubik text-white ml-2 mr-2">
                 StreetFood.com
               </div>
             </NavLink>
+
             <div className="w-8/12 px-2">
+
+              <ContextSettings />
+              
               {/* <input
                 placeholder="Search on StreetFood.com"
                 className="w-full px-2 rounded focus:outline-none"
