@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ProductCardLg from "../../components/productCardLg/ProductCardLg";
 import CategoryNav from "../../components/categoryNav/CategoryNav";
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const SingleCategoryScreen = () => {
   
+  const { theme } = useContext(ThemeContext);
   const { id } = useParams();
-
   const [ products, setProducts ] = useState([]);
 
   const fetchProducts = () => {
@@ -29,7 +30,7 @@ const SingleCategoryScreen = () => {
 
   return (
     <>
-      <div className="bg-gray-50 min-h-84vh">
+      <div className={`min-h-84vh ${theme.bgTertiary}`}>
 
         <CategoryNav />
 

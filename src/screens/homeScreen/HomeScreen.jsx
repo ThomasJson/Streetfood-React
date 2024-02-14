@@ -1,27 +1,15 @@
-import React, { useEffect, useState } from "react";
-import ProductCardLg from "../../components/productCardLg/ProductCardLg"
+import React, { useContext } from "react";
 import CategoryNav from "../../components/categoryNav/CategoryNav";
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const HomeScreen = () => {
 
-  // const [img, setImg] = useState(null);
-  
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch('http://shop-api/image');
-  //     const result = await response.json();
-  //     setImg(result);
-  //   }
-
-  //   fetchData();
-  // }, []);
-  
-  // console.log('img:', img)
+  const { theme } = useContext(ThemeContext);
 
   return (
+
     <>
-      <div className="bg-gray-50 min-h-84vh">
+      <div className={`min-h-84vh ${theme.bgTertiary}`}>
 
         <CategoryNav />
 

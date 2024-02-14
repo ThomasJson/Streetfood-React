@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const CategoryNav = () => {
   
   const navigate = useNavigate();
+  
+  const { theme } = useContext(ThemeContext);
 
   const { data } = useFetch("/category", {
     method: "GET",
@@ -12,7 +15,7 @@ const CategoryNav = () => {
 
   return (
     <>
-      <div className="hidden h-2/5 sm:flex flex-row justify-around items-center py-1 bg-gray-200">
+      <div className={`hidden h-2/5 sm:flex flex-row justify-around items-center py-1 ${theme.bgSecondary}`}>
         {data &&
           data?.map((category) => {
             return (
@@ -21,7 +24,7 @@ const CategoryNav = () => {
                 onClick={() => {
                   navigate(`/category/${category.id}`);
                 }}
-                className=""
+                className={`${theme.text}`}
               >
                 <button>{category.title}</button>
               </div>

@@ -14,7 +14,7 @@ const ShoppingCart = () => {
       <NavLink to="/cart" className="rounded ml-1 mr-2">
         <div className="button-custom font-Raleway">
 
-          <div className={`cart-counter ${theme.bgClass}`}>3</div>
+          <div className={`cart-counter ${theme.bgPrimary}`}>3</div>
           
           <div className="flex flex-row items-center">
             <span className="flex flex-row items-center">

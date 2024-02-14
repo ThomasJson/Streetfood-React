@@ -8,15 +8,17 @@ import { AiOutlineUser } from "react-icons/ai";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 import { AuthContext } from "../../contexts/AuthContext";
+import { ThemeContext } from '../../contexts/ThemeContext';
 import LoginModal from "../loginModal/LoginModal";
 
 const Footer = () => {
 
+  const { theme } = useContext(ThemeContext);
   const { auth } = useContext(AuthContext);
 
   return (
     <>
-      <div className="h-8vh bg-zinc-800">
+      <div className={`h-8vh ${theme.bgPrimary}`}>
         <div className="h-full sm:hidden flex flex-row justify-around items-center">
           <NavLink to="/">
             <button className="button-custom">
@@ -67,7 +69,7 @@ const Footer = () => {
           </NavLink>
         </div>
 
-        <div className="h-full hidden sm:flex justify-center items-center text-white font-Rubik">
+        <div className={`h-full hidden sm:flex justify-center items-center font-Rubik ${theme.text}`}>
           © 1994-2023, StreetFood.com, Inc. or its affiliates
         </div>
       </div>

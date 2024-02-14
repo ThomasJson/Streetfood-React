@@ -59,7 +59,7 @@ const Header = () => {
       </div>
 
       <div className="hidden sm:flex h-8vh w-full flex-col">
-        <div className={`h-full ${theme.bgClass} flex flex-row justify-between items-center px-2`}>
+        <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
           <div className="flex flex-row items-center w-8/12">
             <NavLink to="/">
               <div className={`font-Rubik ${theme.text} ml-2 mr-2`}>
