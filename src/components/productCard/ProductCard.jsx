@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { FiPlus } from "react-icons/fi";
 
-const ProductCardLg = ({ title, content, src, price, isBestOffer, isBestSale, stock }) => {
+const ProductCard = ({ title, content, src, price, isBestOffer, isBestSale, stock }) => {
   
   const { theme } = useContext(ThemeContext);
 
@@ -70,4 +70,4 @@ const ProductCardLg = ({ title, content, src, price, isBestOffer, isBestSale, st
   );
 };
 
-export default ProductCardLg;
+export default ProductCard;

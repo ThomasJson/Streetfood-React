@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import ProductCardLg from "../../components/productCardLg/ProductCardLg";
+import ProductCard from "../../components/productCard/ProductCard";
 import CategoryNav from "../../components/categoryNav/CategoryNav";
 import { ThemeContext } from '../../contexts/ThemeContext';
 
@@ -41,7 +41,7 @@ const SingleCategoryScreen = () => {
 
                 return (
                   
-                    <ProductCardLg
+                    <ProductCard
                       key={product.id}
                       title={product.title}
                       content={product.content}
