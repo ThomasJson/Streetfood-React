@@ -9,6 +9,8 @@ const HomeScreen = () => {
   console.log(process.env.REACT_APP_REST_API_BASE_URL);
   console.log(process.env.REACT_APP_AUTH_API_BASE_URL);
 
+  // Theme : bg-gray-200 / bg-zinc-600
+
   return (
 
     <>

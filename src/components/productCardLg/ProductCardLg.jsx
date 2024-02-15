@@ -9,7 +9,7 @@ const ProductCardLg = ({ title, content, src, price, isBestOffer, isBestSale, st
   return (
     <>
       <div className="flex justify-center md:w-4/12">
-        <div className={`flex flex-col rounded-lg shadow-lg p-2 gap-2 mb-6 md:flex-row md:w-11/12 ${theme.text} ${theme.bgPrimary}`} >
+        <div className={`flex flex-col rounded-lg shadow-lg p-2 gap-2 md:flex-row md:w-11/12 ${theme.text} ${theme.bgPrimary}`} >
 
           <div className="relative">
             
