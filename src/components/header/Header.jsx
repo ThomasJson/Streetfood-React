@@ -26,7 +26,7 @@ const Header = () => {
 
       console.log("Fetching user data for ID : ", auth.id);
 
-      fetch(url, {
+      fetch(url, {mode : 'no-cors'}, {
         method: "GET",
         headers: {
           Authorization: getCookie("blog"),

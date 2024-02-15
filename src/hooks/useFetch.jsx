@@ -23,7 +23,7 @@ const useFetch = (endpoint, options = {}) => {
 
       try {
 
-        const resp = await fetch(url, options);
+        const resp = await fetch(url, options, {mode : 'no-cors'});
         const textValue = await resp.text();
         setText(textValue);
         setLoading(false);
