@@ -6,6 +6,9 @@ const HomeScreen = () => {
 
   const { theme } = useContext(ThemeContext);
 
+  console.log(process.env.REACT_APP_REST_API_BASE_URL);
+  console.log(process.env.REACT_APP_AUTH_API_BASE_URL);
+
   return (
 
     <>
