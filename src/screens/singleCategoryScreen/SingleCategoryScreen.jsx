@@ -34,7 +34,7 @@ const SingleCategoryScreen = () => {
 
         <CategoryNav />
 
-        <div className="flex flex-row flex-wrap mt-6">
+        <div className="flex flex-row flex-wrap my-4">
 
           {products &&
             products?.map((product) => {
