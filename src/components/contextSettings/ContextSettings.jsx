@@ -1,7 +1,7 @@
 import './contextSettings.scss'
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
-import { IoMoon, IoSunnyOutline  } from "react-icons/io5";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 
 const ContextSettings = () => {
 
@@ -25,7 +25,7 @@ const ContextSettings = () => {
                 <input type="checkbox" checked={changeTheme} onChange={handleChangeTheme} />
                 <span className="slider round"></span>
             </label>
-            <IoMoon className={`${theme.text}`}/>
+            <IoMoonOutline className={`${theme.text}`}/>
         </div>
     );
 };

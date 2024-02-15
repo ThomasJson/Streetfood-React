@@ -14,7 +14,7 @@ const doFetch = async (endpoint, options = {}) => {
   let data = null, loading = true, error = null, text = null;
   
   try {
-    const resp = await fetch(url, options, {mode : 'no-cors'});
+    const resp = await fetch(url, options);
     text = await resp.text();
     loading = false;
     

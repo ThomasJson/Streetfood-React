@@ -19,7 +19,7 @@ const AdminScreen = () => {
         const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
         const url = `${baseUrl}/category`;
 
-        const response = await fetch(url, {mode : 'no-cors'});
+        const response = await fetch(url);
         const result = await response.json();
         
         if (Array.isArray(result)) {

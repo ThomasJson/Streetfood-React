@@ -14,7 +14,7 @@ const SingleCategoryScreen = () => {
     const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
     const url = `${baseUrl}/category/${id}/products?withImages=true`;
 
-    fetch(url, {mode : 'no-cors'})
+    fetch(url)
       .then((resp) => resp.json())
       .then((json) => {
         setProducts(json);

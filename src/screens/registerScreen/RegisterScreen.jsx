@@ -21,7 +21,7 @@ const RegisterScreen = () => {
     const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
     const url = `${baseUrl}/auth/register`;
 
-    await fetch(url, {mode : 'no-cors'}, {
+    await fetch(url, {
 
       method: 'POST',
       headers: {
