@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { NavLink } from "react-router-dom";
 import { FiUserPlus } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
@@ -13,6 +14,7 @@ import ContextSettings from "../contextSettings/ContextSettings";
 
 const Header = () => {
 
+  const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const { auth } = useContext(AuthContext);
   const [ pseudo, setPseudo ] = useState(null);
@@ -60,16 +62,20 @@ const Header = () => {
 
       <div className="hidden sm:flex h-8vh w-full flex-col">
         <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
+
           <div className="flex flex-row items-center w-8/12">
-            <NavLink to="/">
+
+            <NavLink to="/" className="w-2/12">
               <div className={`font-Rubik ${theme.text} ml-2 mr-2`}>
-                StreetFood.com
+                {t('generic.brand')}
               </div>
             </NavLink>
             <div className="w-8/12 px-2">
               <ContextSettings />
             </div>
+
           </div>
+
           <div className="flex flex-row items-center w-4/12 justify-end">
             {auth.role < 1 && <LoginModal />}
             {auth.role < 1 && (
@@ -80,7 +86,7 @@ const Header = () => {
                       <FiUserPlus className={`text-2xl ${theme.text}`} />
                     </span>
                     <span className={`hidden lg:flex ml-1 font-Rubik ${theme.text}`}>
-                      Sign up
+                      {t('generic.signup')}
                     </span>
                   </div>
                   <div className="bottom-border"></div>
