@@ -1,6 +1,7 @@
 import "./App.css";
 import "./btn.scss";
 import "./input.scss";
+import './i18n';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BaseScreen from "./screens/baseScreen/BaseScreen";
