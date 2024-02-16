@@ -1,5 +1,6 @@
 import './loginModal.scss';
 import React, { useContext, useEffect, useRef, useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from "react-router-dom";
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { AuthContext } from "../../contexts/AuthContext";
@@ -10,10 +11,11 @@ import { FiUserPlus } from "react-icons/fi";
 
 const LoginModal = () => {
 
+  const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const { setAuth } = useContext(AuthContext);
-  const [valid, setValid] = useState({ email: true, password: true });
-  const [errorMessage, setErrorMessage] = useState("");
+  const [ valid, setValid ] = useState({ email: true, password: true });
+  const [ errorMessage, setErrorMessage ] = useState("");
 
   const navigate = useNavigate();
 
@@ -139,7 +141,9 @@ const LoginModal = () => {
           <span>
             <BiLogInCircle className={`text-2xl ${theme.text}`} />
           </span>
-          <span className={`hidden lg:flex ml-1 font-Rubik ${theme.text}`}>Sign in</span>
+          <span className={`hidden lg:flex ml-1 font-Rubik ${theme.text}`}>
+            {t('generic.login')}
+          </span>
         </div>
         <div className="bottom-border"></div>
         <div className="right-border"></div>

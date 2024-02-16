@@ -37,12 +37,12 @@ const ContextSettings = () => {
             </div>
 
             <div className='flex flex-row items-center gap-1'>
-                <img src='/assets/img/en.png' alt='English' style={{width: '20px', height: '20px'}} />
+                <img src='/assets/img/en.png' alt='English' style={{width: '17px', height: '17px'}} />
                 <label className="switch">
                     <input type="checkbox" checked={isThai} onChange={toggleLanguage} />
                     <span className="slider round"></span>
                 </label>
-                <img src='/assets/img/th.png' alt='Thai' style={{width: '20px', height: '20px'}} />
+                <img src='/assets/img/th.png' alt='Thai' style={{width: '17px', height: '17px'}} />
             </div>
         </div>
     );

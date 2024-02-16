@@ -3,6 +3,7 @@
         "brand": "StreetFood.com",
         "login": "Log In",
         "signup": "Sign Up",
-        "cart": "Cart"
+        "cart": "Cart",
+        "footer-text": "or its affiliates"
     }
 }

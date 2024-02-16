@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslation } from 'react-i18next';
 import { NavLink } from "react-router-dom";
 
 import { SlHome } from "react-icons/sl";
@@ -13,6 +14,7 @@ import LoginModal from "../loginModal/LoginModal";
 
 const Footer = () => {
 
+  const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const { auth } = useContext(AuthContext);
 
@@ -70,7 +72,7 @@ const Footer = () => {
         </div>
 
         <div className={`h-full hidden sm:flex justify-center items-center font-Rubik ${theme.text}`}>
-          © 1994-2023, StreetFood.com, Inc. or its affiliates
+          © 1994-2023, StreetFood.com, Inc. {t('generic.footer-text')}
         </div>
       </div>
     </>
