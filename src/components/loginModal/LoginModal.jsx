@@ -20,7 +20,7 @@ const LoginModal = ({ show, setShow }) => {
       <div className="flex items-center justify-center min-h-screen">
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
 
-        <div className={`relative p-4 rounded-lg max-w-2xl mx-auto ${theme.bgPrimary}`}>
+        <div className={`relative p-4 rounded-lg w-11/12 sm:max-w-2xl mx-auto ${theme.bgPrimary}`}>
           
           <Tab.Group>
 

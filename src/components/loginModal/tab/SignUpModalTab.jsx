@@ -58,7 +58,7 @@ const SignUpModalTab = () => {
                 noValidate
             >
 
-                <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
+                <div className="flex flex-row justify-between">
 
                     <div className="mt-2 w-49">
                         <label htmlFor="firstName-input" className={`${theme.label}`}>
@@ -125,7 +125,7 @@ const SignUpModalTab = () => {
                     )}
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
+                <div className="flex flex-row justify-between">
                     <div className="mt-2 w-49">
                         <label htmlFor="password-input" className={`${theme.label}`}>
                             {t('modal.password')} <span className="text-red-400">*</span>

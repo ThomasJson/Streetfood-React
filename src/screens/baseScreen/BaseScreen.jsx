@@ -14,7 +14,7 @@ const BaseScreen = () => {
         <Header setShowModal={setShowModal}/>
         <LoginModal show={showModal} setShow={setShowModal} />
         <Outlet />
-        <Footer />
+        <Footer setShowModal={setShowModal}/>
       </div>
     </>
   );

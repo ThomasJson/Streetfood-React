@@ -52,17 +52,14 @@ const Header = ({ setShowModal }) => {
     }
   }, [auth]);
 
+  // bg-zinc-800
+
   return (
     <>
-
-      <div className="flex sm:hidden h-8vh justify-center items-center bg-zinc-800">
-        {/* TODO : Mobile */}
-      </div>
-
-      <div className="hidden sm:flex h-8vh w-full flex-col">
+      <div className="flex h-8vh w-full flex-col">
         <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
 
-          <div className="flex flex-row items-center w-6/12 justify-start">
+          <div className="flex flex-row items-center w-full justify-between sm:w-6/12 sm:justify-start">
 
             <NavLink to="/" style={{ width: "135px" }}>
               <div className={`font-Rubik ${theme.text} ml-2 mr-2`}>
@@ -76,7 +73,7 @@ const Header = ({ setShowModal }) => {
 
           </div>
 
-          <div className="flex flex-row items-center w-5/12 justify-end">
+          <div className="hidden sm:flex flex-row items-center w-5/12 justify-end">
 
             {auth.role < 1 && (
               <button className="button-custom" onClick={() => setShowModal(true)}>

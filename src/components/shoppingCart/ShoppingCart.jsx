@@ -14,7 +14,7 @@ const ShoppingCart = () => {
   return (
     <>
       <NavLink to="/cart" className="rounded ml-1 mr-2">
-        <div className="button-custom font-Raleway" style={{ width: "106px" }}>
+        <div className="button-custom font-Raleway cart-spacing">
 
           <div className={`cart-counter ${theme.bgPrimary}`}>0</div>
           
