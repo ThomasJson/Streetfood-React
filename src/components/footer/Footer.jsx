@@ -36,7 +36,7 @@ const Footer = () => {
             </button>
           </NavLink>
 
-          {auth.role < 1 && <LoginModal />}
+          {/* {auth.role < 1 && <LoginModal />} */}
 
           {auth.role > 0 && (
             <NavLink to="/account">

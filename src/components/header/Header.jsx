@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { NavLink } from "react-router-dom";
-import { FiUserPlus } from "react-icons/fi";
+import { BiLogInCircle } from "react-icons/bi";
 import { AiOutlineUser } from "react-icons/ai";
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { AuthContext } from "../../contexts/AuthContext";
 import { getCookie } from "../../helpers/cookieHelper";
 
-import LoginModal from "../loginModal/LoginModal";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 import ContextSettings from "../contextSettings/ContextSettings";
 
@@ -74,39 +73,32 @@ const Header = ({ setShowModal }) => {
               <ContextSettings />
             </div>
 
-            <button
-              onClick={() => setShowModal(true)}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Se connecter / S'inscrire
-            </button>
-
           </div>
 
           <div className="flex flex-row items-center w-4/12 justify-end">
-            {auth.role < 1 && <LoginModal />}
+
             {auth.role < 1 && (
-              <NavLink to="/register">
-                <button className="button-custom ml-2">
-                  <div className={`flex flex-row items-center`}>
-                    <span>
-                      <FiUserPlus className={`text-2xl ${theme.text}`} />
-                    </span>
-                    <span className={`hidden lg:flex ml-1 font-Rubik ${theme.text}`}>
-                      {t('generic.signup')}
-                    </span>
-                  </div>
-                  <div className="bottom-border"></div>
-                  <div className="right-border"></div>
-                  <div className="top-border"></div>
-                  <div className="left-border"></div>
-                </button>
-              </NavLink>
+              <button className="button-custom ml-2" onClick={() => setShowModal(true)}>
+                <div className={`flex flex-row items-center`}>
+                  <span>
+                    <BiLogInCircle className={`text-2xl ${theme.text}`} />
+                  </span>
+                  <span className={`hidden lg:flex ml-1 font-Rubik ${theme.text}`}>
+                    {t('generic.login')}
+                  </span>
+                </div>
+                <div className="bottom-border"></div>
+                <div className="right-border"></div>
+                <div className="top-border"></div>
+                <div className="left-border"></div>
+              </button>
             )}
+
             {auth.role > 0 && (
+
               <NavLink
                 to="/account"
-                className="text-white py-1 px-2 rounded ml-2 mr-2"
+                className="py-1 px-2 rounded ml-2 mr-2"
               >
                 <div className="button-custom font-Raleway">
                   <div className="flex flex-row items-center">
@@ -121,8 +113,11 @@ const Header = ({ setShowModal }) => {
                   <div className="left-border"></div>
                 </div>
               </NavLink>
+
             )}
+
             <ShoppingCart />
+
           </div>
         </div>
       </div>
