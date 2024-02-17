@@ -6,6 +6,7 @@
     "bgTertiary": "bg-zinc-600",
     "bgHover": "hover:bg-gray-200",
     "text": "text-white",
+    "label": "text-gray-300",
     "text-hover": "hover:text-white",
     "link": "link-light",
     "shadow": "shadow-light"

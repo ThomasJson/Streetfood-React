@@ -26,8 +26,9 @@ const ContextSettings = () => {
     };
 
     return (
-        <div className='flex flex-row'>
-            <div className='flex flex-row items-center gap-1 mr-6'>
+        <div className='flex flex-row gap-4'>
+
+            <div className='flex flex-row items-center gap-1'>
                 <IoSunnyOutline className={`${theme.text}`}/>
                 <label className="switch">
                     <input type="checkbox" checked={changeTheme} onChange={handleChangeTheme} />
@@ -44,6 +45,7 @@ const ContextSettings = () => {
                 </label>
                 <img src='/assets/img/th.png' alt='Thai' style={{width: '17px', height: '17px'}} />
             </div>
+
         </div>
     );
 };

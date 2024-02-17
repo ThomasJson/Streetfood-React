@@ -95,6 +95,8 @@ const LogInModalTab = ({ setShow }) => {
 
     }
 
+    // theme.text = text-gray-300 / text-gray-700
+
     return (
         <div className={`p-3 rounded-lg ${theme.bgSecondary}`}>
             <form
@@ -103,7 +105,7 @@ const LogInModalTab = ({ setShow }) => {
                 noValidate
             >
                 <div className="w-full mt-1">
-                    <label htmlFor="email-input" className={`${theme.text}`}>
+                    <label htmlFor="email-input" className={`${theme.label}`}>
                         {t('modal.mail')}
                     </label>
                     <input
@@ -123,7 +125,7 @@ const LogInModalTab = ({ setShow }) => {
                 )}
 
                 <div className="mt-4 w-full">
-                    <label htmlFor="password-input" className={`${theme.text}`}>
+                    <label htmlFor="password-input" className={`${theme.label}`}>
                         {t('modal.password')}
                     </label>
                     <input
@@ -143,7 +145,7 @@ const LogInModalTab = ({ setShow }) => {
 
                 <p className="text-red-400 text-sm italic">{errorMessage}</p>
 
-                <div className={`text-center mt-2 mb-3 ${theme.text}`}>
+                <div className={`text-center mt-2 mb-3 ${theme.label}`}>
                     {t('modal.forgotPw')}
                 </div>
 

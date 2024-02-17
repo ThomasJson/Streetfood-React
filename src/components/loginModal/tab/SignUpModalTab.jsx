@@ -61,7 +61,7 @@ const SignUpModalTab = () => {
                 <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
 
                     <div className="mt-2 w-49">
-                        <label htmlFor="firstName-input" className="text-gray-500">
+                        <label htmlFor="firstName-input" className={`${theme.label}`}>
                             {t('modal.firstName')} <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -81,7 +81,7 @@ const SignUpModalTab = () => {
                     </div>
 
                     <div className="mt-2 w-49">
-                        <label htmlFor="pseudo-input" className="text-gray-500">
+                        <label htmlFor="pseudo-input" className={`${theme.label}`}>
                             {t('modal.pseudo')} <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -103,7 +103,7 @@ const SignUpModalTab = () => {
                 </div>
 
                 <div className="mt-2 w-full">
-                    <label htmlFor="mailAdress-input" className="text-gray-500">
+                    <label htmlFor="mailAdress-input" className={`${theme.label}`}>
                         {t('modal.mail')} <span className="text-red-400">*</span>
                     </label>
                     <input
@@ -127,7 +127,7 @@ const SignUpModalTab = () => {
 
                 <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
                     <div className="mt-2 w-49">
-                        <label htmlFor="password-input" className="text-gray-500">
+                        <label htmlFor="password-input" className={`${theme.label}`}>
                             {t('modal.password')} <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -150,7 +150,7 @@ const SignUpModalTab = () => {
                     </div>
 
                     <div className="mt-2 w-49">
-                        <label htmlFor="confirm-input" className="text-gray-500">
+                        <label htmlFor="confirm-input" className={`${theme.label}`}>
                             {t('modal.confirmPw')} <span className="text-red-400">*</span>
                         </label>
                         <input

@@ -62,28 +62,29 @@ const Header = ({ setShowModal }) => {
       <div className="hidden sm:flex h-8vh w-full flex-col">
         <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
 
-          <div className="flex flex-row items-center w-8/12">
+          <div className="flex flex-row items-center w-6/12 justify-start">
 
-            <NavLink to="/" className="w-2/12">
+            <NavLink to="/" style={{ width: "135px" }}>
               <div className={`font-Rubik ${theme.text} ml-2 mr-2`}>
                 {t('generic.brand')}
               </div>
             </NavLink>
-            <div className="w-8/12 px-2">
+
+            <div className="px-2">
               <ContextSettings />
             </div>
 
           </div>
 
-          <div className="flex flex-row items-center w-4/12 justify-end">
+          <div className="flex flex-row items-center w-5/12 justify-end">
 
             {auth.role < 1 && (
-              <button className="button-custom ml-2" onClick={() => setShowModal(true)}>
+              <button className="button-custom" onClick={() => setShowModal(true)}>
                 <div className={`flex flex-row items-center`}>
                   <span>
                     <BiLogInCircle className={`text-2xl ${theme.text}`} />
                   </span>
-                  <span className={`hidden lg:flex ml-1 font-Rubik ${theme.text}`}>
+                  <span className={`hidden sm:flex ml-1 font-Rubik ${theme.text}`}>
                     {t('generic.login')}
                   </span>
                 </div>
@@ -98,7 +99,7 @@ const Header = ({ setShowModal }) => {
 
               <NavLink
                 to="/account"
-                className="py-1 px-2 rounded ml-2 mr-2"
+                className="py-1 px-2 rounded mr-2"
               >
                 <div className="button-custom font-Raleway">
                   <div className="flex flex-row items-center">
