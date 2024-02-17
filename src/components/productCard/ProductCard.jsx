@@ -1,10 +1,12 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
+import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { FiPlus } from "react-icons/fi";
 
 const ProductCard = ({ title, content, src, price, isBestOffer, isBestSale, stock }) => {
   
   const { theme } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -20,11 +22,15 @@ const ProductCard = ({ title, content, src, price, isBestOffer, isBestSale, stoc
             />
 
             {isBestOffer && (
-              <span className="absolute top-0 w-full rounded-tl-lg px-2 py-1 text-xs text-center font-semibold text-orange-600 bg-orange-200">Best Offers -10%</span>
+              <span className="absolute top-0 w-full rounded-tl-lg px-2 py-1 text-xs text-center font-semibold text-orange-600 bg-orange-200">
+                {t('product.bestOffers')}
+              </span>
             )}
 
             {isBestSale && (
-              <span className="absolute top-0 w-full rounded-tl-lg px-2 py-1 text-xs text-center font-semibold text-green-600 bg-green-200">Best Sales</span>
+              <span className="absolute top-0 w-full rounded-tl-lg px-2 py-1 text-xs text-center font-semibold text-green-600 bg-green-200">
+                {t('product.bestSales')}
+              </span>
             )}
           </div>
 
@@ -39,11 +45,17 @@ const ProductCard = ({ title, content, src, price, isBestOffer, isBestSale, stoc
             </p>
             
             {stock === 0 ? (
-              <span className="text-sm font-bold mt-auto text-red-500">Out of stock</span>
+              <span className="text-sm font-bold mt-auto text-red-500">
+                {t('product.outStock')}
+              </span>
               ) : stock < 10 ? (
-                <span className="text-sm font-bold mt-auto text-yellow-600">Low stock</span>
+                <span className="text-sm font-bold mt-auto text-yellow-600">
+                  {t('product.lowStock')}
+                </span>
               ) : (
-              <span className="text-sm font-bold mt-auto text-green-500">In stock</span>
+              <span className="text-sm font-bold mt-auto text-green-500">
+                {t('product.inStock')}
+              </span>
             )}
 
             <div className="flex justify-between items-center">

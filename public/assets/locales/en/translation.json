@@ -20,5 +20,13 @@
         "validPseudo": "Pseudo must contain at least 3 characters.",
         "validConfirm": "Password must be same as entered.",
         "createAcc": "Create an account"
+    },
+
+    "product": {
+        "bestOffers": "Best Offers -10%",
+        "bestSales": "Best Sales",
+        "inStock": "In stock",
+        "lowStock": "Low stock",
+        "outStock": "Out of stock"
     }
 }
