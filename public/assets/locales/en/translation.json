@@ -5,5 +5,20 @@
         "signup": "Sign Up",
         "cart": "Cart",
         "footer-text": "or its affiliates"
+    },
+
+    "modal": {
+        "mail": "Email Adress",
+        "password": "Password",
+        "forgotPw": "Forgot your Password ?",
+        "firstName": "First Name",
+        "pseudo": "Pseudo",
+        "confirmPw": "Confirm Password",
+        "validEmail": "Please enter a valid email address.",
+        "validPw": "Password must contain at least 6 characters, including at least one uppercase letter.",
+        "validName": "First Name must contain at least 3 characters.",
+        "validPseudo": "Pseudo must contain at least 3 characters.",
+        "validConfirm": "Password must be same as entered.",
+        "createAcc": "Create an account"
     }
 }

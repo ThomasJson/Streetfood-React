@@ -62,7 +62,7 @@ const SignUpModalTab = () => {
 
                     <div className="mt-2 w-49">
                         <label htmlFor="firstName-input" className="text-gray-500">
-                            First Name <span className="text-red-400">*</span>
+                            {t('modal.firstName')} <span className="text-red-400">*</span>
                         </label>
                         <input
                             id="firstName-input"
@@ -74,13 +74,15 @@ const SignUpModalTab = () => {
                             {...register("firstName", { required: true, minLength: 3 })}
                         />
                         {errors.firstName && (
-                            <p className="text-red-400">First Name is required.</p>
+                            <p className="text-red-400 text-sm">
+                                {t('modal.validName')}
+                            </p>
                         )}
                     </div>
 
                     <div className="mt-2 w-49">
                         <label htmlFor="pseudo-input" className="text-gray-500">
-                            Pseudo <span className="text-red-400">*</span>
+                            {t('modal.pseudo')} <span className="text-red-400">*</span>
                         </label>
                         <input
                             id="pseudo-input"
@@ -92,7 +94,9 @@ const SignUpModalTab = () => {
                             {...register("pseudo", { required: true, minLength: 3 })}
                         />
                         {errors.pseudo && (
-                            <p className="text-red-400">Pseudo is required.</p>
+                            <p className="text-red-400 text-sm">
+                                {t('modal.validPseudo')}
+                            </p>
                         )}
                     </div>
 
@@ -100,7 +104,7 @@ const SignUpModalTab = () => {
 
                 <div className="mt-2 w-full">
                     <label htmlFor="mailAdress-input" className="text-gray-500">
-                        Email Adress <span className="text-red-400">*</span>
+                        {t('modal.mail')} <span className="text-red-400">*</span>
                     </label>
                     <input
                         id="mailAdress-input"
@@ -115,14 +119,16 @@ const SignUpModalTab = () => {
                         })}
                     />
                     {errors.mail && (
-                        <p className="text-red-400">Valid email adress is required.</p>
+                        <p className="text-red-400 text-sm">
+                            {t('modal.validEmail')}
+                        </p>
                     )}
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row lg:justify-between">
                     <div className="mt-2 w-49">
                         <label htmlFor="password-input" className="text-gray-500">
-                            Password <span className="text-red-400">*</span>
+                            {t('modal.password')} <span className="text-red-400">*</span>
                         </label>
                         <input
                             id="password-input"
@@ -137,13 +143,15 @@ const SignUpModalTab = () => {
                             })}
                         />
                         {errors.password && (
-                            <p className="text-red-400">Password is required.</p>
+                            <p className="text-red-400 text-sm">
+                                {t('modal.validPw')}
+                            </p>
                         )}
                     </div>
 
                     <div className="mt-2 w-49">
                         <label htmlFor="confirm-input" className="text-gray-500">
-                            Confirm Password <span className="text-red-400">*</span>
+                            {t('modal.confirmPw')} <span className="text-red-400">*</span>
                         </label>
                         <input
                             id="confirm-input"
@@ -157,11 +165,11 @@ const SignUpModalTab = () => {
                                 validate: validPw,
                             })}
                         />
-                        <i className={"text-danger d-block"}>
-                            {errors.confirm
-                                ? "* must be the same as entered password"
-                                : " "}
-                        </i>
+                        {errors.confirm && (
+                            <p className="text-red-400 text-sm">
+                                {t('modal.validConfirm')}
+                            </p>
+                        )}
                     </div>
 
                 </div>
@@ -172,7 +180,9 @@ const SignUpModalTab = () => {
                 >
                     <div className="flex flex-row items-center">
                         <FiUserPlus className="text-2xl text-white" />
-                        <span className="ml-1 text-white">Create an account</span>
+                        <span className="ml-1 text-white">
+                            {t('modal.createAcc')}
+                        </span>
                     </div>
                 </button>
 

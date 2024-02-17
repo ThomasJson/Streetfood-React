@@ -104,7 +104,7 @@ const LogInModalTab = ({ setShow }) => {
             >
                 <div className="w-full mt-1">
                     <label htmlFor="email-input" className={`${theme.text}`}>
-                        Email Adress
+                        {t('modal.mail')}
                     </label>
                     <input
                         id="email-input"
@@ -117,14 +117,14 @@ const LogInModalTab = ({ setShow }) => {
                 </div>
 
                 {!valid.email && (
-                    <p className="text-red-400">
-                        Please enter a valid email address.
+                    <p className="text-red-400 text-sm">
+                        {t('modal.validEmail')}
                     </p>
                 )}
 
                 <div className="mt-4 w-full">
                     <label htmlFor="password-input" className={`${theme.text}`}>
-                        Password
+                        {t('modal.password')}
                     </label>
                     <input
                         id="password-input"
@@ -136,16 +136,15 @@ const LogInModalTab = ({ setShow }) => {
                 </div>
 
                 {!valid.password && (
-                    <p className="text-red-400">
-                        The password must contain at least 6 characters, including
-                        at least one uppercase letter.
+                    <p className="text-red-400 text-sm">
+                        {t('modal.validPw')}
                     </p>
                 )}
 
-                <p className="text-red-400">{errorMessage}</p>
+                <p className="text-red-400 text-sm italic">{errorMessage}</p>
 
                 <div className={`text-center mt-2 mb-3 ${theme.text}`}>
-                    Forgot your Password ?
+                    {t('modal.forgotPw')}
                 </div>
 
                 <button
@@ -155,7 +154,9 @@ const LogInModalTab = ({ setShow }) => {
                 >
                     <div className="flex flex-row items-center">
                         <BiLogInCircle className="text-2xl text-white" />
-                        <span className="ml-1 text-white">Sign in</span>
+                        <span className="ml-1 text-white">
+                            {t('generic.login')}
+                        </span>
                     </div>
                 </button>
 
