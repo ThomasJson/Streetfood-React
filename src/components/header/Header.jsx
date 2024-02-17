@@ -12,7 +12,7 @@ import LoginModal from "../loginModal/LoginModal";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 import ContextSettings from "../contextSettings/ContextSettings";
 
-const Header = () => {
+const Header = ({ setShowModal }) => {
 
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
@@ -73,6 +73,13 @@ const Header = () => {
             <div className="w-8/12 px-2">
               <ContextSettings />
             </div>
+
+            <button
+              onClick={() => setShowModal(true)}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Se connecter / S'inscrire
+            </button>
 
           </div>
 
