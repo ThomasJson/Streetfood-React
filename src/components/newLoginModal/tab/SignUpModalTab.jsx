@@ -1,9 +1,13 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { useForm } from "react-hook-form";
 import { FiUserPlus } from "react-icons/fi";
+import { ThemeContext } from '../../../contexts/ThemeContext';
 
 const SignUpModalTab = () => {
+
+    const { t } = useTranslation();
+    const { theme } = useContext(ThemeContext);
 
     const {
         register,
@@ -49,7 +53,7 @@ const SignUpModalTab = () => {
     return (
         <>
             <form
-                className="p-3 flex flex-col w-full"
+                className={`p-3 flex flex-col w-full rounded-lg ${theme.bgSecondary}`}
                 onSubmit={handleSubmit(formSubmit, formInvalid)}
                 noValidate
             >

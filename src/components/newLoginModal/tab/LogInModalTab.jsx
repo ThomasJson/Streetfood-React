@@ -96,14 +96,14 @@ const LogInModalTab = ({ setShow }) => {
     }
 
     return (
-        <div className="p-3 mx-2 bg-gray-50">
+        <div className={`p-3 rounded-lg ${theme.bgSecondary}`}>
             <form
                 className="w-full flex flex-col"
                 onSubmit={handleSubmit}
                 noValidate
             >
                 <div className="w-full mt-1">
-                    <label htmlFor="email-input" className="text-gray-500">
+                    <label htmlFor="email-input" className={`${theme.text}`}>
                         Email Adress
                     </label>
                     <input
@@ -123,7 +123,7 @@ const LogInModalTab = ({ setShow }) => {
                 )}
 
                 <div className="mt-4 w-full">
-                    <label htmlFor="password-input" className=" text-gray-500">
+                    <label htmlFor="password-input" className={`${theme.text}`}>
                         Password
                     </label>
                     <input
@@ -144,7 +144,7 @@ const LogInModalTab = ({ setShow }) => {
 
                 <p className="text-red-400">{errorMessage}</p>
 
-                <div className="text-center mt-2 mb-3">
+                <div className={`text-center mt-2 mb-3 ${theme.text}`}>
                     Forgot your Password ?
                 </div>
 

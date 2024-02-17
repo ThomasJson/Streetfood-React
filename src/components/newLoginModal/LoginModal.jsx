@@ -4,6 +4,8 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import SignUpModalTab from './tab/SignUpModalTab';
 import LogInModalTab from './tab/LogInModalTab';
+import { BiLogInCircle } from "react-icons/bi";
+import { FiUserPlus } from "react-icons/fi";
 
 const LoginModal = ({ show, setShow }) => {
 
@@ -14,33 +16,38 @@ const LoginModal = ({ show, setShow }) => {
 
   return (
 
-    <Dialog open={show} onClose={closeModal} className={`fixed z-10 inset-0 overflow-y-auto ${theme.modal}`}>
+    <Dialog open={show} onClose={closeModal} className={`fixed z-10 inset-0 overflow-y-auto`}>
       <div className="flex items-center justify-center min-h-screen">
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
 
-        <div className="relative bg-white dark:bg-gray-800 p-6 rounded-lg max-w-lg mx-auto">
+        <div className={`relative p-4 rounded-lg max-w-lg mx-auto ${theme.bgPrimary}`}>
           
           <Tab.Group>
-            <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+
+            <Tab.List className={`flex space-x-1 rounded-lg p-2 mb-4 ${theme.bgSecondary}`}>
               <Tab as={React.Fragment}>
                 {({ selected }) => (
                   <button
-                    className={`w-full rounded-lg py-2.5 text-sm font-medium leading-5 ${selected ? 'bg-white dark:bg-gray-700 shadow' : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'}`}
+                    className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 text-sm font-medium leading-5 ${selected ? `${theme.bgPrimary} ${theme.text}` : `${theme.bgHover} ${theme.text}`}`}
                   >
+                    <BiLogInCircle className={`text-2xl ${theme.text}`} />
                     {t('generic.login')}
                   </button>
                 )}
               </Tab>
+
               <Tab as={React.Fragment}>
                 {({ selected }) => (
                   <button
-                    className={`w-full rounded-lg py-2.5 text-sm font-medium leading-5 ${selected ? 'bg-white dark:bg-gray-700 shadow' : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'}`}
+                    className={`flex flex-row justify-center gap-1 w-full rounded-lg py-2.5 text-sm font-medium leading-5 ${selected ? `${theme.bgPrimary} ${theme.text}` : `${theme.bgHover} ${theme.text}`}`}
                   >
+                    <FiUserPlus className={`text-2xl ${theme.text}`} />
                     {t('generic.signup')}
                   </button>
                 )}
               </Tab>
             </Tab.List>
+
             <Tab.Panels className="mt-2">
               <Tab.Panel>
                 <LogInModalTab setShow={setShow} />
@@ -49,7 +56,9 @@ const LoginModal = ({ show, setShow }) => {
                 <SignUpModalTab setShow={setShow} />
               </Tab.Panel>
             </Tab.Panels>
+
           </Tab.Group>
+
         </div>
       </div>
     </Dialog>
