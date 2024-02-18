@@ -1,9 +1,9 @@
 {
     "name": "dark",
     "tName": "theme.dark",
-    "bgPrimary": "bg-zinc-800",
-    "bgSecondary": "bg-zinc-700",
-    "bgTertiary": "bg-zinc-600",
+    "bgPrimary": "bg-stone-900",
+    "bgSecondary": "bg-stone-800",
+    "bgTertiary": "bg-stone-700",
     "bgHover": "hover:bg-gray-200",
     "text": "text-white",
     "label": "text-gray-300",

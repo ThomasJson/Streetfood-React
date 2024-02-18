@@ -98,7 +98,7 @@ const LogInModalTab = ({ setShow }) => {
     // theme.text = text-gray-300 / text-gray-700
 
     return (
-        <div className={`p-3 rounded-lg ${theme.bgSecondary}`}>
+        <div className={`p-3 rounded-lg ${theme.bgTertiary}`}>
             <form
                 className="w-full flex flex-col"
                 onSubmit={handleSubmit}
@@ -113,7 +113,7 @@ const LogInModalTab = ({ setShow }) => {
                         type="email"
                         name="mail"
                         autoComplete="off"
-                        className="border border-gray-300 w-full p-2 focus:outline-none"
+                        className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
                         placeholder="exemple@gmail.com"
                     />
                 </div>
@@ -132,7 +132,7 @@ const LogInModalTab = ({ setShow }) => {
                         id="password-input"
                         type="password"
                         name="password"
-                        className="border border-gray-300 w-full p-2 focus:outline-none"
+                        className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
                         placeholder="••••••"
                     />
                 </div>

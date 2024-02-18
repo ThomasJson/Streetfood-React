@@ -53,7 +53,7 @@ const SignUpModalTab = () => {
     return (
         <>
             <form
-                className={`p-3 flex flex-col w-full rounded-lg ${theme.bgSecondary}`}
+                className={`p-3 flex flex-col w-full rounded-lg ${theme.bgTertiary}`}
                 onSubmit={handleSubmit(formSubmit, formInvalid)}
                 noValidate
             >
@@ -66,7 +66,7 @@ const SignUpModalTab = () => {
                         </label>
                         <input
                             id="firstName-input"
-                            className="border border-gray-300 w-full p-2 focus:outline-none text-gray-600"
+                            className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
                             type="text"
                             placeholder="John"
                             name="firstName"
@@ -86,7 +86,7 @@ const SignUpModalTab = () => {
                         </label>
                         <input
                             id="pseudo-input"
-                            className="border border-gray-300 w-full p-2 focus:outline-none text-gray-600"
+                            className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
                             type="text"
                             placeholder="Rocket78"
                             name="pseudo"
@@ -108,7 +108,7 @@ const SignUpModalTab = () => {
                     </label>
                     <input
                         id="mailAdress-input"
-                        className="border border-gray-300 w-full p-2 focus:outline-none text-gray-600"
+                        className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
                         type="email"
                         placeholder="exemple@gmail.com"
                         name="mail"
@@ -132,7 +132,7 @@ const SignUpModalTab = () => {
                         </label>
                         <input
                             id="password-input"
-                            className="border border-gray-300 w-full p-2 focus:outline-none text-gray-600"
+                            className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
                             type="text"
                             placeholder="••••••"
                             name="password"
@@ -155,7 +155,7 @@ const SignUpModalTab = () => {
                         </label>
                         <input
                             id="confirm-input"
-                            className="border border-gray-300 w-full p-2 focus:outline-none text-gray-600"
+                            className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
                             type="text"
                             placeholder="••••••"
                             autoComplete="off"

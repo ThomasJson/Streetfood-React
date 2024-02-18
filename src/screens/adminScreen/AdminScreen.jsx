@@ -152,7 +152,7 @@ const AdminScreen = () => {
               className={`block mb-1 ${theme.label}`}
               htmlFor="alt"
             >
-              Image alt text :
+              Alt text :
             </label>
             <input
               className={`shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline ${theme.bgSecondary}`}

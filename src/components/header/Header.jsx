@@ -53,7 +53,7 @@ const Header = ({ setShowModal }) => {
     }
   }, [auth]);
 
-  // bg-zinc-800
+  // bg-stone-900 / bg-stone-800 / bg-stone-700
 
   return (
     <>

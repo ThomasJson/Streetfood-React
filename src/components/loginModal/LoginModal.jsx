@@ -24,7 +24,7 @@ const LoginModal = ({ show, setShow }) => {
           
           <Tab.Group>
 
-            <Tab.List className={`flex space-x-1 rounded-lg p-2 mb-4 ${theme.bgSecondary}`}>
+            <Tab.List className={`flex space-x-1 rounded-lg p-2 mb-4 ${theme.bgTertiary}`}>
               <Tab as={React.Fragment}>
                 {({ selected }) => (
                   <button
