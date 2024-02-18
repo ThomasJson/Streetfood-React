@@ -9,6 +9,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { getCookie } from "../../helpers/cookieHelper";
 
 import ShoppingCart from "../shoppingCart/ShoppingCart";
+import CategoryNav from "../../components/categoryNav/CategoryNav";
 import ContextSettings from "../contextSettings/ContextSettings";
 
 const Header = ({ setShowModal }) => {
@@ -56,7 +57,8 @@ const Header = ({ setShowModal }) => {
 
   return (
     <>
-      <div className="flex h-8vh w-full flex-col">
+      <div className="h-header-mobile fixed top-0 left-0 z-50 w-full flex flex-col sm:h-header-desktop">
+
         <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
 
           <div className="flex flex-row items-center w-full justify-between sm:w-6/12 sm:justify-start">
@@ -118,6 +120,9 @@ const Header = ({ setShowModal }) => {
 
           </div>
         </div>
+
+        <CategoryNav />
+
       </div>
     </>
   );

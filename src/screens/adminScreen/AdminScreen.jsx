@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const AdminScreen = () => {
-  
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [src, setSrc] = useState("");
@@ -21,11 +21,11 @@ const AdminScreen = () => {
 
         const response = await fetch(url);
         const result = await response.json();
-        
+
         if (Array.isArray(result)) {
           setCategories(result);
-        } 
-        
+        }
+
         else {
           console.error("The API response data is not an array :", result);
           setCategories([]);
@@ -84,9 +84,9 @@ const AdminScreen = () => {
 
   return (
     <>
-      <div className="bg-gray-50 min-h-84vh">
+      <div>
         <form
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="shadow-md rounded p-4 m-4"
           onSubmit={async (e) => {
             e.preventDefault();
             await submitForm();

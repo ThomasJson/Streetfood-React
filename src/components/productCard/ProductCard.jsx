@@ -10,7 +10,7 @@ const ProductCard = ({ title, content, src, price, isBestOffer, isBestSale, stoc
 
   return (
     <>
-      <div className="flex justify-center mb-4 md:w-4/12">
+      <div className="flex justify-center mb-4 sm:w-4/12">
         <div className={`flex flex-col rounded-lg shadow-lg p-2 gap-2 md:flex-row md:w-11/12 ${theme.text} ${theme.bgPrimary}`} >
 
           <div className="relative">

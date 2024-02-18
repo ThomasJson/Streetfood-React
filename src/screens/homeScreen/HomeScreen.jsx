@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import CategoryNav from "../../components/categoryNav/CategoryNav";
 import { ThemeContext } from '../../contexts/ThemeContext';
 
 const HomeScreen = () => {
@@ -15,8 +14,6 @@ const HomeScreen = () => {
 
     <>
       <div className={`min-h-84vh ${theme.bgTertiary}`}>
-
-        <CategoryNav />
 
         {/* <div className="flex flex-col items-center">
 

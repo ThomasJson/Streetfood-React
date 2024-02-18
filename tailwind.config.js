@@ -7,11 +7,14 @@ module.exports = {
         "49": "49%"
       },
       height: {
-        "8vh": "67px",
-        "84vh": "calc(100vh - 134px)"
+        "header-desktop": "100px",
+        "header-mobile": "67px",
+        "main-desktop": "calc(100vh - 167px)",
+        "main-mobile": "calc(100vh - 134px)"
       },
-      minHeight: {
-        "84vh": "calc(100vh - 134px)"
+      spacing: {
+        "main-desktop": "100px",
+        "main-mobile": "67px"
       },
       fontFamily:{
         "Raleway": ["Raleway-Light", "sans-serif"],

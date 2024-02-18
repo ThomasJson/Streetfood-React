@@ -19,7 +19,8 @@ const Footer = ({setShowModal}) => {
 
   return (
     <>
-      <div className={`h-8vh ${theme.bgPrimary}`}>
+      <div className={`h-header-mobile w-full fixed bottom-0 left-0 ${theme.bgPrimary}`}>
+        
         <div className="h-full sm:hidden flex flex-row justify-around items-center">
           
           {auth.role < 1 && (
@@ -72,6 +73,7 @@ const Footer = ({setShowModal}) => {
         <div className={`h-full hidden sm:flex justify-center items-center font-Rubik ${theme.text}`}>
           © 1994-2023, StreetFood.com, Inc. {t('generic.footer-text')}
         </div>
+
       </div>
     </>
   );

@@ -5,30 +5,32 @@ import { NavLink } from 'react-router-dom';
 
 const AccountScreen = () => {
 
-    const { auth, setAuth } = useContext(AuthContext);
-    return (
-        <div className="bg-gray-50 min-h-84vh">
+  const { auth, setAuth } = useContext(AuthContext);
 
-            {auth.role === 4 && (
-              <NavLink to="/admin">
-                Admin
-              </NavLink>
-            )}
+  return (
+    <>
 
-            {auth.role > 0 && (
-              <button
-                className=""
-                onClick={(e) => {
-                  setAuth({ role: 0, id: "0" });
-                  deleteCookie("StreetF");
-                  window.location.href = "/";
-                }}
-              >
-                Déconnexion
-              </button>
-            )}
-        </div>
-    );
+      {auth.role === 4 && (
+        <NavLink to="/admin">
+          Admin
+        </NavLink>
+      )}
+
+      {auth.role > 0 && (
+        <button
+          className=""
+          onClick={(e) => {
+            setAuth({ role: 0, id: "0" });
+            deleteCookie("StreetF");
+            window.location.href = "/";
+          }}
+        >
+          Déconnexion
+        </button>
+      )}
+      
+    </>
+  );
 };
 
 export default AccountScreen;
