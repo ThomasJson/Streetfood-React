@@ -6,10 +6,7 @@ export const ThemeContext = React.createContext();
 const ThemeContextProvider = (props) => {
     
   const [themes, setThemes] = useState({});
-  const [theme, setTheme] = useState({});
-  
-  if(!localStorage.hasOwnProperty('usedTheme'))
-    localStorage.setItem('usedTheme', 'dark');
+  const [theme, setTheme] = useState({ name: 'light' });
   
   const changeThemeTo = (themeName) => {
     if(!themes[themeName] || themeName === theme.name)
@@ -20,24 +17,39 @@ const ThemeContextProvider = (props) => {
   }
 
   useEffect(() => {
-    axios.get('/assets/themes/themes.json').then((res) => {
-      for(const t in res.data){
-        axios.get(`/assets/themes/${t}.json`).then(({data}) => {
-          setThemes(previousValue => {
-            previousValue[t] = data;
-            return previousValue;
-          });
-        }).then(() => {
-          const thm = themes[localStorage.getItem('usedTheme') ?? 'light'];
-          
-          if(thm)
-            setTheme(thm)
-        });
+    const loadThemes = async () => {
+      try {
+        const themesResponse = await axios.get('/assets/themes/themes.json');
+        const themePromises = Object.keys(themesResponse.data).map(t => 
+          axios.get(`/assets/themes/${t}.json`).then(({ data }) => ({ [t]: data }))
+        );
+
+        const themeObjects = await Promise.all(themePromises);
+        const allThemes = themeObjects.reduce((acc, curr) => ({ ...acc, ...curr }), {});
+        setThemes(allThemes);
+        
+        setInitialTheme(allThemes);
+      } catch (error) {
+        console.error('Error loading themes:', error);
       }
-    });
-  }, [themes])
-  
-  return (<ThemeContext.Provider value={{theme, changeThemeTo}}>{props.children}</ThemeContext.Provider>)
+    };
+
+    loadThemes();
+  }, []);
+
+  const setInitialTheme = (loadedThemes) => {
+    const usedThemeName = localStorage.getItem('usedTheme') ?? 'light';
+    const initialTheme = loadedThemes[usedThemeName];
+    if (initialTheme) {
+      setTheme(initialTheme);
+    }
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, changeThemeTo }}>
+      {props.children}
+    </ThemeContext.Provider>
+  );
 }
 
 export default ThemeContextProvider;

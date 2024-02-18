@@ -98,7 +98,7 @@ const Header = ({ setShowModal }) => {
 
               <NavLink
                 to="/account"
-                className="py-1 px-2 rounded mr-2"
+                className="py-1 px-2 rounded"
               >
                 <div className="button-custom font-Raleway">
                   <div className="flex flex-row items-center">

@@ -2,6 +2,7 @@
     "generic": {
         "brand": "StreetFood.com",
         "login": "Log In",
+        "logOut": "Log Out",
         "signup": "Sign Up",
         "cart": "Cart",
         "footer-text": "or its affiliates"
@@ -28,5 +29,9 @@
         "inStock": "In stock",
         "lowStock": "Low stock",
         "outStock": "Out of stock"
+    },
+
+    "account": {
+        "admin": "Admin"
     }
 }

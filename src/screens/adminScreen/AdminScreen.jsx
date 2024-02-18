@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const AdminScreen = () => {
 
@@ -7,6 +8,7 @@ const AdminScreen = () => {
   const [src, setSrc] = useState("");
   const [alt, setAlt] = useState("");
   const [categoryId, setCategoryId] = useState("");
+  const { theme } = useContext(ThemeContext);
 
   const [categories, setCategories] = useState([]);
 
@@ -84,9 +86,12 @@ const AdminScreen = () => {
 
   return (
     <>
-      <div>
+      <div className={`flex flex-col lg:w-1/3 p-4 m-4 shadow-md rounded ${theme.bgPrimary} ${theme.text}`}>
+
+        <h2 className={`text-2xl mb-4`}>Add new Product</h2>
+
         <form
-          className="shadow-md rounded p-4 m-4"
+          className="flex flex-col gap-2"
           onSubmit={async (e) => {
             e.preventDefault();
             await submitForm();
@@ -97,80 +102,81 @@ const AdminScreen = () => {
             setCategoryId("");
           }}
         >
-          <div className="mb-4">
+          <div>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className={`block mb-1 ${theme.label}`}
               htmlFor="title"
             >
-              Titre:
+              Title :
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className={`shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline ${theme.bgSecondary}`}
               id="title"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className={`block mb-1 ${theme.label}`}
               htmlFor="content"
             >
-              Contenu:
+              Content :
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className={`shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline ${theme.bgSecondary}`}
               id="content"
               type="text"
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className={`block mb-1 ${theme.label}`}
               htmlFor="src"
             >
-              Chemin image:
+              File Name :
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className={`shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline ${theme.bgSecondary}`}
               id="src"
               type="text"
               value={src}
               onChange={(e) => setSrc(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className={`block mb-1 ${theme.label}`}
               htmlFor="alt"
             >
-              Texte alternatif de l'image :
+              Image alt text :
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className={`shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline ${theme.bgSecondary}`}
               id="alt"
               type="text"
               value={alt}
               onChange={(e) => setAlt(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className={`block mb-1 ${theme.label}`}
               htmlFor="category"
             >
-              Catégorie:
+              Category :
             </label>
+
             <select
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className={`shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline ${theme.bgSecondary}`}
               id="category"
               value={categoryId}
               onChange={(e) => setCategoryId(e.target.value)}
             >
-              <option value="">Sélectionner une catégorie</option>
+              <option value="">Select one Category</option>
               {categories.map((cat) => (
 
                 <option key={cat.id} value={cat.id}>
@@ -179,13 +185,14 @@ const AdminScreen = () => {
 
               ))}
             </select>
+
           </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-end mt-4">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Ajouter
+              Add
             </button>
           </div>
         </form>

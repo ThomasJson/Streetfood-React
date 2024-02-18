@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../../components/productCard/ProductCard";
-import { ThemeContext } from '../../contexts/ThemeContext';
 
 const SingleCategoryScreen = () => {
 
-  const { theme } = useContext(ThemeContext);
   const { id } = useParams();
   const [products, setProducts] = useState([]);
 
