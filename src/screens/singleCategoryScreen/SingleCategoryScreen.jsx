@@ -31,7 +31,7 @@ const SingleCategoryScreen = () => {
     <>
       <div className="flex flex-col items-center p-4">
 
-        <div className="h-full flex flex-col w-11/12 sm:w-full sm:flex-row flex-wrap">
+        <div className="h-full w-full flex flex-col flex-wrap gap-4 sm:flex-row ">
 
           {products &&
             products?.map((product) => {
