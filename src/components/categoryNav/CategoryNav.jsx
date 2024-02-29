@@ -8,6 +8,7 @@ const CategoryNav = () => {
   const navigate = useNavigate();
   
   const { theme } = useContext(ThemeContext);
+  const userLang = localStorage.getItem('i18nextLng');
 
   const { data } = useFetch("/category", {
     method: "GET",
@@ -28,7 +29,11 @@ const CategoryNav = () => {
                 }}
                 className={`${theme.text}`}
               >
-                <button>{category.title}</button>
+                {
+                  userLang === "en" ?
+                  (<button>{category.title}</button>) :
+                  (<button>{category.title_Th}</button>)
+                }
               </div>
             );
           })}

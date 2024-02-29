@@ -3,14 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { FiPlus } from "react-icons/fi";
 
-const ProductCard = ({ title, content, src, alt, price, isBestOffer, isBestSale, stock}) => {
+const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, isBestOffer, isBestSale, stock}) => {
   
   const { theme } = useContext(ThemeContext);
+  const userLang = localStorage.getItem('i18nextLng');
   const { t } = useTranslation();
 
   return (
     <>
-      <div className={`flex flex-col w-full rounded-lg shadow-lg p-2 gap-2 lg:flex-row sm:w-card-mobile lg:w-card-desktop ${theme.text} ${theme.bgPrimary}`} >
+      <div className={`flex flex-col w-full rounded-lg shadow-lg p-2 gap-2 sm:w-card-mobile lg:flex-row lg:h-40 lg:w-card-desktop ${theme.text} ${theme.bgPrimary}`} >
 
         <div className="relative">
           
@@ -36,11 +37,19 @@ const ProductCard = ({ title, content, src, alt, price, isBestOffer, isBestSale,
         <div className="flex flex-col w-full justify-start pl-1">
 
           <h5 className="mb-2 text-xl font-medium">
-            {title}
+            {
+              userLang === "en" ?
+              (<span>{title}</span>) :
+              (<span>{title_Th}</span>)
+            }
           </h5>
 
-          <p className="text-base italic">
-            {content}
+          <p className="text-base">
+          {
+              userLang === "en" ?
+              (<span>{content}</span>) :
+              (<span>{content_Th}</span>)
+            }
           </p>
           
           {stock === 0 ? (

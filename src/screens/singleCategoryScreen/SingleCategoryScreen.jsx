@@ -9,7 +9,7 @@ const SingleCategoryScreen = () => {
 
   const fetchProducts = () => {
     const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
-    const url = `${baseUrl}/category/${id}/products?withImages=true`;
+    const url = `${baseUrl}/category/${id}/products`;
 
     fetch(url)
       .then((resp) => resp.json())
@@ -27,7 +27,7 @@ const SingleCategoryScreen = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center p-4">
+      <div className="flex flex-col items-center p-4 lg:justify-center lg:h-full ">
 
         <div className="h-full w-full flex flex-col flex-wrap gap-4 sm:flex-row ">
 
@@ -39,6 +39,8 @@ const SingleCategoryScreen = () => {
                   key={product.id}
                   title={product.title}
                   content={product.content}
+                  title_Th={product.title_Th}
+                  content_Th={product.content_Th}
                   price={product.price}
                   stock={product.stock}
                   isBestOffer={product.bestOffer}
