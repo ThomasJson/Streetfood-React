@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { FiPlus } from "react-icons/fi";
 
-const ProductCard = ({ title, content, src, price, isBestOffer, isBestSale, stock }) => {
+const ProductCard = ({ title, content, src, alt, price, isBestOffer, isBestSale, stock}) => {
   
   const { theme } = useContext(ThemeContext);
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ const ProductCard = ({ title, content, src, price, isBestOffer, isBestSale, stoc
           <img
             className="h-full w-full rounded-tl-lg object-fit sm:h-48 lg:h-36 lg:w-60 md:rounded-none md:rounded-l-lg"
             src={src}
-            alt=""
+            alt={alt}
           />
 
           {isBestOffer && (

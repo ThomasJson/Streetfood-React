@@ -31,7 +31,7 @@ const ContextSettings = () => {
             <div className='flex flex-row items-center gap-1'>
                 <IoSunnyOutline className={`${theme.text}`}/>
                 <label className="switch">
-                    <input type="checkbox" checked={changeTheme} onChange={() => handleChangeTheme} />
+                    <input type="checkbox" checked={changeTheme} onChange={handleChangeTheme} />
                     <span className="slider round"></span>
                 </label>
                 <IoMoonOutline className={`${theme.text}`}/>

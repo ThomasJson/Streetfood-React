@@ -35,7 +35,6 @@ const SingleCategoryScreen = () => {
             products?.map((product) => {
 
               return (
-
                 <ProductCard
                   key={product.id}
                   title={product.title}
@@ -44,7 +43,8 @@ const SingleCategoryScreen = () => {
                   stock={product.stock}
                   isBestOffer={product.bestOffer}
                   isBestSale={product.bestSale}
-                  src={product?.images[0]?.src}
+                  src={product?.image?.src}
+                  alt={product?.image?.alt}
                 />
 
               );

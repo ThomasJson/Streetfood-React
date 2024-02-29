@@ -14,6 +14,7 @@ const useFetch = (endpoint, options = {}) => {
     const fetchData = async () => {
 
       const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
+      console.log(baseUrl);
       const url = `${baseUrl}${endpoint}`;
 
       options.credentials = "include";
