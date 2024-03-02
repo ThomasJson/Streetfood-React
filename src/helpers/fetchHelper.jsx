@@ -6,6 +6,7 @@ const doFetch = async (endpoint, options = {}) => {
   options.credentials = "include";
   options.headers = {
     Authorization: getCookie("StreetF"),
+    'Content-Type': 'application/json',
   };
 
   const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;

@@ -10,7 +10,6 @@ const SingleCategoryScreen = () => {
   const fetchProducts = () => {
     const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
     const url = `${baseUrl}/category/${id}/products`;
-
     fetch(url)
       .then((resp) => resp.json())
       .then((json) => {
