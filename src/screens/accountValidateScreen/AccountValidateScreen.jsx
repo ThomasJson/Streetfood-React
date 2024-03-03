@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { FiUserPlus } from "react-icons/fi";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate, useParams } from "react-router-dom";
-import doFetch from "../../helpers/fetchHelper";
+import { FaUnlock } from "react-icons/fa";
 
 const AccountValidateScreen = () => {
 
@@ -13,11 +13,13 @@ const AccountValidateScreen = () => {
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const { token } = useParams();
-  const [tmpAcc, setTmpAcc] = useState();
+  const [createUserToken, setCreateUserToken] = useState();
+  const [msg, setMsg] = useState(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+
     const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
     const url = `${baseUrl}/auth/validate`;
 
@@ -32,13 +34,24 @@ const AccountValidateScreen = () => {
       .then((json) => {
 
         console.log(json)
-        setTmpAcc(json);
+        setCreateUserToken(json);
 
       });
 
   }, []);
 
-  console.log(tmpAcc)
+  useEffect(() => {
+
+    if (msg === "Account created.") {
+
+      const timer = setTimeout(() => {
+        navigate("/");
+      }, 5000);
+  
+      return () => clearTimeout(timer);
+    }
+
+  }, [msg, navigate]);
 
   const {
     register,
@@ -50,26 +63,34 @@ const AccountValidateScreen = () => {
 
   const formSubmit = async (formData) => {
 
-    Object.assign(formData, tmpAcc);
+    const payload = Object.assign({}, formData, createUserToken);
 
-    const { data: created } = await doFetch("/auth/create", {
+    const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
+    const url = `${baseUrl}/auth/create`;
+
+    fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData),
-    });
+      body: JSON.stringify(payload),
+    })
+      .then((resp) => resp.json())
+      .then((json) => {
+        console.log(json)
+        
+        if(json.result){
+          setMsg(json.message);
+        }
 
-    if (created?.result) {
-      navigate("/");
-    }
+      });
 
   };
 
   const validPw = () => {
 
     return (
-      document.getElementById("pass-input").value ===
+      document.getElementById("password-input").value ===
       document.getElementById("confirm-input").value
     );
 
@@ -86,17 +107,26 @@ const AccountValidateScreen = () => {
   return (
     <>
 
-      {tmpAcc != null && (
+      {createUserToken != null && (
 
         <div className='flex flex-col w-full h-full justify-center items-center'>
 
           <div className={`relative p-4 rounded-lg w-11/12 sm:max-w-2xl mx-auto ${theme.bgPrimary}`}>
 
             <div className={`flex rounded-lg p-2 mb-4 ${theme.bgTertiary}`}>
-              <h3 className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 font-Rubik text-xl leading-5 ${theme.bgPrimary} ${theme.text}`}>
-                <RiLockPasswordFill />
-                {t('modal.password')}
-              </h3>
+              {msg !== null ?
+
+                <h3 className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 font-Rubik text-xl leading-5 ${theme.bgPrimary} ${theme.text}`}>
+                  <FaUnlock />
+                  <div>{msg}</div>
+                </h3>
+                :
+                <h3 className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 font-Rubik text-xl leading-5 ${theme.bgPrimary} ${theme.text}`}>
+                  <RiLockPasswordFill />
+                  {t('modal.password')}
+                </h3>
+
+              }
             </div>
 
             <form

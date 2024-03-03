@@ -5,22 +5,24 @@ import doFetch from "../helpers/fetchHelper";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  
-  const [auth, setAuth] = useState({ role: 0, id: "0" }); 
-  
+
+  const [auth, setAuth] = useState({ role: 0, id: "0" });
+
   useEffect(() => {
 
     const check = async () => {
 
-      const { data } = await doFetch("/auth/check");
+      if (auth.role > 0 && auth.id !== "0") {
+        const { data } = await doFetch("/auth/check");
 
-      if (data?.result) { 
-        setAuth({ role: +data?.roleWeight, id: data?.accountId });
-      } 
-      
-      else {
-        setAuth({ role: 0, id: "0" });
-        deleteCookie("StreetF");
+        if (data?.result) {
+          setAuth({ role: +data?.roleWeight, id: data?.accountId });
+        }
+
+        else {
+          setAuth({ role: 0, id: "0" });
+          deleteCookie("StreetF");
+        }
       }
 
     };
@@ -38,7 +40,7 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
 
   );
-  
+
 };
 
 export { AuthContext, AuthProvider };

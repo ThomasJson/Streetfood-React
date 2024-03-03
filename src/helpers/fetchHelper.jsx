@@ -4,7 +4,9 @@ import { getCookie } from "../helpers/cookieHelper";
 const doFetch = async (endpoint, options = {}) => {
 
   options.credentials = "include";
+
   options.headers = {
+    ...options.headers,
     Authorization: getCookie("StreetF"),
     'Content-Type': 'application/json',
   };

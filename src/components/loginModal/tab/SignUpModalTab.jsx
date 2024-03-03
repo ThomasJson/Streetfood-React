@@ -43,12 +43,12 @@ const SignUpModalTab = () => {
 
     };
 
-    const validPw = () => {
-        return (
-            document.getElementById("password-input").value ===
-            document.getElementById("confirm-input").value
-        );
-    };
+    // const validPw = () => {
+    //     return (
+    //         document.getElementById("password-input").value ===
+    //         document.getElementById("confirm-input").value
+    //     );
+    // };
 
     return (
         <>
@@ -125,7 +125,7 @@ const SignUpModalTab = () => {
                     )}
                 </div>
 
-                <div className="flex flex-row justify-between">
+                {/* <div className="flex flex-row justify-between">
                     <div className="mt-2 w-49">
                         <label htmlFor="password-input" className={`${theme.label}`}>
                             {t('modal.password')} <span className="text-red-400">*</span>
@@ -172,7 +172,7 @@ const SignUpModalTab = () => {
                         )}
                     </div>
 
-                </div>
+                </div> */}
 
                 <button
                     type="submit"
