@@ -14,6 +14,8 @@ const doFetch = async (endpoint, options = {}) => {
   const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
   const url = `${baseUrl}${endpoint}`;
 
+  console.log(url)
+
   let data = null, loading = true, error = null, text = null;
   
   try {
@@ -29,6 +31,11 @@ const doFetch = async (endpoint, options = {}) => {
 
   } catch (e) {
     error = e;
+    console.error("doFetch error:", e);
+
+  } finally {
+
+    loading = false;
   }
 
   return { data, loading, error, text };

@@ -13,9 +13,7 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <ThemeContextProvider>
-        <React.Suspense fallback="loading">
-          <App />
-        </React.Suspense>
+        <App />
       </ThemeContextProvider>
     </AuthProvider>
   </React.StrictMode>

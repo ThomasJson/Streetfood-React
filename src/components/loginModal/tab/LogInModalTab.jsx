@@ -11,8 +11,8 @@ const LogInModalTab = ({ setShow }) => {
     const { t } = useTranslation();
     const { theme } = useContext(ThemeContext);
     const { setAuth } = useContext(AuthContext);
-    const [ valid, setValid ] = useState({ email: true, password: true });
-    const [ errorMessage, setErrorMessage ] = useState("");
+    const [valid, setValid] = useState({ email: true, password: true });
+    const [errorMessage, setErrorMessage] = useState("");
 
     const navigate = useNavigate();
 
@@ -22,13 +22,13 @@ const LogInModalTab = ({ setShow }) => {
         const emailInput = document.getElementById("email-input");
         const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
         if (emailPattern.test(emailInput.value)) {
-        isValid.email = true;
+            isValid.email = true;
         }
 
         const passwordInput = document.getElementById("password-input");
         const passwordPattern = /^(?=.*[A-Z]).{6,}$/;
         if (passwordPattern.test(passwordInput.value)) {
-        isValid.password = true;
+            isValid.password = true;
         }
 
         setValid(isValid);
@@ -43,7 +43,7 @@ const LogInModalTab = ({ setShow }) => {
         console.log(jsonData);
 
         if (!validForm(jsonData)) {
-        return;
+            return;
         }
 
         const baseUrl = process.env.REACT_APP_AUTH_API_BASE_URL;
@@ -51,51 +51,47 @@ const LogInModalTab = ({ setShow }) => {
 
         await fetch(url, {
 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jsonData),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData),
 
         })
-        .then(response => {
+            .then(response => {
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
 
-        })
-        .then(data => {
+            })
+            .then(data => {
 
-        console.log(data)
+                if (data?.result) {
 
-        if (data?.result) {
+                    setAuth({ role: +data?.roleWeight, id: data?.accountId });
+                    setCookie("StreetF", data?.token, { "max-age": 60 * 60 * 10 });
+                    setShow(false);
+                    navigate("/");
 
-            setAuth({ role: +data?.roleWeight, id: data?.accountId });
-            setCookie("StreetF", data?.token, { "max-age": 60 * 60 * 10 });
-            setShow(false);
-            navigate("/");
+                } else {
 
-        } else {
+                    if (data?.result === false) {
+                        setErrorMessage("Incorrect email or password.");
+                    }
 
-            if (data?.result === false) {
-                setErrorMessage("Incorrect email or password.");
-            }
+                    setAuth({ role: 0, id: "0" });
+                    deleteCookie("StreetF");
+                }
 
-            setAuth({ role: 0, id: "0" });
-            deleteCookie("StreetF");
-        }
+            })
+            .catch(e => {
 
-        })
-        .catch(e => {
-
-        console.log(e);
-        });
+                // console.log(e);
+            });
 
     }
-
-    // theme.text = text-gray-300 / text-gray-700
 
     return (
         <div className={`p-3 rounded-lg ${theme.bgTertiary}`}>

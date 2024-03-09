@@ -8,6 +8,8 @@ export const getCookie = (name) => {
 
 export const setCookie = (name, value, options = {}) => {
 
+  options.path = options.path || '/';
+  
   let cookie = name + "=" + value;
   for (let optionKey in options) {
 

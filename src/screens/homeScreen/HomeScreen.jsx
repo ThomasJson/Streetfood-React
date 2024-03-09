@@ -15,7 +15,7 @@ const HomeScreen = () => {
     <>
       <div className={`min-h-84vh ${theme.bgTertiary}`}>
 
-        {/* <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
 
           <div className="w-full flex flex-col items-center my-4">
             <h1>Best Sales</h1>
@@ -53,7 +53,7 @@ const HomeScreen = () => {
 
           </div>
 
-        </div> */}
+        </div>
 
       </div>
     </>

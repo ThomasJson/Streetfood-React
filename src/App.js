@@ -3,37 +3,73 @@ import "./btn.scss";
 import "./input.scss";
 import './i18n';
 
+import React, { useContext, Suspense, useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthContext } from "./contexts/AuthContext";
+
 import BaseScreen from "./screens/baseScreen/BaseScreen";
-import HomeScreen from "./screens/homeScreen/HomeScreen";
 import ProductScreen from "./screens/productScreen/ProductScreen";
 import ContactScreen from "./screens/contactScreen/ContactScreen";
 import CartScreen from "./screens/cartScreen/CartScreen";
 import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 
-import { useContext } from "react";
-import { AuthContext } from "./contexts/AuthContext";
 import AdminScreen from "./screens/adminScreen/AdminScreen";
-import AccountScreen from "./screens/accountScreen/AccountScreen";
 import AccountValidateScreen from "./screens/accountValidateScreen/AccountValidateScreen";
-import CategoryScreen from "./screens/categoryScreen/CategoryScreen";
-import SingleCategoryScreen from "./screens/singleCategoryScreen/SingleCategoryScreen";
+import NotFoundScreen from "./screens/notFoundScreen/NotFoundScreen";
+
+import LoadingSpinner from "./components/loadingSpinner/LoadingSpinner";
+
+// import HomeScreen from "./screens/homeScreen/HomeScreen";
+// import AccountScreen from "./screens/accountScreen/AccountScreen";
+// import CategoryScreen from "./screens/categoryScreen/CategoryScreen";
+// import SingleCategoryScreen from "./screens/singleCategoryScreen/SingleCategoryScreen";
+
+const HomeScreen = React.lazy(() => import('./screens/homeScreen/HomeScreen'));
+const AccountScreen = React.lazy(() => import('./screens/accountScreen/AccountScreen'));
+const CategoryScreen = React.lazy(() => import('./screens/categoryScreen/CategoryScreen'));
+const SingleCategoryScreen = React.lazy(() => import('./screens/singleCategoryScreen/SingleCategoryScreen'));
 
 function App() {
+
   const { auth } = useContext(AuthContext);
+  const [isSpinnerVisible, setSpinnerVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+
+      setSpinnerVisible(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+
+  }, []);
 
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<BaseScreen />}>
-            
-            <Route index element={<HomeScreen />} />
-            <Route path="/product" element={<ProductScreen />} />
-            <Route path="/category" element={<CategoryScreen />} />
 
-            <Route path="/category/:id" element={<SingleCategoryScreen />} />
-            
+            <Route index element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <HomeScreen />
+              </Suspense>
+            } />
+
+            <Route path="/product" element={<ProductScreen />} />
+
+            <Route path="/category" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <CategoryScreen />
+              </Suspense>
+            } />
+
+            <Route path="/category/:id" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                {!isSpinnerVisible && <SingleCategoryScreen />}
+              </Suspense>
+            } />
+
             <Route path="/contact" element={<ContactScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
@@ -43,7 +79,11 @@ function App() {
             )}
 
             {auth.role > 0 && (
-              <Route path="/account" element={<AccountScreen />} />
+              <Route path="/account" element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <AccountScreen />
+                </Suspense>
+              } />
             )}
 
             {auth.role === 0 && (
@@ -52,6 +92,10 @@ function App() {
                 element={<AccountValidateScreen />}
               />
             )}
+
+            <Route path='*' element={
+              <NotFoundScreen />
+            } />
 
           </Route>
         </Routes>

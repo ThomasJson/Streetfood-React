@@ -37,5 +37,9 @@
 
     "account": {
         "admin": "Admin"
+    },
+
+    "error": {
+        "404": "Page not found"
     }
 }

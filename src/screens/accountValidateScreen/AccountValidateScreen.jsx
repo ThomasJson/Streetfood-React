@@ -41,6 +41,14 @@ const AccountValidateScreen = () => {
   }, []);
 
   useEffect(() => {
+    if (createUserToken && createUserToken.result === false) {
+
+      navigate('/404');
+    }
+    
+  }, [createUserToken, navigate]);
+
+  useEffect(() => {
     if (authResult !== null && authResult.result) {
       const timer = setTimeout(() => {
         navigate("/");
@@ -87,6 +95,8 @@ const AccountValidateScreen = () => {
       });
 
   };
+
+  console.log(createUserToken)
 
   const validPw = () => {
 
