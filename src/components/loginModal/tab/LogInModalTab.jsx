@@ -104,7 +104,7 @@ const LogInModalTab = ({ setShow }) => {
                 onSubmit={handleSubmit}
                 noValidate
             >
-                <div className="w-full mt-1">
+                <div className="w-full mt-2">
                     <label htmlFor="email-input" className={`${theme.label}`}>
                         {t('modal.mail')}
                     </label>
@@ -124,7 +124,7 @@ const LogInModalTab = ({ setShow }) => {
                     </p>
                 )}
 
-                <div className="mt-4 w-full">
+                <div className="mt-2 w-full">
                     <label htmlFor="password-input" className={`${theme.label}`}>
                         {t('modal.password')}
                     </label>
@@ -145,14 +145,14 @@ const LogInModalTab = ({ setShow }) => {
 
                 <p className="text-red-400 text-sm italic">{errorMessage}</p>
 
-                <div className={`text-center mt-2 mb-3 ${theme.label}`}>
+                {/* <div className={`text-center mt-2 mb-3 ${theme.label}`}>
                     {t('modal.forgotPw')}
-                </div>
+                </div> */}
 
                 <button
                     type="submit"
                     onClick={() => setErrorMessage("")}
-                    className="font-Rubik p-2 mb-1 w-full flex flex-row items-center justify-center bg-green-600 hover:bg-green-500 active:bg-green-700 rounded-lg"
+                    className="font-Rubik p-2 mb-1 mt-4 w-full flex flex-row items-center justify-center bg-green-600 hover:bg-green-500 active:bg-green-700 rounded-lg"
                 >
                     <div className="flex flex-row items-center">
                         <BiLogInCircle className="text-2xl text-white" />

@@ -3,9 +3,9 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import { useForm } from "react-hook-form";
 import { FiUserPlus } from "react-icons/fi";
-import { RiLockPasswordFill } from "react-icons/ri";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaUnlock } from "react-icons/fa";
+import { IoKey } from "react-icons/io5";
 
 const AccountValidateScreen = () => {
 
@@ -14,7 +14,8 @@ const AccountValidateScreen = () => {
   const { theme } = useContext(ThemeContext);
   const { token } = useParams();
   const [createUserToken, setCreateUserToken] = useState();
-  const [msg, setMsg] = useState(null);
+  const [authResult, setAuthResult] = useState(null);
+  const [countdown, setCountdown] = useState(10);
 
   const navigate = useNavigate();
 
@@ -33,7 +34,6 @@ const AccountValidateScreen = () => {
       .then((resp) => resp.json())
       .then((json) => {
 
-        console.log(json)
         setCreateUserToken(json);
 
       });
@@ -41,17 +41,21 @@ const AccountValidateScreen = () => {
   }, []);
 
   useEffect(() => {
-
-    if (msg === "Account created.") {
-
+    if (authResult !== null && authResult.result) {
       const timer = setTimeout(() => {
         navigate("/");
-      }, 5000);
-  
-      return () => clearTimeout(timer);
-    }
+      }, 10000);
 
-  }, [msg, navigate]);
+      const countdownTimer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1);
+      }, 1000);
+
+      return () => {
+        clearTimeout(timer);
+        clearInterval(countdownTimer);
+      };
+    }
+  }, [authResult, navigate]);
 
   const {
     register,
@@ -77,11 +81,8 @@ const AccountValidateScreen = () => {
     })
       .then((resp) => resp.json())
       .then((json) => {
-        console.log(json)
-        
-        if(json.result){
-          setMsg(json.message);
-        }
+
+        setAuthResult(json);
 
       });
 
@@ -96,37 +97,30 @@ const AccountValidateScreen = () => {
 
   };
 
-  // if (loading) {
-  //   return "Veuillez patienter ...";
-  // }
-
-  // if (!account?.result) {
-  //   return "Votre inscription n'a pas pu être validée, envoyez une nouvelle demande";
-  // }
-
   return (
     <>
 
-      {createUserToken != null && (
+      {createUserToken !== null && (
 
         <div className='flex flex-col w-full h-full justify-center items-center'>
 
-          <div className={`relative p-4 rounded-lg w-11/12 sm:max-w-2xl mx-auto ${theme.bgPrimary}`}>
+          <div className={`relative p-4 rounded-lg w-11/12 sm:max-w-lg mx-auto ${theme.bgPrimary}`}>
 
             <div className={`flex rounded-lg p-2 mb-4 ${theme.bgTertiary}`}>
-              {msg !== null ?
+              <h3 className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 font-Rubik text-xl leading-5 ${theme.bgPrimary} ${theme.text}`}>
+                
+                {authResult !== null ? (
 
-                <h3 className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 font-Rubik text-xl leading-5 ${theme.bgPrimary} ${theme.text}`}>
-                  <FaUnlock />
-                  <div>{msg}</div>
-                </h3>
-                :
-                <h3 className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 font-Rubik text-xl leading-5 ${theme.bgPrimary} ${theme.text}`}>
-                  <RiLockPasswordFill />
-                  {t('modal.password')}
-                </h3>
+                  authResult.result ?
+                    (<><FaUnlock /> <div>{authResult.message}</div></>)
+                    :
+                    (<><IoKey /> <div>{t('modal.password')}</div></>)
+                )
+                  :
+                  (<><IoKey /> <div>{t('modal.password')}</div></>)
+                }
 
-              }
+              </h3>
             </div>
 
             <form
@@ -196,6 +190,19 @@ const AccountValidateScreen = () => {
               </button>
 
             </form>
+
+            <div className="flex flex-row w-full justify-center">
+              {authResult !== null && (
+                <div className={`pt-2 ${theme.text}`}>
+                  {authResult.result ?
+                    (<div>{t('modal.createAccOk')} {countdown}</div>)
+                    :
+                    (t('modal.createAccFail'))
+                  }
+                </div>
+              )}
+            </div>
+
           </div>
 
         </div>

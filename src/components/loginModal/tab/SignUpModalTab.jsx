@@ -17,7 +17,7 @@ const SignUpModalTab = () => {
 
     const formInvalid = () => console.log("Errors", errors);
 
-    const [msg, setMsg] = useState("");
+    const [isRegister, setIsRegister] = useState(null);
 
     const formSubmit = async (formData) => {
 
@@ -33,22 +33,13 @@ const SignUpModalTab = () => {
             body: JSON.stringify(formData),
 
         }).then(data => {
-            console.log(data);
 
-            if (data.statusText === "OK") {
-                setMsg("A confirmation email has been sent.");
-            }
+            console.log(data);
+            setIsRegister(data.ok)
 
         })
 
     };
-
-    // const validPw = () => {
-    //     return (
-    //         document.getElementById("password-input").value ===
-    //         document.getElementById("confirm-input").value
-    //     );
-    // };
 
     return (
         <>
@@ -125,55 +116,6 @@ const SignUpModalTab = () => {
                     )}
                 </div>
 
-                {/* <div className="flex flex-row justify-between">
-                    <div className="mt-2 w-49">
-                        <label htmlFor="password-input" className={`${theme.label}`}>
-                            {t('modal.password')} <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                            id="password-input"
-                            className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
-                            type="text"
-                            placeholder="••••••"
-                            name="password"
-                            autoComplete="off"
-                            {...register("password", {
-                                required: true,
-                                regex: /^(?=.*[A-Z]).{6,}$/,
-                            })}
-                        />
-                        {errors.password && (
-                            <p className="text-red-400 text-sm">
-                                {t('modal.validPw')}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="mt-2 w-49">
-                        <label htmlFor="confirm-input" className={`${theme.label}`}>
-                            {t('modal.confirmPw')} <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                            id="confirm-input"
-                            className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
-                            type="text"
-                            placeholder="••••••"
-                            autoComplete="off"
-                            {...register("confirm", {
-                                required: true,
-                                regex: /^(?=.*[A-Z]).{6,}$/,
-                                validate: validPw,
-                            })}
-                        />
-                        {errors.confirm && (
-                            <p className="text-red-400 text-sm">
-                                {t('modal.validConfirm')}
-                            </p>
-                        )}
-                    </div>
-
-                </div> */}
-
                 <button
                     type="submit"
                     className="font-Rubik p-2 mb-1 mt-4 w-full flex flex-row items-center justify-center bg-orange-500 hover:bg-orange-400 active:bg-orange-600 rounded-lg"
@@ -181,17 +123,20 @@ const SignUpModalTab = () => {
                     <div className="flex flex-row items-center">
                         <FiUserPlus className="text-2xl text-white" />
                         <span className="ml-1 text-white">
-                            {t('modal.createAcc')}
+                            {t('generic.signup')}
                         </span>
                     </div>
                 </button>
 
             </form>
 
-            {msg !== "" && (
-                <div>{msg}</div>
-            )}
-
+            <div className="flex flex-row w-full justify-center">
+                {isRegister !== null && (
+                    <div className={`pt-2 ${theme.text}`}>
+                        {isRegister ? t('modal.registerResponseOk') : t('modal.registerResponseFail')}
+                    </div>
+                )}
+            </div>
         </>
     );
 };
