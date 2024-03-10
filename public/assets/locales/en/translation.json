@@ -28,8 +28,9 @@
     },
 
     "product": {
-        "bestOffers": "Best Offers -10%",
-        "bestSales": "Best Sales",
+        "newProducts": "New Products",
+        "bestOffers": "Best Offers",
+        "bestSellers": "Best Sellers",
         "inStock": "In stock",
         "lowStock": "Low stock",
         "outStock": "Out of stock"

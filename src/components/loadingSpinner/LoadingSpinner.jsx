@@ -9,8 +9,6 @@ const LoadingSpinner = () => {
 
   return (
 
-    // "bgTertiary": "bg-zinc-700"
-
     <div className={`h-full flex flex-col justify-center items-center font-Rubik ${theme.text} ${theme.bgTertiary}`}>
 
       <h1 className='mb-4 text-9xl'>LOADING</h1>

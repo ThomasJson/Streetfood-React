@@ -1,13 +1,17 @@
 {
     "name": "dark",
     "tName": "theme.dark",
+
     "bgPrimary": "bg-zinc-900",
     "bgSecondary": "bg-zinc-800",
     "bgTertiary": "bg-zinc-700",
-    "bgHover": "hover:bg-gray-200",
+
     "text": "text-white",
     "label": "text-gray-300",
-    "text-hover": "hover:text-white",
+
+    "bgHover": "hover:bg-zinc-700",
+    "textHover": "hover:text-white",
+
     "link": "link-light",
     "shadow": "shadow-light"
 }

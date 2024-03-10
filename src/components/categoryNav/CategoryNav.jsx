@@ -14,8 +14,6 @@ const CategoryNav = () => {
     method: "GET",
   })
 
-  // Theme : bg-gray-100 / bg-zinc-700
-
   return (
     <>
       <div className={`hidden sm:flex flex-row justify-around items-center py-1 ${theme.bgSecondary}`}>

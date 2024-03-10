@@ -24,31 +24,23 @@ const Footer = ({setShowModal}) => {
         <div className="h-full sm:hidden flex flex-row justify-around items-center">
           
           {auth.role < 1 && (
-            <button className="button-custom" onClick={() => setShowModal(true)}>
+            <button className="p-3" onClick={() => setShowModal(true)}>
               <div className={`flex flex-row items-center`}>
                 <span>
                   <BiLogInCircle className={`text-2xl ${theme.text}`} />
                 </span>
               </div>
-              <div className="bottom-border"></div>
-              <div className="right-border"></div>
-              <div className="top-border"></div>
-              <div className="left-border"></div>
             </button>
           )}
 
           {auth.role > 0 && (
             <NavLink to="/account">
-              <button className="button-custom">
+              <button className="p-3">
                 <div className="flex flex-row items-center">
                   <span>
                     <AiOutlineUser className={`text-2xl ${theme.text}`} />
                   </span>
                 </div>
-                <div className="bottom-border"></div>
-                <div className="right-border"></div>
-                <div className="top-border"></div>
-                <div className="left-border"></div>
               </button>
             </NavLink>
           )}
@@ -56,22 +48,18 @@ const Footer = ({setShowModal}) => {
           <ShoppingCart />
 
           <NavLink to="/category">
-            <button className="button-custom">
+            <button className="p-3">
               <div className="flex flex-row items-center">
                 <span>
                   <GiHamburgerMenu className={`text-2xl ${theme.text}`} />
                 </span>
               </div>
-              <div className="bottom-border"></div>
-              <div className="right-border"></div>
-              <div className="top-border"></div>
-              <div className="left-border"></div>
             </button>
           </NavLink>
         </div>
 
         <div className={`h-full hidden sm:flex justify-center items-center font-Rubik ${theme.text}`}>
-          © 1994-2023, StreetFood.com, Inc. {t('generic.footer-text')}
+          © 2023-2024, StreetFood.com, Inc. {t('generic.footer-text')}
         </div>
 
       </div>

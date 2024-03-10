@@ -27,7 +27,7 @@ const SingleCategoryScreen = React.lazy(() => import('./screens/singleCategorySc
 function App() {
 
   const { auth } = useContext(AuthContext);
-  
+
   return (
     <>
       <BrowserRouter>

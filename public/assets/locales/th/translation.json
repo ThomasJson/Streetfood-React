@@ -28,8 +28,9 @@
     },
 
     "product": {
-        "bestOffers": "ข้อเสนอที่ดีที่สุด -10%",
-        "bestSales": "ยอดขายดีที่สุด",
+        "newProducts": "สินค้าใหม่",
+        "bestOffers": "ข้อเสนอที่ดีที่สุด",
+        "bestSellers": "ยอดขายดีที่สุด",
         "inStock": "มีสินค้า",
         "lowStock": "สต็อกต่ำ",
         "outStock": "สินค้าหมด"

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ProductCard from '../productCard/ProductCard';
+import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 
 const CarouselComponent = ({ products }) => {
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -55,17 +57,17 @@ const CarouselComponent = ({ products }) => {
         </div>
 
         <button
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-blue-500 text-white p-2"
+          className="absolute top-1/2 left-1 transform -translate-y-1/2 text-white text-2xl p-2"
           onClick={goToPrevious}
         >
-          Prev
+          <IoIosArrowBack />
         </button>
 
         <button
-          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-blue-500 text-white p-2"
+          className="absolute top-1/2 right-1 transform -translate-y-1/2 text-white text-2xl p-2"
           onClick={goToNext}
         >
-          Next
+          <IoIosArrowForward />
         </button>
 
       </div>
@@ -74,7 +76,7 @@ const CarouselComponent = ({ products }) => {
         {products.map((_, index) => (
           <button
             key={index}
-            className={`rounded-full h-3 w-3 mx-1 ${currentIndex === index ? 'bg-blue-700' : 'bg-blue-300'}`}
+            className={`rounded-full h-3 w-3 mx-1 ${currentIndex === index ? 'bg-gray-500' : 'bg-gray-300'}`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}

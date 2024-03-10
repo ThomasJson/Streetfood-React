@@ -27,10 +27,7 @@ const ShoppingCart = () => {
               {t('generic.cart')}
             </span>
           </div>
-          <div className="bottom-border"></div>
-          <div className="right-border"></div>
-          <div className="top-border"></div>
-          <div className="left-border"></div>
+          
         </div>
       </NavLink>
     </>

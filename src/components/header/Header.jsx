@@ -53,8 +53,6 @@ const Header = ({ setShowModal }) => {
     }
   }, [auth]);
 
-  // bg-zinc-900 / bg-zinc-800 / bg-zinc-700
-
   return (
     <>
       <div className="h-header-mobile fixed top-0 left-0 z-50 w-full flex flex-col sm:h-header-desktop">
@@ -78,19 +76,15 @@ const Header = ({ setShowModal }) => {
           <div className="hidden sm:flex flex-row items-center w-5/12 justify-end">
 
             {auth.role < 1 && (
-              <button className="button-custom" onClick={() => setShowModal(true)}>
+              <button className={`rounded-lg p-2 ${theme.textHover} ${theme.bgHover}`} onClick={() => setShowModal(true)}>
                 <div className={`flex flex-row items-center`}>
-                  <span>
-                    <BiLogInCircle className={`text-2xl ${theme.text}`} />
-                  </span>
+
+                  <span><BiLogInCircle className={`text-2xl ${theme.text}`} /></span>
                   <span className={`hidden sm:flex ml-1 font-Rubik ${theme.text}`}>
                     {t('generic.login')}
                   </span>
+
                 </div>
-                <div className="bottom-border"></div>
-                <div className="right-border"></div>
-                <div className="top-border"></div>
-                <div className="left-border"></div>
               </button>
             )}
 
@@ -100,18 +94,17 @@ const Header = ({ setShowModal }) => {
                 to="/account"
                 className="py-1 px-2 rounded"
               >
-                <div className="button-custom font-Raleway">
+                <div className={`rounded-lg p-2 ${theme.textHover} ${theme.bgHover}`}>
                   <div className="flex flex-row items-center">
+
                     <span className="">
                       <AiOutlineUser className={`text-2xl ${theme.text}`} />
                     </span>
                     <span className={`font-bold tracking-wide ${theme.text}`}>{pseudo?.pseudo}</span>
+
                   </div>
-                  <div className="bottom-border"></div>
-                  <div className="right-border"></div>
-                  <div className="top-border"></div>
-                  <div className="left-border"></div>
                 </div>
+                
               </NavLink>
 
             )}
