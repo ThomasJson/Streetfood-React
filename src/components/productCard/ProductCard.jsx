@@ -17,17 +17,17 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
     <>
       <div className={`flex flex-col card-width rounded-lg shadow-lg p-2 gap-2 lg:flex-row lg:h-40 ${theme.text} ${theme.bgPrimary}`} >
 
-        <div className="">
+        <div className="h-64 overflow-hidden">
 
           <img
-            className="h-full w-full rounded-tl-lg object-fit sm:h-48 lg:h-36 lg:w-60 md:rounded-none md:rounded-l-lg"
+            className="h-full w-full object-cover rounded-tl-lg sm:h-64 lg:h-36 lg:w-60 md:rounded-none md:rounded-l-lg"
             src={src}
             alt={alt}
           />
 
         </div>
 
-        <div className="relative flex flex-col w-full justify-start pl-1">
+        <div className="relative flex flex-col w-full justify-start">
 
           <div className='absolute top-1 lg:top-0 right-0 flex flex-row justify-end gap-4 text-white'>
 
@@ -47,11 +47,11 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
             }
           </h5>
 
-          <p className="text-base">
+          <p className="text-bas overflow-hidden text-ellipsis">
             {
               userLang === "en" ?
                 (<span>{content}</span>) :
-                (<span>{content_Th}</span>)
+                (<span className='w-full'>{content_Th}</span>)
             }
           </p>
 

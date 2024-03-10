@@ -1,9 +1,9 @@
-import "./App.css";
+import "./App.scss";
 import "./btn.scss";
 import "./input.scss";
 import './i18n';
 
-import React, { useContext, Suspense, useState, useEffect } from "react";
+import React, { useContext, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthContext } from "./contexts/AuthContext";
 
@@ -18,11 +18,6 @@ import AccountValidateScreen from "./screens/accountValidateScreen/AccountValida
 import NotFoundScreen from "./screens/notFoundScreen/NotFoundScreen";
 
 import LoadingSpinner from "./components/loadingSpinner/LoadingSpinner";
-
-// import HomeScreen from "./screens/homeScreen/HomeScreen";
-// import AccountScreen from "./screens/accountScreen/AccountScreen";
-// import CategoryScreen from "./screens/categoryScreen/CategoryScreen";
-// import SingleCategoryScreen from "./screens/singleCategoryScreen/SingleCategoryScreen";
 
 const HomeScreen = React.lazy(() => import('./screens/homeScreen/HomeScreen'));
 const AccountScreen = React.lazy(() => import('./screens/accountScreen/AccountScreen'));

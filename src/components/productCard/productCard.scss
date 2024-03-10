@@ -2,6 +2,10 @@ $breakpoint-mobile: 480px;
 $breakpoint-tablet: 640px;
 $breakpoint-desktop: 1024px;
 
+.card-width {
+    width: 100%;
+}
+
 @media (max-width: $breakpoint-tablet) {
     .card-width {
         width: 100%;
