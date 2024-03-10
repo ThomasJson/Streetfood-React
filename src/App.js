@@ -32,18 +32,7 @@ const SingleCategoryScreen = React.lazy(() => import('./screens/singleCategorySc
 function App() {
 
   const { auth } = useContext(AuthContext);
-  const [isSpinnerVisible, setSpinnerVisible] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-
-      setSpinnerVisible(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-
-  }, []);
-
+  
   return (
     <>
       <BrowserRouter>
@@ -56,30 +45,30 @@ function App() {
               </Suspense>
             } />
 
-            <Route path="/product" element={<ProductScreen />} />
+            <Route path="product" element={<ProductScreen />} />
 
-            <Route path="/category" element={
+            <Route path="category" element={
               <Suspense fallback={<LoadingSpinner />}>
                 <CategoryScreen />
               </Suspense>
             } />
 
-            <Route path="/category/:id" element={
+            <Route path="category/:id" element={
               <Suspense fallback={<LoadingSpinner />}>
-                {!isSpinnerVisible && <SingleCategoryScreen />}
+                <SingleCategoryScreen />
               </Suspense>
             } />
 
-            <Route path="/contact" element={<ContactScreen />} />
-            <Route path="/cart" element={<CartScreen />} />
-            <Route path="/register" element={<RegisterScreen />} />
+            <Route path="contact" element={<ContactScreen />} />
+            <Route path="cart" element={<CartScreen />} />
+            <Route path="register" element={<RegisterScreen />} />
 
             {auth.role === 4 && (
-              <Route path="/admin" element={<AdminScreen />} />
+              <Route path="admin" element={<AdminScreen />} />
             )}
 
             {auth.role > 0 && (
-              <Route path="/account" element={
+              <Route path="account" element={
                 <Suspense fallback={<LoadingSpinner />}>
                   <AccountScreen />
                 </Suspense>
@@ -88,7 +77,7 @@ function App() {
 
             {auth.role === 0 && (
               <Route
-                path="/account/validate/:token"
+                path="account/validate/:token"
                 element={<AccountValidateScreen />}
               />
             )}

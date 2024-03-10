@@ -4,9 +4,7 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        "49": "49%",
-        "card-mobile": "31.5%",
-        "card-desktop": "32.2%"
+        "49": "49%"
       },
       height: {
         "header-desktop": "100px",

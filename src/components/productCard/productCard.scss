@@ -1,0 +1,21 @@
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 640px;
+$breakpoint-desktop: 1024px;
+
+@media (max-width: $breakpoint-tablet) {
+    .card-width {
+        width: 100%;
+    }
+}
+
+@media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
+    .card-width {
+        width: calc(33.6% - 16px);
+    }
+}
+
+@media (min-width: $breakpoint-desktop) {
+    .card-width {
+        width: calc(33.6% - 16px);
+    }
+}
