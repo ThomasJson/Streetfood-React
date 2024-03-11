@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProductCard from '../productCard/ProductCard';
+import DesktopNewProduct from '../productCard/DesktopNewProduct';
 import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 
 const Carousel = ({ products }) => {
@@ -34,7 +34,7 @@ const Carousel = ({ products }) => {
             {products.map((product, index) => (
 
               <div className='inline-block w-full' key={index}>
-                <ProductCard
+                <DesktopNewProduct
                   key={product.id}
                   title={product.title}
                   content={product.content}

@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        "49": "49%"
+        "49": "49%",
+        "33%": "33%"
       },
       height: {
         "header-desktop": "16vh",
