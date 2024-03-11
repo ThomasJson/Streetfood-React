@@ -35,12 +35,12 @@ const HomeScreen = () => {
   return (
 
     <>
-      <div className={`hidden sm:flex flex-col w-fit rounded-lg m-4 p-4 gap-4 ${theme.text} ${theme.bgPrimary}`} >
+      <div className={`hidden sm:flex flex-col w-fit rounded-lg p-4 gap-4 ${theme.text} ${theme.bgPrimary}`} >
         <p className="m-0 text-xl">Desktop Home Page is coming soon ..</p>
         <p className="m-0">If you want to see what it will look like, check it out on mobile :)</p>
       </div>
 
-      <div className="sm:hidden flex flex-col p-4 gap-8">
+      <div className="sm:hidden flex flex-col gap-8">
 
         <section className="w-full flex flex-col items-center gap-4 bg-blue-200 p-4">
           <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-blue-600 p-2 text-white">

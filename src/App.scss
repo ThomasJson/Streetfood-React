@@ -9,4 +9,39 @@
   filter: invert(1);
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+main {
+  min-height: 74vh;
+  padding: 1rem;
+}
+
+.mainFooterContainer {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 640px) {
+  .mainFooterContainer {
+    margin-top: 16vh;
+    margin-bottom: 0px;
+    min-height: 84vh;
+  }
+}
+
 // @import '~bootstrap/scss/bootstrap';

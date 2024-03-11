@@ -37,14 +37,20 @@ const BaseScreen = () => {
   return (
     <>
       <div className="box-border">
-        <Header setShowModal={setShowModal}/>
+
+        <Header setShowModal={setShowModal} />
         <LoginModal show={showModal} setShow={setShowModal} />
 
-        <main className={`w-full overflow-auto h-main-mobile mt-main-mobile mb-main-mobile sm:h-main-desktop sm:mt-main-desktop sm:mb-0 ${theme.bgTertiary}`}>
-          <Outlet />
-        </main>
+        <div className={`mainFooterContainer ${theme.bgTertiary}`}>
+          
+          <main>
+            <Outlet />
+          </main>
 
-        <Footer setShowModal={setShowModal}/>
+          <Footer setShowModal={setShowModal} />
+          
+        </div>
+
       </div>
     </>
   );

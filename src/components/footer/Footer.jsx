@@ -11,7 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { BiLogInCircle } from "react-icons/bi";
 
-const Footer = ({setShowModal}) => {
+const Footer = ({ setShowModal }) => {
 
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
@@ -19,10 +19,10 @@ const Footer = ({setShowModal}) => {
 
   return (
     <>
-      <div className={`h-header-mobile w-full fixed bottom-0 left-0 ${theme.bgPrimary}`}>
-        
-        <div className="h-full sm:hidden flex flex-row justify-around items-center">
-          
+      <div className={`h-footer sm:hidden w-full fixed bottom-0 left-0 ${theme.bgPrimary}`}>
+
+        <div className="h-full flex flex-row justify-around items-center">
+
           {auth.role < 1 && (
             <button className="p-3" onClick={() => setShowModal(true)}>
               <div className={`flex flex-row items-center`}>
@@ -58,10 +58,10 @@ const Footer = ({setShowModal}) => {
           </NavLink>
         </div>
 
-        <div className={`h-full hidden sm:flex justify-center items-center font-Rubik ${theme.text}`}>
-          © 2023-2024, StreetFood.com, Inc. {t('generic.footer-text')}
-        </div>
+      </div>
 
+      <div className={`h-footer hidden sm:flex justify-center items-center font-Rubik ${theme.text} ${theme.bgPrimary}`}>
+        © 2023-2024, StreetFood.com, Inc. {t('generic.footer-text')}
       </div>
     </>
   );

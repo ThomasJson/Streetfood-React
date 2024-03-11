@@ -7,7 +7,7 @@ const CartScreen = () => {
 
   return (
     <>
-      <div className={`flex flex-col w-fit rounded-lg m-4 p-4 gap-4 ${theme.text} ${theme.bgPrimary}`} >
+      <div className={`flex flex-col w-fit rounded-lg p-4 gap-4 ${theme.text} ${theme.bgPrimary}`} >
         <p className="m-0 text-xl">Cart Page is coming soon ..</p>
       </div>
     </>
