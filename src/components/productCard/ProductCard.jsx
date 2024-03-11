@@ -17,7 +17,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
     <>
       <div className={`flex flex-col card-width rounded-lg shadow-lg p-2 gap-2 lg:flex-row lg:h-44 ${theme.text} ${theme.bgPrimary}`} >
 
-        <div className="h-60">
+        <div className="h-60 lg:h-40">
 
           <img
             className="h-full w-full object-cover rounded-tl-lg sm:h-60 lg:h-40 lg:w-60 md:rounded-none md:rounded-l-lg"

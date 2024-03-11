@@ -100,7 +100,7 @@ const Header = ({ setShowModal }) => {
                     <span className="">
                       <AiOutlineUser className={`text-2xl ${theme.text}`} />
                     </span>
-                    <span className={`font-bold tracking-wide ${theme.text}`}>{pseudo?.pseudo}</span>
+                    <span className={`tracking-wide font-Rubik ${theme.text}`}>{pseudo?.pseudo}</span>
 
                   </div>
                 </div>

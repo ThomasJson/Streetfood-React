@@ -36,7 +36,7 @@ const HomeScreen = () => {
 
     <>
       <div className={`hidden sm:flex flex-col w-fit rounded-lg m-4 p-4 gap-4 ${theme.text} ${theme.bgPrimary}`} >
-        <p className="m-0 text-xl">Home Page Desktop version is coming soon ..</p>
+        <p className="m-0 text-xl">Desktop Home Page is coming soon ..</p>
         <p className="m-0">If you want to see what it will look like, check it out on mobile :)</p>
       </div>
 
