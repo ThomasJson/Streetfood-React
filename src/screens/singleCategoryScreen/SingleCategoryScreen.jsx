@@ -40,13 +40,13 @@ const SingleCategoryScreen = () => {
                   key={product.id}
                   title={product.title}
                   content={product.content}
-                  title_Th={product.title_Th}
-                  content_Th={product.content_Th}
-                  price={product.price}
-                  stock={product.stock}
-                  isNew={product.new}
-                  isBestOffer={product.bestOffer}
-                  isBestSale={product.bestSale}
+                  title_Th={product?.title_Th}
+                  content_Th={product?.content_Th}
+                  price={product?.price}
+                  stock={product?.stock}
+                  isNew={product?.new}
+                  isBestOffer={product?.bestOffer}
+                  isBestSale={product?.bestSale}
                   src={product?.image?.src}
                   alt={product?.image?.alt}
                 />

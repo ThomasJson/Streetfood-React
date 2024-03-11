@@ -15,21 +15,21 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
   return (
     <>
-      <div className={`flex flex-col card-width rounded-lg shadow-lg p-2 gap-2 lg:flex-row lg:h-40 ${theme.text} ${theme.bgPrimary}`} >
+      <div className={`flex flex-col card-width rounded-lg shadow-lg p-2 gap-2 lg:flex-row lg:h-44 ${theme.text} ${theme.bgPrimary}`} >
 
-        <div className="h-60 overflow-hidden">
+        <div className="h-60">
 
           <img
-            className="h-full w-full object-cover rounded-tl-lg sm:h-60 lg:h-36 lg:w-60 md:rounded-none md:rounded-l-lg"
+            className="h-full w-full object-cover rounded-tl-lg sm:h-60 lg:h-40 lg:w-60 md:rounded-none md:rounded-l-lg"
             src={src}
             alt={alt}
           />
 
         </div>
 
-        <div className="relative flex flex-col w-full justify-start">
+        <div className="relative flex flex-col w-full h-full justify-start">
 
-          <div className='absolute top-1 lg:top-0 right-0 flex flex-row justify-end gap-4 text-white'>
+          <div className='absolute top-1 lg:top-0 right-0 flex flex-row justify-end gap-1 text-white'>
 
             {isNew && <ProductBadge text="New" icon={<MdNewReleases />} color="blue" />}
 
@@ -47,7 +47,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
             }
           </h5>
 
-          <p className="text-bas overflow-hidden text-ellipsis">
+          <p className="text-base overflow-hidden text-ellipsis">
             {
               userLang === "en" ?
                 (<span>{content}</span>) :
