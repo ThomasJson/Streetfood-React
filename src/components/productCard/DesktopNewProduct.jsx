@@ -15,12 +15,12 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
   return (
     <>
-      <div className={`w-full flex flex-col rounded-lg shadow-lg p-2 gap-2 ${theme.text} ${theme.bgPrimary}`} >
+      <div className={`w-full h-full flex flex-col rounded-lg shadow-lg p-2 gap-2 ${theme.text} ${theme.bgPrimary}`} >
 
-        <div className="h-64">
+        <div className="h-full">
 
           <img
-            className="h-full w-full object-cover rounded-tl-lg sm:h-60 md:rounded-none md:rounded-l-lg"
+            className="h-full w-full object-cover rounded-tl-lg sm:h-carouselProduct md:rounded-none md:rounded-l-lg"
             src={src}
             alt={alt}
           />

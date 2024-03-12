@@ -13,6 +13,7 @@ module.exports = {
         "main-desktop": "84vh",
         "main-mobile": "80vh",
         "footer": "10vh",
+        "carouselProduct": "40vh",
       },
       minHeight:{
         "header-desktop": "16vh",
