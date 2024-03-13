@@ -26,11 +26,11 @@ const Header = ({ setShowModal }) => {
       const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
       const url = `${baseUrl}/account/${auth.id}`;
 
-      console.log(url)
-      console.log("Fetching user data for ID : ", auth.id);
+      // console.log("Fetching user data : " + url + " for ID : ", auth.id);
 
       fetch(url, {
         method: "GET",
+        credentials: "include",
         headers: {
           Authorization: getCookie("StreetF"),
         },
@@ -54,6 +54,8 @@ const Header = ({ setShowModal }) => {
         });
     }
   }, [auth]);
+
+  console.log(pseudo)
 
   return (
     <>

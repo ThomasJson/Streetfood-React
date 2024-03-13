@@ -3,10 +3,9 @@ import React from 'react';
 const ProductBadge = ({ text, icon, color }) => {
   return (
 
-    <div style={{ backgroundColor: color, padding: '4px', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+    <div className='border-2 border-white' style={{ backgroundColor: color, padding: '2px 3px', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
       
       {icon && <span>{icon}</span>}
-      {/* <span className='text-sm'>{text}</span> */}
 
     </div>
 

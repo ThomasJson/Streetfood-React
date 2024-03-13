@@ -49,13 +49,13 @@ const HomeScreen = () => {
         </section>
 
         {/* DESKTOP */}
-        <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-blue-200 p-4">
+        {/* <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-blue-200 p-4">
           <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-blue-600 p-2 text-white">
             <h1>{t('product.newProducts')}</h1>
             <MdNewReleases />
           </div>
           <DesktopCarousel products={newProducts} />
-        </section>
+        </section> */}
 
         {/* MOBILE */}
         <section className="sm:hidden w-full flex flex-col items-center gap-4 bg-orange-200 p-4">
@@ -67,13 +67,13 @@ const HomeScreen = () => {
         </section>
 
         {/* DESKTOP */}
-        <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-orange-200 p-4">
+        {/* <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-orange-200 p-4">
           <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-orange-400 p-2 text-white">
             <h1>{t('product.bestOffers')}</h1>
             <TbBrandCashapp />
           </div>
           <DesktopCarousel products={bestOffers} />
-        </section>
+        </section> */}
 
         {/* MOBILE */}
         <section className="sm:hidden w-full flex flex-col items-center gap-4 bg-green-200 p-4">
@@ -85,13 +85,13 @@ const HomeScreen = () => {
         </section>
 
         {/* MOBILE */}
-        <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-green-200 p-4">
+        {/* <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-green-200 p-4">
           <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-green-500 p-2 text-white">
             <h1>{t('product.bestSellers')}</h1>
             <MdTrendingUp />
           </div>
           <DesktopCarousel products={bestSales} />
-        </section>
+        </section> */}
 
       </div>
     </>

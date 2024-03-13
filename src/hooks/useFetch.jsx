@@ -17,11 +17,12 @@ const useFetch = (endpoint, options = {}) => {
       const url = `${baseUrl}${endpoint}`;
       
       // console.log(baseUrl);
+      // console.log(options)
       
       options.credentials = "include";
-      options.headers = {
-        Authorization: getCookie("StreetF"),
-      };
+      // options.headers = {
+      //   Authorization: getCookie("StreetF"),
+      // };
 
       try {
 
