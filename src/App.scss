@@ -25,20 +25,20 @@
   background: #555;
 }
 
-main {
-  min-height: 74vh;
-  padding: 1rem;
-}
-
 .mainFooterContainer {
   margin-top: 10vh;
   margin-bottom: 10vh;
   overflow-y: auto;
 }
 
+main {
+  min-height: 76vh;
+  padding: 1rem;
+}
+
 @media (min-width: 640px) {
   .mainFooterContainer {
-    margin-top: 16vh;
+    margin-top: 14vh;
     margin-bottom: 0px;
     min-height: 84vh;
   }

@@ -5,6 +5,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { FiPlus } from "react-icons/fi";
 import { MdNewReleases, MdTrendingUp  } from "react-icons/md";
 import { TbBrandCashapp } from "react-icons/tb";
+import { BiDollar } from "react-icons/bi";
 import ProductBadge from './ProductBadge';
 
 const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, isNew, isBestOffer, isBestSale, stock }) => {
@@ -17,7 +18,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
     <>
       <div className={`flex flex-col card-width rounded-lg shadow-lg p-2 gap-2 lg:flex-row lg:h-44 ${theme.text} ${theme.bgPrimary}`} >
 
-        <div className="h-60 lg:h-40 lg:w-60">
+        <div className="relative h-60 lg:h-40 lg:w-60">
 
           <img
             className="h-full w-full object-cover rounded-tl-lg sm:h-60 lg:h-40 lg:w-60 md:rounded-none md:rounded-l-lg"
@@ -25,11 +26,21 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
             alt={alt}
           />
 
+          <div className='hidden lg:flex flex-row justify-start gap-1 absolute top-1 left-1 text-white'>
+
+            {isNew && <ProductBadge text="New" icon={<MdNewReleases />} color="#0ea5e9" />}
+
+            {isBestOffer && <ProductBadge text="-10%" icon={<BiDollar />} color="#facc15" />}
+
+            {isBestSale && <ProductBadge text="Best" icon={<MdTrendingUp />} color="#22c55e" />}
+
+          </div>
+
         </div>
 
         <div className="relative flex flex-col w-full h-full justify-start">
 
-          <div className='absolute top-1 lg:top-0 right-0 flex flex-row justify-end gap-1 text-white'>
+          <div className='absolute top-1 right-0 flex flex-row justify-end gap-1 text-white lg:hidden'>
 
             {isNew && <ProductBadge text="New" icon={<MdNewReleases />} color="blue" />}
 

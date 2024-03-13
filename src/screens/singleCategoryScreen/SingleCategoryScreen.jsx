@@ -29,10 +29,20 @@ const SingleCategoryScreen = () => {
   return (
     <>
 
-    <div className="flex flex-row w-full">
+    <div className="flex flex-row w-full justify-between">
 
-      <div className="hidden lg:flex flex-col border border-black w-1/4">
-        FilterModel
+      <div className="hidden lg:flex flex-col w-24%">
+        <div className="p-2 border border-black">
+          <h2>Filter your products :</h2>
+
+          <p>Price</p>
+          <p>Stock</p>
+          <p>New</p>
+          <p>Offers</p>
+          <p>Trend</p>
+
+        </div>
+        
       </div>
 
       <div className="flex flex-col lg:w-3/4">

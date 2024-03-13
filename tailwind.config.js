@@ -5,10 +5,11 @@ module.exports = {
     extend: {
       width: {
         "49": "49%",
-        "33%": "33%"
+        "33%": "33%",
+        "24%": "24%"
       },
       height: {
-        "header-desktop": "16vh",
+        "header-desktop": "14vh",
         "header-mobile": "10vh",
         "main-desktop": "84vh",
         "main-mobile": "80vh",
