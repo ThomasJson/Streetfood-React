@@ -6,21 +6,20 @@
 }
 
 .cart-counter {
-
   position: absolute;
   top: 0;
   left: 26px;
 
   display: flex;
   justify-content: center;
-  height: 25px;
-  width: 15px;
 
-  font-size: 1.3em;
   border-radius: 50px;
   color: orange;
   font-weight: bold;
+}
 
+.cart-counter span {
+  margin-top: 3px;
 }
 
 .cart-spacing {

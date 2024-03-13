@@ -45,7 +45,8 @@ const BaseScreen = () => {
     <>
       <div className="box-border">
 
-        <Header setShowModal={setShowModal} />
+        <Header setShowModal={setShowModal}/>
+
         <LoginModal show={showModal} setShow={setShowModal} />
 
         <div className={`mainFooterContainer ${theme.bgTertiary}`}>
@@ -54,7 +55,7 @@ const BaseScreen = () => {
             <Outlet />
           </main>
 
-          <Footer setShowModal={setShowModal} />
+          <Footer setShowModal={setShowModal}/>
           
         </div>
 

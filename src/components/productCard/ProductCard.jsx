@@ -2,6 +2,7 @@ import './productCard.scss'
 import React, { useContext } from "react";
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { useCart } from '../../contexts/CartContext';
 import { FiPlus } from "react-icons/fi";
 import { MdNewReleases, MdTrendingUp  } from "react-icons/md";
 import { TbBrandCashapp } from "react-icons/tb";
@@ -11,6 +12,7 @@ import ProductBadge from './ProductBadge';
 const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, isNew, isBestOffer, isBestSale, stock }) => {
 
   const { theme } = useContext(ThemeContext);
+  const { addToCart } = useCart();
   const userLang = localStorage.getItem('i18nextLng');
   const { t } = useTranslation();
 
@@ -91,7 +93,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
             ) : <span className={`text-lg font-semibold mr-2 ${theme.text}`}>${price.toFixed(2)}</span>
             }
 
-            <button className="bg-orange-400 text-white p-1 rounded-sm">
+            <button onClick={addToCart} className="bg-orange-400 text-white p-1 rounded-sm">
               <FiPlus />
             </button>
 

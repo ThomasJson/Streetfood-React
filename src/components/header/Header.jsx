@@ -12,7 +12,7 @@ import ShoppingCart from "../shoppingCart/ShoppingCart";
 import CategoryNav from "../../components/categoryNav/CategoryNav";
 import ContextSettings from "../contextSettings/ContextSettings";
 
-const Header = ({ setShowModal }) => {
+const Header = ({ setShowModal, setCounter }) => {
 
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
