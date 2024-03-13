@@ -26,6 +26,7 @@ const Header = ({ setShowModal }) => {
       const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
       const url = `${baseUrl}/account/${auth.id}`;
 
+      console.log(url)
       console.log("Fetching user data for ID : ", auth.id);
 
       fetch(url, {
@@ -43,6 +44,7 @@ const Header = ({ setShowModal }) => {
 
         })
         .then((json) => {
+          console.log(json)
           setPseudo(json);
 
         })

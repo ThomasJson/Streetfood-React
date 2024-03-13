@@ -42,11 +42,11 @@ function App() {
 
             <Route path="product" element={<ProductScreen />} />
 
-            <Route path="category" element={
+            {/* <Route path="category" element={
               <Suspense fallback={<LoadingSpinner />}>
                 <CategoryScreen />
               </Suspense>
-            } />
+            } /> */}
 
             <Route path="category/:id" element={
               <Suspense fallback={<LoadingSpinner />}>
