@@ -28,7 +28,14 @@ const SingleCategoryScreen = () => {
 
   return (
     <>
-      <div className="flex flex-col">
+
+    <div className="flex flex-row w-full">
+
+      <div className="hidden lg:flex flex-col border border-black w-1/4">
+        FilterModel
+      </div>
+
+      <div className="flex flex-col lg:w-3/4">
 
         <div className="w-full flex flex-row flex-wrap gap-4">
 
@@ -58,6 +65,13 @@ const SingleCategoryScreen = () => {
         </div>
 
       </div>
+
+
+    </div>
+
+      
+
+      
     </>
   );
 };

@@ -14,21 +14,25 @@ const ShoppingCart = () => {
   return (
     <>
       <NavLink to="/cart" className="rounded ml-1">
-        <div className="button-custom cart-spacing">
 
-          <div className={`cart-counter ${theme.bgPrimary}`}>0</div>
+        <div className={`button-custom cart-spacing ${theme.text} ${theme.textHover} ${theme.bgHover2}`}>
+
+          <div className={`cart-counter ${theme.bgPrimary}`}>
+            0
+          </div>
           
           <div className="flex flex-row items-center">
             <span className="flex flex-row items-center">
-              <FiShoppingCart className={`text-4xl ${theme.text}`} />
+              <FiShoppingCart className={`text-4xl `} />
             </span>
 
-            <span className={`hidden sm:flex ml-1 font-Rubik ${theme.text}`}>
+            <span className={`hidden sm:flex ml-1 font-Rubik`}>
               {t('generic.cart')}
             </span>
           </div>
           
         </div>
+
       </NavLink>
     </>
   );

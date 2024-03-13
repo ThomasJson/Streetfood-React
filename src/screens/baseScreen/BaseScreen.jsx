@@ -10,29 +10,36 @@ const BaseScreen = () => {
   const { theme } = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
 
-  // "name": "dark",
-  // "tName": "theme.dark",
-  // "bgPrimary": "bg-zinc-900",
-  // "bgSecondary": "bg-zinc-800",
-  // "bgTertiary": "bg-zinc-700",
-  // "text": "text-white",
-  // "label": "text-gray-300",
-  // "bg-hover": "hover:bg-zinc-700",
-  // "text-hover": "hover:text-white",
-  // "link": "link-light",
-  // "shadow": "shadow-light"
+  // {
+  //   "name": "dark",
+  //   "tName": "theme.dark",
 
-  // "name": "light",
-  // "tName": "theme.light",
-  // "bgPrimary": "bg-gray-50",
-  // "bgSecondary": "bg-gray-100",
-  // "bgTertiary": "bg-gray-200",
-  // "text": "text-black",
-  // "label": "text-gray-700",
-  // "bg-hover": "hover:bg-gray-200",
-  // "text-hover": "hover:text-black",
-  // "link": "link-dark",
-  // "shadow": "shadow-dark"
+  //   "bgPrimary": "bg-zinc-900",
+  //   "bgSecondary": "bg-zinc-800",
+  //   "bgTertiary": "bg-zinc-700",
+
+  //   "text": "text-white",
+  //   "label": "text-gray-300",
+
+  //   "bgHover": "hover:bg-green-500",
+  //   "textHover": "hover:text-white"
+  // }
+
+  // {
+  //   "name": "light",
+  //   "tName": "theme.light",
+  
+  //   "bgPrimary": "bg-gray-50",
+  //   "bgSecondary": "bg-gray-100",
+  //   "bgTertiary": "bg-gray-200",
+  
+  //   "text": "text-black",
+  //   "label": "text-gray-700",
+  
+  //   "bgHover": "hover:bg-green-500",
+  //   "bgHover2": "hover:bg-orange-500",
+  //   "textHover": "hover:text-white"
+  // }
 
   return (
     <>

@@ -9,9 +9,7 @@
     "text": "text-white",
     "label": "text-gray-300",
 
-    "bgHover": "hover:bg-green-100",
-    "textHover": "hover:text-white",
-
-    "link": "link-light",
-    "shadow": "shadow-light"
+    "bgHover": "hover:bg-green-500",
+    "bgHover2": "hover:bg-orange-500",
+    "textHover": "hover:text-white"
 }

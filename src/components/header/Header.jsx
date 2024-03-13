@@ -78,11 +78,11 @@ const Header = ({ setShowModal }) => {
           <div className="hidden sm:flex flex-row items-center w-5/12 justify-end">
 
             {auth.role < 1 && (
-              <button className={`rounded-lg p-2 ${theme.textHover} ${theme.bgHover}`} onClick={() => setShowModal(true)}>
+              <button className={`rounded-lg p-2 ${theme.text} ${theme.textHover} ${theme.bgHover}`} onClick={() => setShowModal(true)}>
                 <div className={`flex flex-row items-center`}>
 
-                  <span><BiLogInCircle className={`text-2xl ${theme.text}`} /></span>
-                  <span className={`hidden sm:flex ml-1 font-Rubik ${theme.text}`}>
+                  <span><BiLogInCircle className={`text-2xl`} /></span>
+                  <span className={`hidden sm:flex ml-1 font-Rubik `}>
                     {t('generic.login')}
                   </span>
 
@@ -96,13 +96,13 @@ const Header = ({ setShowModal }) => {
                 to="/account"
                 className="py-1 px-2 rounded"
               >
-                <div className={`rounded-lg p-2 ${theme.textHover} ${theme.bgHover}`}>
+                <div className={`rounded-lg p-2 ${theme.text} ${theme.textHover} ${theme.bgHover}`}>
                   <div className="flex flex-row items-center">
 
                     <span className="">
-                      <AiOutlineUser className={`text-2xl ${theme.text}`} />
+                      <AiOutlineUser className={`text-2xl`} />
                     </span>
-                    <span className={`tracking-wide font-Rubik ${theme.text}`}>{pseudo?.pseudo}</span>
+                    <span className={`tracking-wide font-Rubik`}>{pseudo?.pseudo}</span>
 
                   </div>
                 </div>
