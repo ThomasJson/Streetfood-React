@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { MdNewReleases, MdTrendingUp } from "react-icons/md";
 import { TbBrandCashapp } from "react-icons/tb";
 import Carousel from "../../components/carousel/Carousel";
-import DesktopCarousel from "../../components/carousel/DesktopCarousel";
+// import DesktopCarousel from "../../components/carousel/DesktopCarousel";
 
 const HomeScreen = () => {
 
@@ -22,9 +22,9 @@ const HomeScreen = () => {
 
     if (data) {
 
-      const newProd = data.filter(product => product.new);
-      const bestSelling = data.filter(product => product.bestSale);
-      const bestOffer = data.filter(product => product.bestOffer);
+      const newProd = data?.filter(product => product.new);
+      const bestSelling = data?.filter(product => product.bestSale);
+      const bestOffer = data?.filter(product => product.bestOffer);
 
       setNewProducts(newProd);
       setBestSales(bestSelling);

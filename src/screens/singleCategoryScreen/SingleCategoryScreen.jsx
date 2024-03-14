@@ -51,7 +51,7 @@ const SingleCategoryScreen = () => {
 
           <div className="w-full flex flex-row flex-wrap gap-4">
 
-            {products &&
+            {products.length > 0 &&
               products?.map((product) => {
 
                 return (

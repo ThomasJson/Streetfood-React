@@ -32,18 +32,22 @@ const Header = ({ setShowModal, setCounter }) => {
         method: "GET",
         credentials: "include",
         headers: {
+          "Content-Type": "application/json",
           Authorization: getCookie("StreetF"),
         },
 
       })
         .then((resp) => {
           if (!resp.ok) {
+
             throw new Error('Network response was not ok');
           }
+
           return resp.json();
 
         })
         .then((json) => {
+
           console.log(json)
           setPseudo(json);
 
