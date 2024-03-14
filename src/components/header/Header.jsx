@@ -25,21 +25,19 @@ const Header = ({ setShowModal, setCounter }) => {
 
       const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
       const url = `${baseUrl}/account/${auth.id}`;
-
-      // console.log("Fetching user data : " + url + " for ID : ", auth.id);
-
+      
       fetch(url, {
         method: "GET",
         credentials: "include",
         headers: {
-          "Content-Type": "application/json",
-          Authorization: getCookie("StreetF"),
+          'Content-Type': "application/json",
+          'Authorization': getCookie("StreetF"),
         },
 
       })
         .then((resp) => {
-          if (!resp.ok) {
 
+          if (!resp.ok) {
             throw new Error('Network response was not ok');
           }
 
@@ -47,10 +45,7 @@ const Header = ({ setShowModal, setCounter }) => {
 
         })
         .then((json) => {
-
-          console.log(json)
           setPseudo(json);
-
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -58,8 +53,6 @@ const Header = ({ setShowModal, setCounter }) => {
         });
     }
   }, [auth]);
-
-  console.log(pseudo)
 
   return (
     <>

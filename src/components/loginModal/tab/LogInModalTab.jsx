@@ -40,7 +40,6 @@ const LogInModalTab = ({ setShow }) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const jsonData = Object.fromEntries(formData.entries());
-        console.log(jsonData);
 
         if (!validForm(jsonData)) {
             return;

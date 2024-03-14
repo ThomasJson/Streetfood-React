@@ -13,7 +13,11 @@ const AuthProvider = ({ children }) => {
 
       try {
 
-        const response = await fetch(process.env.REACT_APP_AUTH_API_BASE_URL + "/auth/check", {
+        const url = process.env.REACT_APP_AUTH_API_BASE_URL;
+
+        console.log('Url to check : ' + url);
+
+        const response = await fetch(url + "/auth/check", {
           method: 'GET',
           credentials: 'include',
           headers: {
