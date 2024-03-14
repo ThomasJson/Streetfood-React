@@ -28,10 +28,12 @@ const AuthProvider = ({ children }) => {
 
         const data = await response.json();
 
+        console.log(data)
+
         if (data && data.result) {
 
-          if (+data.roleWeight !== auth.role || data.accountId !== auth.id) {
-            setAuth({ role: +data.roleWeight, id: data.accountId });
+          if (+data.accRole !== auth.role || data.accId !== auth.id) {
+            setAuth({ role: +data.accRole, id: data.accId });
           }
 
         } else {
