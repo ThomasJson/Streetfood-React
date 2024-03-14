@@ -20,6 +20,8 @@
 
 .env.development
 .env.production
+Dockerfile
+default.conf
 
 npm-debug.log*
 yarn-debug.log*
