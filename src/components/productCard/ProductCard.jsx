@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useCart } from '../../contexts/CartContext';
 import { FiPlus } from "react-icons/fi";
-import { MdNewReleases, MdTrendingUp  } from "react-icons/md";
+import { MdNewReleases, MdTrendingUp } from "react-icons/md";
 import { TbBrandCashapp } from "react-icons/tb";
 import { BiDollar } from "react-icons/bi";
 import ProductBadge from './ProductBadge';
@@ -86,15 +86,17 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
             {isBestOffer ? (
               <p>
-                <span className={`text-lg font-semibold line-through mr-2 ${theme.text}`}>${price.toFixed(2)}</span>
-                <span className="text-lg font-semibold text-orange-600">${(Math.floor(price * (1 - 0.10) * 100) / 100).toFixed(2)}</span>
+                <span className={`text-lg font-semibold text-orange-500 line-through mr-2`}>${price.toFixed(2)}</span>
+                <span className="text-lg font-semibold">
+                  ${((Math.floor((price * (1 - 0.10)) * 10) / 10).toFixed(2))}
+                </span>
               </p>
 
             ) : <span className={`text-lg font-semibold mr-2 ${theme.text}`}>${price.toFixed(2)}</span>
             }
 
             <button onClick={addToCart} className={`p-1 rounded-sm text-orange-500 ${theme.textHover} ${theme.bgHoverOrange} active:bg-orange-700`}>
-              <FiPlus className='text-xl'/>
+              <FiPlus className='text-xl' />
             </button>
 
           </div>

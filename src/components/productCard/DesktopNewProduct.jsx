@@ -75,8 +75,10 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
             {isBestOffer ? (
               <p>
-                <span className={`text-lg font-semibold line-through mr-2 ${theme.text}`}>${price.toFixed(2)}</span>
-                <span className="text-lg font-semibold text-orange-600">${(Math.floor(price * (1 - 0.10) * 100) / 100).toFixed(2)}</span>
+                <span className={`text-lg font-semibold text-orange-600 line-through mr-2`}>${price.toFixed(2)}</span>
+                <span className="text-lg font-semibold">
+                  ${((Math.floor((price * (1 - 0.10)) * 10) / 10).toFixed(2))}
+                </span>
               </p>
 
             ) : <span className={`text-lg font-semibold mr-2 ${theme.text}`}>${price.toFixed(2)}</span>

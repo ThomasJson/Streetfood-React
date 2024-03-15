@@ -4,7 +4,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import useFetch from "../../hooks/useFetch";
 import { useTranslation } from 'react-i18next';
 import { MdNewReleases, MdTrendingUp } from "react-icons/md";
-import { TbBrandCashapp } from "react-icons/tb";
+import { BiDollar } from "react-icons/bi";
 import Carousel from "../../components/carousel/Carousel";
 import DesktopCarousel from "../../components/carousel/DesktopCarousel";
 import ProductCard from "../../components/productCard/ProductCard";
@@ -75,7 +75,7 @@ const HomeScreen = () => {
         <section className="sm:hidden w-full flex flex-col items-center gap-4 bg-orange-200 p-4">
           <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-orange-400 p-2 text-white">
             <h1>{t('product.bestOffers')}</h1>
-            <TbBrandCashapp />
+            <BiDollar />
           </div>
           <Carousel products={bestOffers} />
         </section>
@@ -105,9 +105,9 @@ const HomeScreen = () => {
 
           <section className="hidden w-full h-1/2 sm:flex flex-col items-center gap-2 bg-orange-200 p-2">
             
-            <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-orange-400 p-1 text-white">
+            <div className="flex flex-row justify-center items-center w-full gap-1 text-2xl text-center font-Rubik bg-orange-400 p-1 text-white">
               <h1>{t('product.bestOffers')}</h1>
-              <TbBrandCashapp />
+              <BiDollar />
             </div>
 
             <div className="flex flex-row h-full gap-4 overflow-x-auto w-full scrollable-section">
