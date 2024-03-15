@@ -11,7 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { BiLogInCircle } from "react-icons/bi";
 
-const Footer = ({ setShowModal }) => {
+const Footer = ({ setShowModal, setUserModal }) => {
 
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
@@ -34,15 +34,13 @@ const Footer = ({ setShowModal }) => {
           )}
 
           {auth.role > 0 && (
-            <NavLink to="/account">
-              <button className="p-3">
-                <div className="flex flex-row items-center">
-                  <span>
-                    <AiOutlineUser className={`text-2xl ${theme.text}`} />
-                  </span>
-                </div>
-              </button>
-            </NavLink>
+            <button className={`rounded-lg p-3 ${theme.text} ${theme.textHover} hover:bg-blue-500`} onClick={() => setUserModal(true)}>
+              <div className={`flex flex-row items-center`}>
+
+                <span><AiOutlineUser className={`text-2xl`} /></span>
+
+              </div>
+            </button>
           )}
 
           <ShoppingCart />

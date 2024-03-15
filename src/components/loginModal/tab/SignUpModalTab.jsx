@@ -123,7 +123,7 @@ const SignUpModalTab = () => {
                     <div className="flex flex-row items-center">
                         <FiUserPlus className="text-2xl text-white" />
                         <span className="ml-1 text-white">
-                            {t('generic.signup')}
+                            {t('generic.signUp')}
                         </span>
                     </div>
                 </button>

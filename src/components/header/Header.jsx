@@ -12,7 +12,7 @@ import ShoppingCart from "../shoppingCart/ShoppingCart";
 import CategoryNav from "../../components/categoryNav/CategoryNav";
 import ContextSettings from "../contextSettings/ContextSettings";
 
-const Header = ({ setShowModal, setCounter }) => {
+const Header = ({ setShowModal, setUserModal }) => {
 
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
@@ -77,12 +77,12 @@ const Header = ({ setShowModal, setCounter }) => {
           <div className="hidden sm:flex flex-row items-center w-5/12 justify-end">
 
             {auth.role < 1 && (
-              <button className={`rounded-lg p-2 ${theme.text} ${theme.textHover} ${theme.bgHover}`} onClick={() => setShowModal(true)}>
+              <button className={`rounded-lg p-2 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen}`} onClick={() => setShowModal(true)}>
                 <div className={`flex flex-row items-center`}>
 
                   <span><BiLogInCircle className={`text-2xl`} /></span>
                   <span className={`hidden sm:flex ml-1 font-Rubik `}>
-                    {t('generic.login')}
+                    {t('generic.logIn')}
                   </span>
 
                 </div>
@@ -90,12 +90,23 @@ const Header = ({ setShowModal, setCounter }) => {
             )}
 
             {auth.role > 0 && (
+              <button className={`rounded-lg p-2 ${theme.text} ${theme.textHover} hover:bg-blue-500`} onClick={() => setUserModal(true)}>
+                <div className={`flex flex-row items-center`}>
+
+                  <span><AiOutlineUser className={`text-2xl`} /></span>
+                  <span className={`tracking-wide font-Rubik`}>{pseudo?.pseudo}</span>
+
+                </div>
+              </button>
+            )}
+
+            {/* {auth.role > 0 && (
 
               <NavLink
                 to="/account"
                 className="py-1 px-2 rounded"
               >
-                <div className={`rounded-lg p-2 ${theme.text} ${theme.textHover} ${theme.bgHover}`}>
+                <div className={`rounded-lg p-2 ${theme.text} ${theme.textHover} hover:bg-blue-500`}>
                   <div className="flex flex-row items-center">
 
                     <span className="">
@@ -108,7 +119,7 @@ const Header = ({ setShowModal, setCounter }) => {
                 
               </NavLink>
 
-            )}
+            )} */}
 
             <ShoppingCart />
 

@@ -4,11 +4,13 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import LoginModal from '../../components/loginModal/LoginModal';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import UserModal from '../../components/userModal/UserModal';
 
 const BaseScreen = () => {
 
   const { theme } = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
+  const [userModal, setUserModal] = useState(false);
 
   // {
   //   "name": "dark",
@@ -21,7 +23,9 @@ const BaseScreen = () => {
   //   "text": "text-white",
   //   "label": "text-gray-300",
 
-  //   "bgHover": "hover:bg-green-500",
+  //   "bgHover": "hover:bg-gray-50",
+  //   "bgHoverGreen": "hover:bg-green-500",
+  //   "bgHoverOrange": "hover:bg-orange-500",
   //   "textHover": "hover:text-white"
   // }
 
@@ -36,8 +40,9 @@ const BaseScreen = () => {
   //   "text": "text-black",
   //   "label": "text-gray-700",
   
-  //   "bgHover": "hover:bg-green-500",
-  //   "bgHover2": "hover:bg-orange-500",
+  //   "bgHover": "hover:bg-zinc-900",
+  //   "bgHoverGreen": "hover:bg-green-500",
+  //   "bgHoverOrange": "hover:bg-orange-500",
   //   "textHover": "hover:text-white"
   // }
 
@@ -45,9 +50,10 @@ const BaseScreen = () => {
     <>
       <div className="box-border">
 
-        <Header setShowModal={setShowModal}/>
+        <Header setShowModal={setShowModal} setUserModal={setUserModal}/>
 
         <LoginModal show={showModal} setShow={setShowModal} />
+        <UserModal show={userModal} setShow={setUserModal} />
 
         <div className={`mainFooterContainer ${theme.bgTertiary}`}>
           
@@ -55,7 +61,7 @@ const BaseScreen = () => {
             <Outlet />
           </main>
 
-          <Footer setShowModal={setShowModal}/>
+          <Footer setShowModal={setShowModal} setUserModal={setUserModal}/>
           
         </div>
 

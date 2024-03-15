@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from "react-router-dom";
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useCart } from '../../contexts/CartContext';
-import { MdNewReleases  } from "react-icons/md";
 
 import { FiShoppingCart } from "react-icons/fi";
 
@@ -18,7 +17,7 @@ const ShoppingCart = () => {
     <>
       <NavLink to="/cart" className="rounded ml-1">
 
-        <div className={`button-custom cart-spacing ${theme.text} ${theme.textHover} ${theme.bgHover2}`}>
+        <div className={`button-custom cart-spacing ${theme.text} ${theme.textHover} ${theme.bgHoverOrange}`}>
 
           {
             cartCount < 10 ?

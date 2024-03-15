@@ -86,7 +86,7 @@ const AdminScreen = () => {
 
   return (
     <>
-      <div className={`flex flex-col lg:w-1/3 p-4 m-4 shadow-md rounded ${theme.bgPrimary} ${theme.text}`}>
+      <div className={`flex flex-col lg:w-1/3 p-4 shadow-md rounded ${theme.bgPrimary} ${theme.text}`}>
 
         <h2 className={`text-2xl mb-4`}>Add new Product</h2>
 

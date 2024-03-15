@@ -152,7 +152,7 @@ const LogInModalTab = ({ setShow }) => {
                     <div className="flex flex-row items-center">
                         <BiLogInCircle className="text-2xl text-white" />
                         <span className="ml-1 text-white">
-                            {t('generic.login')}
+                            {t('generic.logIn')}
                         </span>
                     </div>
                 </button>

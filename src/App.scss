@@ -28,6 +28,7 @@
 .mainFooterContainer {
   margin-top: 10vh;
   margin-bottom: 10vh;
+  min-height: 80vh;
   overflow-y: auto;
 }
 
@@ -37,11 +38,17 @@ main {
 }
 
 @media (min-width: 640px) {
+
   .mainFooterContainer {
     margin-top: 14vh;
     margin-bottom: 0px;
-    min-height: 84vh;
+    min-height: 86vh;
   }
+
+  .main {
+    min-height: 76vh !important;
+  }
+  
 }
 
 // @import '~bootstrap/scss/bootstrap';

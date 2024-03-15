@@ -28,10 +28,10 @@ const LoginModal = ({ show, setShow }) => {
               <Tab as={React.Fragment}>
                 {({ selected }) => (
                   <button
-                    className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 text-sm font-medium leading-5 ${selected ? `${theme.bgPrimary} ${theme.text}` : `${theme.bgHover} ${theme.text} ${theme.textHover}`}`}
+                    className={`flex flex-row justify-center items-center gap-1 w-full rounded-l-lg py-2.5 text-sm font-medium leading-5 ${selected ? `${theme.bgPrimary} ${theme.text}` : `${theme.bgHover} ${theme.text}`}`}
                   >
                     <BiLogInCircle className={`text-2xl `} />
-                    {t('generic.login')}
+                    {t('generic.logIn')}
                   </button>
                 )}
               </Tab>
@@ -39,10 +39,10 @@ const LoginModal = ({ show, setShow }) => {
               <Tab as={React.Fragment}>
                 {({ selected }) => (
                   <button
-                    className={`flex flex-row justify-center gap-1 w-full rounded-lg py-2.5 text-sm font-medium leading-5 ${selected ? `${theme.bgPrimary} ${theme.text}` : `${theme.bgHover2} ${theme.text} ${theme.textHover}`}`}
+                    className={`flex flex-row justify-center gap-1 w-full rounded-r-lg py-2.5 text-sm font-medium leading-5 ${selected ? `${theme.bgPrimary} ${theme.text}` : `${theme.bgHover} ${theme.text}`}`}
                   >
                     <FiUserPlus className={`text-2xl `} />
-                    {t('generic.signup')}
+                    {t('generic.signUp')}
                   </button>
                 )}
               </Tab>
