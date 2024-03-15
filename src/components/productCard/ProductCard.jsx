@@ -56,7 +56,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
             {
               userLang === "en" ?
                 (<span>{title}</span>) :
-                (<span>{title_Th}</span>)
+                (<span className='font-bold'>{title_Th}</span>)
             }
           </h5>
 
@@ -93,8 +93,8 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
             ) : <span className={`text-lg font-semibold mr-2 ${theme.text}`}>${price.toFixed(2)}</span>
             }
 
-            <button onClick={addToCart} className="bg-orange-400 text-white p-1 rounded-sm">
-              <FiPlus />
+            <button onClick={addToCart} className={`p-1 rounded-sm text-orange-500 ${theme.textHover} ${theme.bgHoverOrange} active:bg-orange-700`}>
+              <FiPlus className='text-xl'/>
             </button>
 
           </div>
