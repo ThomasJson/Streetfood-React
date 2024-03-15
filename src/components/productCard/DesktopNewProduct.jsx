@@ -15,19 +15,19 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
   return (
     <>
-      <div className={`w-full h-full flex flex-col rounded-lg shadow-lg p-2 gap-2 ${theme.text} ${theme.bgPrimary}`} >
+      <div className={`w-full h-carouselProduct flex flex-col rounded-lg shadow-lg p-2 gap-2 ${theme.text} ${theme.bgPrimary}`} >
 
-        <div className="h-full">
+        <div className="!h-4/6">
 
           <img
-            className="h-full w-full object-cover rounded-tl-lg sm:h-carouselProduct md:rounded-none md:rounded-l-lg"
+            className="!h-full w-full object-cover rounded-tl-lg md:rounded-none md:rounded-l-lg"
             src={src}
             alt={alt}
           />
 
         </div>
 
-        <div className="relative flex flex-col w-full h-full justify-start">
+        <div className="relative flex flex-col w-full !h-2/6 justify-start">
 
           <div className='absolute top-1 lg:top-0 right-0 flex flex-row justify-end gap-1 text-white'>
 

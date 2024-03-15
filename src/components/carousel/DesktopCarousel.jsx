@@ -24,7 +24,7 @@ const Carousel = ({ products }) => {
 
       <div className="relative w-full">
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden rounded-lg">
 
           <div
             className="whitespace-nowrap transition-transform duration-500"

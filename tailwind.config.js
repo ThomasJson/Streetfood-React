@@ -6,15 +6,16 @@ module.exports = {
       width: {
         "49": "49%",
         "33%": "33%",
+        "66%": "66%",
         "24%": "24%"
       },
       height: {
         "header-desktop": "14vh",
         "header-mobile": "10vh",
-        "main-desktop": "84vh",
+        "main-desktop": "71.6vh",
         "main-mobile": "80vh",
         "footer": "10vh",
-        "carouselProduct": "40vh",
+        "carouselProduct": "54.6vh"
       },
       minHeight:{
         "header-desktop": "16vh",
