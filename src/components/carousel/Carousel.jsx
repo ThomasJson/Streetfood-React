@@ -76,7 +76,7 @@ const Carousel = ({ products }) => {
         {products.map((_, index) => (
           <button
             key={index}
-            className={`rounded-full h-3 w-3 mx-1 ${currentIndex === index ? 'bg-gray-500' : 'bg-gray-300'}`}
+            className={`rounded-full h-3 w-3 mx-1 ${currentIndex === index ? 'bg-gray-500' : 'bg-white'}`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}

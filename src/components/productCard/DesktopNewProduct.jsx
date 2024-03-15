@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { FiPlus } from "react-icons/fi";
+import { useCart } from '../../contexts/CartContext';
 import { MdNewReleases, MdTrendingUp  } from "react-icons/md";
 import { TbBrandCashapp } from "react-icons/tb";
 import ProductBadge from './ProductBadge';
@@ -10,6 +11,7 @@ import ProductBadge from './ProductBadge';
 const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, isNew, isBestOffer, isBestSale, stock }) => {
 
   const { theme } = useContext(ThemeContext);
+  const { addToCart } = useCart();
   const userLang = localStorage.getItem('i18nextLng');
   const { t } = useTranslation();
 
@@ -17,10 +19,10 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
     <>
       <div className={`w-full h-carouselProduct flex flex-col rounded-lg shadow-lg p-2 gap-2 ${theme.text} ${theme.bgPrimary}`} >
 
-        <div className="!h-4/6">
+        <div className="h-4/6">
 
           <img
-            className="!h-full w-full object-cover rounded-tl-lg md:rounded-none md:rounded-l-lg"
+            className="h-full w-full object-cover rounded-tl-lg md:rounded-none md:rounded-l-lg"
             src={src}
             alt={alt}
           />
@@ -39,11 +41,11 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
           </div>
 
-          <h5 className="mb-2 text-xl font-medium">
+          <h5 className="mb-2 text-lg font-medium">
             {
               userLang === "en" ?
                 (<span>{title}</span>) :
-                (<span>{title_Th}</span>)
+                (<span className='font-bold'>{title_Th}</span>)
             }
           </h5>
 
@@ -80,8 +82,8 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
             ) : <span className={`text-lg font-semibold mr-2 ${theme.text}`}>${price.toFixed(2)}</span>
             }
 
-            <button className="bg-orange-400 text-white p-1 rounded-sm">
-              <FiPlus />
+            <button onClick={addToCart} className={`p-1 rounded-sm text-orange-500 ${theme.textHover} ${theme.bgHoverOrange} active:bg-orange-700`}>
+              <FiPlus className='text-xl'/>
             </button>
 
           </div>

@@ -59,7 +59,7 @@ const Footer = ({ setShowModal, setUserModal }) => {
       </div>
 
       <div className={`h-footer hidden sm:flex justify-center items-center font-Rubik ${theme.text} ${theme.bgPrimary}`}>
-        © 2023-2024, StreetFood.com, Inc. {t('generic.footer-text')}
+        © 2023-2024, StreetFood.com, Inc. {t('generic.footerText')}
       </div>
     </>
   );

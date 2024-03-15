@@ -31,7 +31,8 @@ const SingleCategoryScreen = () => {
 
       <div className="flex flex-row w-full justify-between">
 
-        <div className="hidden lg:flex flex-col w-24%">
+        {/* <div className="hidden lg:flex flex-col w-24%">
+
           <div className="p-2 border border-black">
             <h2 className="mb-6">Filter your products :</h2>
 
@@ -41,13 +42,11 @@ const SingleCategoryScreen = () => {
               <p>Offers</p>
               <p>Trend</p>
             </div>
-
-
           </div>
 
-        </div>
+        </div> */}
 
-        <div className="flex flex-col lg:w-3/4">
+        <div className="flex flex-col w-full"> {/* lg:w-3/4 */}
 
           <div className="w-full flex flex-row flex-wrap gap-4">
 

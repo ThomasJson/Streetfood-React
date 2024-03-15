@@ -52,7 +52,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
           </div>
 
-          <h5 className="mb-2 text-xl font-medium">
+          <h5 className="mb-2 text-lg font-medium">
             {
               userLang === "en" ?
                 (<span>{title}</span>) :

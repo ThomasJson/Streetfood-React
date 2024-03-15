@@ -96,7 +96,7 @@ const HomeScreen = () => {
         <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-blue-200 p-4">
           <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-blue-600 p-2 text-white">
             <h1>{t('product.newProducts')}</h1>
-            <MdNewReleases />
+            <span className='flex sm:hidden md:flex'><MdNewReleases /></span>
           </div>
           <DesktopCarousel products={newProducts} />
         </section>

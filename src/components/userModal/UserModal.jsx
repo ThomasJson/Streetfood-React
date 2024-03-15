@@ -22,7 +22,7 @@ const UserModal = ({ show, setShow }) => {
         <Dialog open={show} onClose={closeModal} className="fixed z-10 inset-0 overflow-y-auto">
 
             <div className="flex items-center justify-center min-h-screen">
-                <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+                <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
 
                 <div className={`relative p-4 rounded-lg w-11/12 sm:max-w-sm mx-auto ${theme.bgPrimary}`}>
 

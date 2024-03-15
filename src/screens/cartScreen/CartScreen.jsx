@@ -17,7 +17,7 @@ const CartScreen = () => {
         <h2 className="text-2xl">{t('error.comingSoon')}</h2>
 
         {cartCount > 0 &&
-          <button className={`flex justify-center items-center gap-1 p-2 rounded-lg hover:bg-red-500 ${theme.textHover}`} onClick={resetCart}>
+          <button className={`mt-14 flex justify-center items-center gap-1 p-2 rounded-lg border-2 border-white hover:bg-red-500 ${theme.textHover}`} onClick={resetCart}>
             <span className='font-Rubik text-2xl'>Reset Cart</span>
             <RiDeleteBinLine className="text-2xl" />
           </button>

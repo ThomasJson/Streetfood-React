@@ -56,7 +56,7 @@ const Header = ({ setShowModal, setUserModal }) => {
 
   return (
     <>
-      <div className="h-header-mobile fixed top-0 left-0 z-50 w-full flex flex-col sm:h-header-desktop">
+      <div className="h-header-mobile fixed top-0 left-0 z-50 w-full flex flex-col sm:h-header-desktop overflow-y-hidden">
 
         <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
 
@@ -99,27 +99,6 @@ const Header = ({ setShowModal, setUserModal }) => {
                 </div>
               </button>
             )}
-
-            {/* {auth.role > 0 && (
-
-              <NavLink
-                to="/account"
-                className="py-1 px-2 rounded"
-              >
-                <div className={`rounded-lg p-2 ${theme.text} ${theme.textHover} hover:bg-blue-500`}>
-                  <div className="flex flex-row items-center">
-
-                    <span className="">
-                      <AiOutlineUser className={`text-2xl`} />
-                    </span>
-                    <span className={`tracking-wide font-Rubik`}>{pseudo?.pseudo}</span>
-
-                  </div>
-                </div>
-                
-              </NavLink>
-
-            )} */}
 
             <ShoppingCart />
 

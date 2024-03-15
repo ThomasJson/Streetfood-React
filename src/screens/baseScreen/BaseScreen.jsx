@@ -50,12 +50,13 @@ const BaseScreen = () => {
     <>
       <div className="box-border">
 
-        <Header setShowModal={setShowModal} setUserModal={setUserModal}/>
+        <div className='overflow-y-hidden'>
+          <Header setShowModal={setShowModal} setUserModal={setUserModal}/>
+          <LoginModal show={showModal} setShow={setShowModal} />
+          <UserModal show={userModal} setShow={setUserModal} />
+        </div>
 
-        <LoginModal show={showModal} setShow={setShowModal} />
-        <UserModal show={userModal} setShow={setUserModal} />
-
-        <div className={`mainFooterContainer ${theme.bgTertiary}`}>
+        <div id='mainFooterContainer' className={`overflow-y-auto ${theme.bgTertiary}`}>
           
           <main>
             <Outlet />

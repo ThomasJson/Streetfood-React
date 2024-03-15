@@ -9,27 +9,27 @@
   filter: invert(1);
 }
 
-::-webkit-scrollbar {
+#mainFooterContainer::-webkit-scrollbar {
   width: 5px;
 }
 
-::-webkit-scrollbar-track {
+#mainFooterContainer::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-::-webkit-scrollbar-thumb {
+#mainFooterContainer::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-::-webkit-scrollbar-thumb:hover {
+#mainFooterContainer::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-.mainFooterContainer {
+#mainFooterContainer {
+  overflow-y: auto;
   margin-top: 10vh;
   margin-bottom: 10vh;
   min-height: 80vh;
-  overflow-y: auto;
 }
 
 main {
@@ -39,7 +39,8 @@ main {
 
 @media (min-width: 640px) {
 
-  .mainFooterContainer {
+  #mainFooterContainer {
+    overflow-y: auto;
     margin-top: 14vh;
     margin-bottom: 0px;
     min-height: 86vh;
