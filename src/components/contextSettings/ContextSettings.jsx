@@ -8,7 +8,7 @@ const ContextSettings = () => {
 
     const { i18n } = useTranslation();
     const { theme, changeThemeTo } = useContext(ThemeContext);
-    const [ changeTheme, setChangeTheme ] = useState(theme.name === 'light');
+    const [ changeTheme, setChangeTheme ] = useState(theme.name === 'dark');
     const [ isThai, setIsThai ] = useState(i18n.language === 'th');
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const ContextSettings = () => {
 
     const handleChangeTheme = () => {
         setChangeTheme(previousValue => !previousValue);
-        changeThemeTo(!changeTheme ? 'dark' : 'light');
+        changeThemeTo(changeTheme ? 'light' : 'dark');
     }
     
     const toggleLanguage = () => {
