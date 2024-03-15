@@ -9,7 +9,6 @@ const ThemeContextProvider = (props) => {
   const [theme, setTheme] = useState({ name: 'light' });
   
   const changeThemeTo = (themeName) => {
-    console.log(themeName)
     if(!themes[themeName] || themeName === theme.name)
       return;
 

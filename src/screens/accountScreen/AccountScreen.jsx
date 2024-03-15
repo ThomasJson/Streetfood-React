@@ -8,13 +8,15 @@ import { NavLink } from 'react-router-dom';
 const AccountScreen = () => {
 
   // const { auth, setAuth } = useContext(AuthContext);
-  // const { theme } = useContext(ThemeContext);
-  // const { t } = useTranslation();
+  const { theme } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <>
-      <div className='flex flex-row h-full justify-center items-center'>
-        
+      <div className={`h-full mt-10 flex flex-col gap-4 justify-center items-center font-Rubik ${theme.text}`}>
+
+        <h2 className="text-2xl">{t('error.comingSoon')}</h2>
+
       </div>
     </>
   );

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { deleteCookie } from '../../helpers/cookieHelper';
 import { NavLink } from 'react-router-dom';
 
-const CategoryScreen = () => {
+const SettingsScreen = () => {
 
   // const { auth, setAuth } = useContext(AuthContext);
   const { theme } = useContext(ThemeContext);
@@ -22,4 +22,4 @@ const CategoryScreen = () => {
   );
 };
 
-export default CategoryScreen;
+export default SettingsScreen;

@@ -43,6 +43,8 @@
     },
 
     "error": {
-        "404": "Page not found"
+        "404": "Page not found",
+        "loading": "Loading ...",
+        "comingSoon": "Coming soon ..."
     }
 }

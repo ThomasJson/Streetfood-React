@@ -9,15 +9,11 @@ const NotFoundScreen = () => {
 
   return (
 
-    <div className='h-full flex flex-col'>
+    <div className={`h-full mt-10 flex flex-col gap-4 justify-center items-center font-Rubik ${theme.text}`}>
 
-      <div className={`h-full flex flex-col justify-center items-center font-Rubik ${theme.text}`}>
+      <h1 className='text-8xl'>404</h1>
+      <h2 className='font-Rubik text-2xl'>{t('error.404')}</h2>
 
-        <h1 className='mb-4 text-8xl'>404</h1>
-        <h2 className='font-Rubik text-2xl'>{t('error.404')}</h2>
-
-      </div>
-      
     </div>
 
   );

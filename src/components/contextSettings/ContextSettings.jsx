@@ -8,16 +8,24 @@ const ContextSettings = () => {
 
     const { i18n } = useTranslation();
     const { theme, changeThemeTo } = useContext(ThemeContext);
-    const [ changeTheme, setChangeTheme ] = useState(theme.name === 'dark');
+    const [ isDark, setIsDark ] = useState(theme.name === 'dark');
     const [ isThai, setIsThai ] = useState(i18n.language === 'th');
 
-    useEffect(() => {
-    }, [changeTheme])
+    // useEffect(() => {
+    // }, [isDark])
 
     const handleChangeTheme = () => {
-        setChangeTheme(previousValue => !previousValue);
-        changeThemeTo(changeTheme ? 'light' : 'dark');
+        setIsDark(previousValue => !previousValue);
+        changeThemeTo(isDark ? 'light' : 'dark');
     }
+
+    // console.log(isDark)
+
+    // const handleChangeTheme = () => {
+    //     const newTheme = changeTheme ? 'dark' : 'light';
+    //     changeThemeTo(newTheme);
+    //     setChangeTheme(previousValue => !previousValue);
+    // }
     
     const toggleLanguage = () => {
         const newLanguage = isThai ? 'en' : 'th';
@@ -31,7 +39,7 @@ const ContextSettings = () => {
             <div className='flex flex-row items-center gap-1'>
                 <IoSunnyOutline className={`${theme.text}`}/>
                 <label className="switch">
-                    <input type="checkbox" checked={changeTheme} onChange={handleChangeTheme} />
+                    <input type="checkbox" checked={isDark} onChange={handleChangeTheme} />
                     <span className="slider round"></span>
                 </label>
                 <IoMoonOutline className={`${theme.text}`}/>

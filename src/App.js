@@ -18,6 +18,7 @@ import AccountValidateScreen from "./screens/accountValidateScreen/AccountValida
 import NotFoundScreen from "./screens/notFoundScreen/NotFoundScreen";
 
 import LoadingSpinner from "./components/loadingSpinner/LoadingSpinner";
+import SettingsScreen from "./screens/settingsScreen/SettingsScreen";
 
 const HomeScreen = React.lazy(() => import('./screens/homeScreen/HomeScreen'));
 const AccountScreen = React.lazy(() => import('./screens/accountScreen/AccountScreen'));
@@ -42,11 +43,11 @@ function App() {
 
             <Route path="product" element={<ProductScreen />} />
 
-            {/* <Route path="category" element={
+            <Route path="category" element={
               <Suspense fallback={<LoadingSpinner />}>
                 <CategoryScreen />
               </Suspense>
-            } /> */}
+            } />
 
             <Route path="category/:id" element={
               <Suspense fallback={<LoadingSpinner />}>
@@ -55,6 +56,7 @@ function App() {
             } />
 
             <Route path="contact" element={<ContactScreen />} />
+            <Route path="settings" element={<SettingsScreen />} />
             <Route path="cart" element={<CartScreen />} />
             <Route path="register" element={<RegisterScreen />} />
 
