@@ -18,7 +18,9 @@ const CartScreen = () => {
 
         {cartCount > 0 &&
           <button className={`mt-14 flex justify-center items-center gap-1 p-2 rounded-lg border-2 hover:bg-red-500 hover:border-white ${theme.textHover} ${theme.borderColor}`} onClick={resetCart}>
-            <span className='font-Rubik text-2xl'>Reset Cart</span>
+            <span className='font-Rubik text-2xl'>
+              {t('generic.resetCart')}
+            </span>
             <RiDeleteBinLine className="text-2xl" />
           </button>
         }

@@ -37,21 +37,21 @@ const ContextSettings = () => {
         <div className='flex flex-row gap-4'>
 
             <div className='flex flex-row items-center gap-1'>
-                <IoSunnyOutline className={`${theme.text}`}/>
+                <IoSunnyOutline className={`${theme.text} text-lg`}/>
                 <label className="switch">
-                    <input type="checkbox" checked={isDark} onChange={handleChangeTheme} />
+                    <input id='darkTheme' type="checkbox" checked={isDark} onChange={handleChangeTheme} />
                     <span className="slider round"></span>
                 </label>
-                <IoMoonOutline className={`${theme.text}`}/>
+                <IoMoonOutline className={`${theme.text} text-lg`}/>
             </div>
 
             <div className='flex flex-row items-center gap-1'>
-                <img src='/assets/img/en.png' alt='English' style={{width: '17px', height: '17px'}} />
+                <img src='/assets/img/en.png' alt='English' style={{width: '18px', height: '18px'}} />
                 <label className="switch">
-                    <input type="checkbox" checked={isThai} onChange={toggleLanguage} />
+                    <input id='thaiTheme' type="checkbox" checked={isThai} onChange={toggleLanguage} />
                     <span className="slider round"></span>
                 </label>
-                <img src='/assets/img/th.png' alt='Thai' style={{width: '17px', height: '17px'}} />
+                <img src='/assets/img/th.png' alt='Thai' style={{width: '18px', height: '18px'}} />
             </div>
 
         </div>

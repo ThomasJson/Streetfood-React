@@ -18,6 +18,7 @@ import NotFoundScreen from "./screens/notFoundScreen/NotFoundScreen";
 
 import LoadingSpinner from "./components/loadingSpinner/LoadingSpinner";
 import SettingsScreen from "./screens/settingsScreen/SettingsScreen";
+import TrollScreen from "./screens/trollScreen/TrollScreen";
 
 const HomeScreen = React.lazy(() => import('./screens/homeScreen/HomeScreen'));
 const AccountScreen = React.lazy(() => import('./screens/accountScreen/AccountScreen'));
@@ -55,6 +56,7 @@ function App() {
               </Suspense>
             } />
 
+            <Route path="admin" element={<TrollScreen />} />
             <Route path="settings" element={<SettingsScreen />} />
             <Route path="cart" element={<CartScreen />} />
 

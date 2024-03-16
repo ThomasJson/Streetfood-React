@@ -58,7 +58,7 @@ const UserModal = ({ show, setShow }) => {
                             className="w-full"
                             onClick={closeModal}
                         >
-                            <button className={`w-full flex justify-center gap-1 items-center p-2 rounded-lg ${theme.bgTertiary} ${theme.text} ${theme.textHover} hover:bg-orange-500`}>
+                            <button className={`w-full flex justify-center gap-1 items-center p-2 rounded-lg ${theme.bgTertiary} ${theme.text} ${theme.textHover} hover:bg-orange-400`}>
                                 <IoSettingsOutline className={`text-2xl `} />
                                 <span className='font-medium'>{t('userModal.settings')}</span>
                             </button>
