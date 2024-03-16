@@ -49,6 +49,7 @@ const AccountValidateScreen = () => {
   }, [createUserToken, navigate]);
 
   useEffect(() => {
+
     if (authResult !== null && authResult.result) {
       const timer = setTimeout(() => {
         navigate("/");
@@ -63,6 +64,7 @@ const AccountValidateScreen = () => {
         clearInterval(countdownTimer);
       };
     }
+
   }, [authResult, navigate]);
 
   const {
@@ -110,7 +112,7 @@ const AccountValidateScreen = () => {
 
       {createUserToken !== null && (
 
-        <div className='flex flex-col w-full h-full justify-center items-center'>
+        <div className='flex flex-col w-full h-full justify-center items-center mt-10'>
 
           <div className={`relative p-4 rounded-lg w-11/12 sm:max-w-lg mx-auto ${theme.bgPrimary}`}>
 
@@ -144,13 +146,13 @@ const AccountValidateScreen = () => {
                   <input
                     id="password-input"
                     className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
-                    type="text"
+                    type="password"
                     placeholder="••••••"
                     name="password"
                     autoComplete="off"
                     {...register("password", {
                       required: true,
-                      regex: /^(?=.*[A-Z]).{6,}$/,
+                      pattern: /^(?=.*[A-Z]).{6,}$/,
                     })}
                   />
                   {errors.password && (
@@ -167,12 +169,12 @@ const AccountValidateScreen = () => {
                   <input
                     id="confirm-input"
                     className={`border border-gray-300 w-full p-2 focus:outline-none ${theme.text} ${theme.bgSecondary}`}
-                    type="text"
+                    type="password"
                     placeholder="••••••"
                     autoComplete="off"
                     {...register("confirm", {
                       required: true,
-                      regex: /^(?=.*[A-Z]).{6,}$/,
+                      pattern: /^(?=.*[A-Z]).{6,}$/,
                       validate: validPw,
                     })}
                   />
