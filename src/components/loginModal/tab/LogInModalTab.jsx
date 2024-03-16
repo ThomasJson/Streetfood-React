@@ -59,9 +59,6 @@ const LogInModalTab = ({ setShow }) => {
         })
             .then(response => {
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
                 return response.json();
 
             })
@@ -77,20 +74,18 @@ const LogInModalTab = ({ setShow }) => {
                 } else {
 
                     if (data?.result === false) {
-                        setErrorMessage("Incorrect email or password.");
+                        setErrorMessage(data?.message);
                     }
 
                     setAuth({ role: 0, id: "0" });
                     deleteCookie("StreetF");
                 }
 
-            })
-            .catch(e => {
-
-                // console.log(e);
             });
 
     }
+
+    console.log(errorMessage)
 
     return (
         <div className={`p-3 rounded-lg ${theme.bgTertiary}`}>
@@ -138,12 +133,12 @@ const LogInModalTab = ({ setShow }) => {
                     </p>
                 )}
 
-                <p className="text-red-400 text-sm italic">{errorMessage}</p>
-
-                {/* <div className={`text-center mt-2 mb-3 ${theme.label}`}>
-                    {t('modal.forgotPw')}
-                </div> */}
-
+                {errorMessage !== "" &&
+                    <p className="text-red-400 text-sm mt-1">
+                        {t('modal.invalidCredentials')}
+                    </p>
+                }
+                
                 <button
                     type="submit"
                     onClick={() => setErrorMessage("")}

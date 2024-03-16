@@ -96,8 +96,6 @@ const AccountValidateScreen = () => {
 
   };
 
-  console.log(createUserToken)
-
   const validPw = () => {
 
     return (

@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
 
         const url = process.env.REACT_APP_AUTH_API_BASE_URL;
 
-        console.log('Url to check : ' + url);
+        // console.log('Url to check : ' + url);
 
         const response = await fetch(url + "/auth/check", {
           method: 'GET',
@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
 
         const data = await response.json();
 
-        console.log(data)
+        // console.log(data)
 
         if (data && data.result) {
 
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
 
   }, []);
 
-  console.log('auth:', auth)
+  // console.log('auth:', auth)
 
   return (
 
