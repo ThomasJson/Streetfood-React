@@ -10,19 +10,8 @@ module.exports = {
         "24%": "24%"
       },
       height: {
-        "header-desktop": "14vh",
-        "header-mobile": "10vh",
-        "main-desktop": "71.6vh",
-        "main-mobile": "80vh",
-        "footer": "10vh",
-        "carouselProduct": "54.6vh"
-      },
-      minHeight:{
-        "header-desktop": "16vh",
-        "header-mobile": "10vh",
-        "main-desktop": "84vh",
-        "main-mobile": "80vh",
-        "footer": "10vh",
+        "homeDesktop": "71.6vh",
+        "carouselDesktopProductCard": "54.6vh"
       },
       spacing: {
         "main-desktop": "16vh",

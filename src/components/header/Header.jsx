@@ -55,8 +55,9 @@ const Header = ({ setShowModal, setUserModal }) => {
   }, [auth]);
 
   return (
+
     <>
-      <div className="h-header-mobile fixed top-0 left-0 z-50 w-full flex flex-col sm:h-header-desktop overflow-y-hidden">
+      <header>
 
         <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
 
@@ -107,9 +108,11 @@ const Header = ({ setShowModal, setUserModal }) => {
 
         <CategoryNav />
 
-      </div>
+      </header>
     </>
+
   );
+  
 };
 
 export default Header;

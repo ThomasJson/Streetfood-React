@@ -91,7 +91,7 @@ const HomeScreen = () => {
       </div>
 
       {/* DESKTOP */}
-      <div className="hidden sm:flex flex-row h-main-desktop gap-4">
+      <div className="hidden sm:flex flex-row h-homeDesktop gap-4">
 
         <section className="hidden w-33% h-full sm:flex flex-col items-center gap-4 bg-blue-200 p-4">
           <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-blue-600 p-2 text-white">

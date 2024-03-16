@@ -9,27 +9,27 @@
   filter: invert(1);
 }
 
-#mainFooterContainer::-webkit-scrollbar {
-  width: 5px;
+// body {
+//   overflow-y: auto;
+// }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  overflow-y: hidden;
 }
 
-#mainFooterContainer::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-#mainFooterContainer::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-#mainFooterContainer::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-#mainFooterContainer {
+#mainAndFooterContainer {
   overflow-y: auto;
   margin-top: 10vh;
   margin-bottom: 10vh;
-  min-height: 80vh;
+  height: 80vh;
 }
 
 main {
@@ -37,19 +37,58 @@ main {
   padding: 1rem;
 }
 
+.footerMobile {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footerDesktop {
+  display: none;
+  width: 100%;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+  font-family: Rubik, sans-serif;
+}
+
 @media (min-width: 640px) {
 
-  #mainFooterContainer {
-    overflow-y: auto;
+  header {
+    height: 14vh;
+  }
+
+  #mainAndFooterContainer {
     margin-top: 14vh;
     margin-bottom: 0px;
     min-height: 86vh;
   }
 
-  .main {
-    min-height: 76vh !important;
+  .footerMobile {
+    display: none;
+  }
+
+  .footerDesktop {
+    display: flex;
   }
   
 }
 
-// @import '~bootstrap/scss/bootstrap';
+#mainAndFooterContainer::-webkit-scrollbar {
+  width: 5px;
+}
+
+#mainAndFooterContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#mainAndFooterContainer::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+#mainAndFooterContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

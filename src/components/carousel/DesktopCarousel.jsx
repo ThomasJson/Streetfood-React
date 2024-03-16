@@ -20,14 +20,14 @@ const Carousel = ({ products }) => {
 
   return (
 
-    <div className="w-full h-full flex flex-col items-center gap-4">
+    <div className="w-full h-max flex flex-col items-center gap-4">
 
-      <div className="relative w-full">
+      <div className="relative w-full h-max">
 
-        <div className="overflow-hidden rounded-lg">
+        <div className="overflow-hidden rounded-lg h-max">
 
           <div
-            className="whitespace-nowrap transition-transform duration-500"
+            className="whitespace-nowrap transition-transform duration-500 h-max"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
 

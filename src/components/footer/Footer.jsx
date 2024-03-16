@@ -19,9 +19,9 @@ const Footer = ({ setShowModal, setUserModal }) => {
 
   return (
     <>
-      <div className={`h-footer sm:hidden w-full fixed bottom-0 left-0 ${theme.bgPrimary}`}>
+      <footer className={`footerMobile ${theme.bgPrimary}`}>
 
-        <div className="h-full flex flex-row justify-around items-center">
+        <div className="h-full w-full flex flex-row justify-around items-center">
 
           {auth.role < 1 && (
             <button className="p-3" onClick={() => setShowModal(true)}>
@@ -56,11 +56,11 @@ const Footer = ({ setShowModal, setUserModal }) => {
           </NavLink>
         </div>
 
-      </div>
+      </footer>
 
-      <div className={`h-footer hidden sm:flex justify-center items-center font-Rubik ${theme.text} ${theme.bgPrimary}`}>
+      <footer className={`footerDesktop ${theme.text} ${theme.bgPrimary}`}>
         © 2023-2024, StreetFood.com, Inc. {t('generic.footerText')}
-      </div>
+      </footer>
     </>
   );
 };

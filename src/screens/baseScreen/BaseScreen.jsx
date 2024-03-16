@@ -32,14 +32,14 @@ const BaseScreen = () => {
   // {
   //   "name": "light",
   //   "tName": "theme.light",
-  
+
   //   "bgPrimary": "bg-gray-50",
   //   "bgSecondary": "bg-gray-100",
   //   "bgTertiary": "bg-gray-200",
-  
+
   //   "text": "text-black",
   //   "label": "text-gray-700",
-  
+
   //   "bgHover": "hover:bg-zinc-900",
   //   "bgHoverGreen": "hover:bg-green-500",
   //   "bgHoverOrange": "hover:bg-orange-500",
@@ -48,25 +48,23 @@ const BaseScreen = () => {
 
   return (
     <>
-      <div className="box-border">
 
-        <div className='overflow-y-hidden'>
-          <Header setShowModal={setShowModal} setUserModal={setUserModal}/>
-          <LoginModal show={showModal} setShow={setShowModal} />
-          <UserModal show={userModal} setShow={setUserModal} />
-        </div>
+      <div>
+        <Header setShowModal={setShowModal} setUserModal={setUserModal} />
+        <LoginModal show={showModal} setShow={setShowModal} />
+        <UserModal show={userModal} setShow={setUserModal} />
+      </div>
 
-        <div id='mainFooterContainer' className={`overflow-y-auto ${theme.bgTertiary}`}>
-          
-          <main>
-            <Outlet />
-          </main>
+      <div id='mainAndFooterContainer' className={`${theme.bgTertiary}`}>
 
-          <Footer setShowModal={setShowModal} setUserModal={setUserModal}/>
-          
-        </div>
+        <main>
+          <Outlet />
+        </main>
+
+        <Footer setShowModal={setShowModal} setUserModal={setUserModal} />
 
       </div>
+
     </>
   );
 };

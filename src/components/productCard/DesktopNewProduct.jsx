@@ -17,7 +17,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
   return (
     <>
-      <div className={`w-full h-carouselProduct flex flex-col rounded-lg shadow-lg p-2 gap-2 ${theme.text} ${theme.bgPrimary}`} >
+      <div className={`w-full h-carouselDesktopProductCard flex flex-col rounded-lg shadow-lg p-2 gap-2 ${theme.text} ${theme.bgPrimary}`} >
 
         <div className="h-4/6">
 
@@ -29,7 +29,7 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
         </div>
 
-        <div className="relative flex flex-col w-full !h-2/6 justify-start">
+        <div className="relative flex flex-col w-full h-2/6 justify-start">
 
           <div className='absolute top-1 lg:top-0 right-0 flex flex-row justify-end gap-1 text-white'>
 
