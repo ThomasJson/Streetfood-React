@@ -42,6 +42,14 @@
         "outStock": "Out of stock"
     },
 
+    "filter": {
+        "filterTitle": "Filter your products",
+        "new": "New",
+        "bestOffers": "Best Offers",
+        "bestSellers": "Best Sellers",
+        "price": "Price"
+    },
+
     "error": {
         "404": "Page not found",
         "loading": "Loading ...",
