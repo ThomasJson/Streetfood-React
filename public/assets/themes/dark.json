@@ -6,6 +6,8 @@
     "bgSecondary": "bg-zinc-800",
     "bgTertiary": "bg-zinc-700",
 
+    "borderColor": "border-white",
+
     "text": "text-white",
     "label": "text-gray-300",
 

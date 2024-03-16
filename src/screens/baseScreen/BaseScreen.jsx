@@ -20,6 +20,8 @@ const BaseScreen = () => {
   //   "bgSecondary": "bg-zinc-800",
   //   "bgTertiary": "bg-zinc-700",
 
+  //   "borderColor": "border-white",
+
   //   "text": "text-white",
   //   "label": "text-gray-300",
 
@@ -36,6 +38,8 @@ const BaseScreen = () => {
   //   "bgPrimary": "bg-gray-50",
   //   "bgSecondary": "bg-gray-100",
   //   "bgTertiary": "bg-gray-200",
+
+  //   "borderColor": "border-black",
 
   //   "text": "text-black",
   //   "label": "text-gray-700",

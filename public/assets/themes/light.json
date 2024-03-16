@@ -6,6 +6,8 @@
   "bgSecondary": "bg-gray-100",
   "bgTertiary": "bg-gray-200",
 
+  "borderColor": "border-black",
+
   "text": "text-black",
   "label": "text-gray-700",
 
@@ -13,4 +15,5 @@
   "bgHoverGreen": "hover:bg-green-500",
   "bgHoverOrange": "hover:bg-orange-500",
   "textHover": "hover:text-white"
+  
 }
