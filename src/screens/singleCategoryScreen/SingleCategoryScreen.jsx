@@ -69,7 +69,7 @@ const SingleCategoryScreen = () => {
 
       <div className="flex flex-row w-full justify-end">
 
-        <div className="fixed top-30 left-3 hidden lg:flex flex-col w-24%">
+        <div className="fixed top-30 left-4 hidden lg:flex flex-col w-24%">
 
           <div className={`p-4 rounded-lg ${theme.text} ${theme.bgPrimary}`}>
 
