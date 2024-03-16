@@ -67,11 +67,11 @@ const SingleCategoryScreen = () => {
   return (
     <>
 
-      <div className="flex flex-row w-full justify-between">
+      <div className="flex flex-row w-full justify-end">
 
-        <div className="hidden lg:flex flex-col w-24%">
+        <div className="fixed top-30 left-3 hidden lg:flex flex-col w-24%">
 
-          <div className={`p-4 border rounded-lg ${theme.text} ${theme.bgPrimary}`}>
+          <div className={`p-4 rounded-lg ${theme.text} ${theme.bgPrimary}`}>
 
             <h2 className="mb-6 text-center text-xl font-Rubik">
               {t('filter.filterTitle')}

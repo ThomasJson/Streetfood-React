@@ -10,8 +10,8 @@ const AdminScreen = () => {
   const [src, setSrc] = useState("");
   const [alt, setAlt] = useState("");
   const [categoryId, setCategoryId] = useState("");
-  const [price, setPrice] = useState(null);
-  const [stock, setStock] = useState(null);
+  const [price, setPrice] = useState(0);
+  const [stock, setStock] = useState(0);
   const [isNew, setIsNew] = useState(false);
   const [isBestSellers, setIsBestSellers] = useState(false);
   const [isBestOffers, setIsBestOffers] = useState(false);
@@ -108,8 +108,8 @@ const AdminScreen = () => {
             setSrc("");
             setAlt("");
             setCategoryId("");
-            setPrice(null);
-            setStock(null);
+            setPrice(0);
+            setStock(0);
             setIsNew(false);
             setIsBestSellers(false)
             setIsBestOffers(false);
