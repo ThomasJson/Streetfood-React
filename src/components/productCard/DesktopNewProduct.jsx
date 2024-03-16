@@ -5,7 +5,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { FiPlus } from "react-icons/fi";
 import { useCart } from '../../contexts/CartContext';
 import { MdNewReleases, MdTrendingUp  } from "react-icons/md";
-import { TbBrandCashapp } from "react-icons/tb";
+import { BiDollar } from "react-icons/bi";
 import ProductBadge from './ProductBadge';
 
 const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, isNew, isBestOffer, isBestSale, stock }) => {
@@ -33,11 +33,11 @@ const ProductCard = ({ title, content, title_Th, content_Th, src, alt, price, is
 
           <div className='absolute top-1 lg:top-0 right-0 flex flex-row justify-end gap-1 text-white'>
 
-            {isNew && <ProductBadge text="New" icon={<MdNewReleases />} color="blue" />}
+            {isNew && <ProductBadge text="New" icon={<MdNewReleases />} color="#0ea5e9" />}
 
-            {isBestOffer && <ProductBadge text="-10%" icon={<TbBrandCashapp />} color="orange" />}
+            {isBestOffer && <ProductBadge text="-10%" icon={<BiDollar />} color="orange" />}
 
-            {isBestSale && <ProductBadge text="Best" icon={<MdTrendingUp />} color="green" />}
+            {isBestSale && <ProductBadge text="Best" icon={<MdTrendingUp />} color="#22c55e" />}
 
           </div>
 
