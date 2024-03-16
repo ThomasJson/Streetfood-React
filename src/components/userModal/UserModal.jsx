@@ -28,11 +28,9 @@ const UserModal = ({ show, setShow }) => {
 
                     <div className={`flex flex-col gap-4`}>
 
-                        {/* <h2 className={`text-center p-2 font-medium ${theme.bgTertiary} ${theme.text}`}>Account Panel</h2> */}
-
                         {auth.role === 4 && (
                             <NavLink
-                                to="/admin"
+                                to="/managerPanel"
                                 className={`w-full`}
                                 onClick={closeModal}>
 

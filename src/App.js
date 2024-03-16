@@ -8,10 +8,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthContext } from "./contexts/AuthContext";
 
 import BaseScreen from "./screens/baseScreen/BaseScreen";
-import ProductScreen from "./screens/productScreen/ProductScreen";
-import ContactScreen from "./screens/contactScreen/ContactScreen";
+// import ProductScreen from "./screens/productScreen/ProductScreen";
+// import ContactScreen from "./screens/contactScreen/ContactScreen";
 import CartScreen from "./screens/cartScreen/CartScreen";
-import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 
 import AdminScreen from "./screens/adminScreen/AdminScreen";
 import AccountValidateScreen from "./screens/accountValidateScreen/AccountValidateScreen";
@@ -41,7 +40,8 @@ function App() {
               </Suspense>
             } />
 
-            <Route path="product" element={<ProductScreen />} />
+            {/* <Route path="product" element={<ProductScreen />} /> */}
+            {/* <Route path="contact" element={<ContactScreen />} /> */}
 
             <Route path="category" element={
               <Suspense fallback={<LoadingSpinner />}>
@@ -55,13 +55,11 @@ function App() {
               </Suspense>
             } />
 
-            <Route path="contact" element={<ContactScreen />} />
             <Route path="settings" element={<SettingsScreen />} />
             <Route path="cart" element={<CartScreen />} />
-            <Route path="register" element={<RegisterScreen />} />
 
             {auth.role === 4 && (
-              <Route path="admin" element={<AdminScreen />} />
+              <Route path="managerPanel" element={<AdminScreen />} />
             )}
 
             {auth.role > 0 && (
