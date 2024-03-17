@@ -22,12 +22,12 @@ const CategoryNav = () => {
             return (
               <div
                 key={category.id}
-                className={`transition-colors duration-150 ease-in-out`}
+                className={``}
               >
                 <NavLink
                   to={`/category/${category.id}`}
                   className={({ isActive }) =>
-                    isActive ? 'text-orange-400' :  theme.text
+                    isActive ? 'transition-colors duration-150 ease-in-out text-orange-400' : `transition-colors duration-150 ease-in-out ${theme.linkTextHover}`
                   }>
                   {
                     userLang === "en" ?

@@ -68,11 +68,13 @@ const Footer = ({ setShowModal, setUserModal }) => {
 
             <NavLink
               to="/terms"
-              className="flex flex-row items-center hover:text-orange-500 transition-colors duration-150 ease-in-out relative"
+              className={({ isActive }) =>
+                isActive ? 'flex transition-colors duration-150 ease-in-out text-orange-400' : `flex transition-colors duration-150 ease-in-out relative ${theme.linkTextHover}`
+              }
             >
               <span className="relative group">
                 {t('footer.terms')}
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span>
+                {/* <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span> */}
               </span>
             </NavLink>
 
@@ -80,11 +82,12 @@ const Footer = ({ setShowModal, setUserModal }) => {
 
             <NavLink
               to="/privacy"
-              className="flex flex-row items-center hover:text-orange-500 transition-colors duration-150 ease-in-out relative"
+              className={({ isActive }) =>
+              isActive ? 'flex transition-colors duration-150 ease-in-out text-orange-400' : `flex transition-colors duration-150 ease-in-out relative ${theme.linkTextHover}`              }
             >
               <span className="relative group">
                 {t('footer.privacy')}
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span>
+                {/* <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span> */}
               </span>
             </NavLink>
 
@@ -92,11 +95,12 @@ const Footer = ({ setShowModal, setUserModal }) => {
 
             <NavLink
               to="/contact"
-              className="flex flex-row items-center hover:text-orange-500 transition-colors duration-150 ease-in-out relative"
+              className={({ isActive }) =>
+              isActive ? 'flex transition-colors duration-150 ease-in-out text-orange-400' : `flex transition-colors duration-150 ease-in-out relative ${theme.linkTextHover}`              }
             >
               <span className="relative group">
                 {t('footer.contact')}
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span>
+                {/* <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span> */}
               </span>
             </NavLink>
 

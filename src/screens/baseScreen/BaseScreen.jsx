@@ -28,6 +28,8 @@ const BaseScreen = () => {
   //   "bgHover": "hover:bg-gray-50",
   //   "bgHoverGreen": "hover:bg-green-500",
   //   "bgHoverOrange": "hover:bg-orange-500",
+
+  //   "linkTextHover": "hover:text-gray-400"
   //   "textHover": "hover:text-white"
   // }
 
@@ -47,6 +49,8 @@ const BaseScreen = () => {
   //   "bgHover": "hover:bg-zinc-900",
   //   "bgHoverGreen": "hover:bg-green-500",
   //   "bgHoverOrange": "hover:bg-orange-500",
+  
+  //   "linkTextHover": "hover:text-gray-400"
   //   "textHover": "hover:text-white"
   // }
 
