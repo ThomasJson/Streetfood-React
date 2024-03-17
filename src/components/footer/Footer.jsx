@@ -78,7 +78,7 @@ const Footer = ({ setShowModal, setUserModal }) => {
               </span>
             </NavLink>
 
-            <div class="w-px mt-0.5 h-4 border-r-2 border-zinc-300"></div>
+            <div className="w-px mt-0.5 h-4 border-r-2 border-zinc-300"></div>
 
             <NavLink
               to="/privacy"
@@ -91,7 +91,7 @@ const Footer = ({ setShowModal, setUserModal }) => {
               </span>
             </NavLink>
 
-            <div class="w-px mt-0.5 h-4 border-r-2 border-zinc-300"></div>
+            <div className="w-px mt-0.5 h-4 border-r-2 border-zinc-300"></div>
 
             <NavLink
               to="/contact"

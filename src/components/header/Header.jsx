@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from "react-router-dom";
 import { BiLogInCircle } from "react-icons/bi";
 import { AiOutlineUser } from "react-icons/ai";
+import { IoSettingsSharp } from "react-icons/io5";
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { AuthContext } from "../../contexts/AuthContext";
@@ -17,7 +18,7 @@ const Header = ({ setShowModal, setUserModal }) => {
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const { auth } = useContext(AuthContext);
-  const [ pseudo, setPseudo ] = useState(null);
+  const [pseudo, setPseudo] = useState(null);
 
   useEffect(() => {
 
@@ -25,7 +26,7 @@ const Header = ({ setShowModal, setUserModal }) => {
 
       const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
       const url = `${baseUrl}/account/${auth.id}`;
-      
+
       fetch(url, {
         method: "GET",
         credentials: "include",
@@ -69,19 +70,27 @@ const Header = ({ setShowModal, setUserModal }) => {
               </div>
             </NavLink>
 
-            <div className="px-2">
+            <div className="sm:hidden px-2">
               <ContextSettings />
             </div>
 
           </div>
 
-          <div className="hidden sm:flex flex-row items-center w-5/12 justify-end">
+          <div className="hidden sm:flex flex-row items-center w-6/12 justify-end gap-1">
+
+            <div className="hidden sm:flex px-2">
+              <ContextSettings />
+            </div>
+
+            <button className={`rounded-lg border-2 py-2 px-4 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen} ${theme.borderColor}`}>
+              <IoSettingsSharp />
+            </button>
 
             {auth.role < 1 && (
               <button className={`rounded-lg p-2 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen}`} onClick={() => setShowModal(true)}>
                 <div className={`flex flex-row items-center`}>
 
-                  <span><BiLogInCircle className={`text-2xl`} /></span>
+                  <span><BiLogInCircle className={`text-xl`} /></span>
                   <span className={`hidden sm:flex ml-1 font-Rubik `}>
                     {t('generic.logIn')}
                   </span>
@@ -112,7 +121,7 @@ const Header = ({ setShowModal, setUserModal }) => {
     </>
 
   );
-  
+
 };
 
 export default Header;
