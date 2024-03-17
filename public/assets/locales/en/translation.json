@@ -4,7 +4,13 @@
         "logIn": "Log In",
         "signUp": "Sign Up",
         "cart": "Cart",
-        "resetCart": "Reset Cart",
+        "resetCart": "Reset Cart"
+    },
+
+    "footer": {
+        "terms": "Terms",
+        "privacy": "Privacy Policy",
+        "contact": "Contact",
         "footerText": "or its affiliates"
     },
 

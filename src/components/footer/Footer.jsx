@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineUser } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
 
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 
@@ -59,7 +60,57 @@ const Footer = ({ setShowModal, setUserModal }) => {
       </footer>
 
       <footer className={`footerDesktop ${theme.text} ${theme.bgPrimary}`}>
-        © 2023-2024, StreetFood.com, Inc. {t('generic.footerText')}
+        <div className="w-full px-4 flex flex-row justify-between items-center">
+
+          <div className="w-1/3">© 2023-2024, StreetFood.com, Inc. {t('footer.footerText')}</div>
+
+          <div className="w-1/4 flex flex-row justify-between items-center">
+
+            <NavLink
+              to="/terms"
+              className="flex flex-row items-center hover:text-orange-500 transition-colors duration-150 ease-in-out relative"
+            >
+              <span className="relative group">
+                {t('footer.terms')}
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span>
+              </span>
+            </NavLink>
+
+            <div class="w-px mt-0.5 h-4 border-r-2 border-zinc-300"></div>
+
+            <NavLink
+              to="/privacy"
+              className="flex flex-row items-center hover:text-orange-500 transition-colors duration-150 ease-in-out relative"
+            >
+              <span className="relative group">
+                {t('footer.privacy')}
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span>
+              </span>
+            </NavLink>
+
+            <div class="w-px mt-0.5 h-4 border-r-2 border-zinc-300"></div>
+
+            <NavLink
+              to="/contact"
+              className="flex flex-row items-center hover:text-orange-500 transition-colors duration-150 ease-in-out relative"
+            >
+              <span className="relative group">
+                {t('footer.contact')}
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-150 ease-out"></span>
+              </span>
+            </NavLink>
+
+          </div>
+
+          <div className="w-1/3 flex flex-row justify-end">
+            <div className={`flex flex-row items-center gap-1 p-2 rounded-lg hover:bg-blue-400 ${theme.textHover}`}>
+              <FaGithub className="text-xl" />
+              <a href="https://github.com/ThomasJson" target="blank">Tom Pearson</a>
+            </div>
+          </div>
+
+        </div>
+
       </footer>
     </>
   );
