@@ -76,18 +76,20 @@ const Header = ({ setShowModal, setUserModal }) => {
 
           </div>
 
-          <div className="hidden sm:flex flex-row items-center w-6/12 justify-end gap-1">
+          <div className="hidden sm:flex flex-row items-center w-6/12 justify-end gap-8">
 
-            <div className="hidden sm:flex px-2">
-              <ContextSettings />
+            <div className="flex flex-row justify-end">
+              <div className="hidden sm:flex px-2">
+                <ContextSettings />
+              </div>
+
+              <button className={`rounded-lg py-2 px-4 ${theme.text} hover:text-orange-500`}>
+                <IoSettingsSharp className="text-2xl" />
+              </button>
             </div>
 
-            <button className={`rounded-lg border-2 py-2 px-4 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen} ${theme.borderColor}`}>
-              <IoSettingsSharp />
-            </button>
-
             {auth.role < 1 && (
-              <button className={`rounded-lg p-2 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen}`} onClick={() => setShowModal(true)}>
+              <button className={`rounded-lg py-1 px-2 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen}`} onClick={() => setShowModal(true)}>
                 <div className={`flex flex-row items-center`}>
 
                   <span><BiLogInCircle className={`text-xl`} /></span>
