@@ -8,7 +8,7 @@
 
   "borderColor": "border-black",
 
-  "text": "text-black",
+  "text": "text-gray-700",
   "label": "text-gray-700",
 
   "bgHover": "hover:bg-gray-50",

@@ -79,7 +79,7 @@ const SingleCategoryScreen = () => {
 
             <div className="flex flex-col items-center gap-2 mb-1">
 
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border hover:bg-yellow-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortPrice(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-yellow-300 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortPrice(sortPrice === 'asc' ? 'desc' : 'asc') }}>
                 {t('filter.price')}
 
                 {sortPrice !== null && (
@@ -89,21 +89,21 @@ const SingleCategoryScreen = () => {
                 )}
               </button>
 
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border hover:bg-blue-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortNew(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-blue-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortNew(sortPrice === 'asc' ? 'desc' : 'asc') }}>
                 {t('filter.new')}
 
                 {sortNew !== null && (
                   <span className="mt-1"><MdNewReleases /></span>
                 )}
               </button>
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border hover:bg-orange-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestOffer(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-orange-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestOffer(sortPrice === 'asc' ? 'desc' : 'asc') }}>
                 {t('filter.bestOffers')}
 
                 {sortBestOffer !== null && (
                   <span className="mt-1"><BiDollar /></span>
                 )}
               </button>
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border hover:bg-green-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestSale(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-green-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestSale(sortPrice === 'asc' ? 'desc' : 'asc') }}>
                 {t('filter.bestSellers')}
 
                 {sortBestSale !== null && (

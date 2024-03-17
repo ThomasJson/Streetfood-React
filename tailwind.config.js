@@ -19,9 +19,13 @@ module.exports = {
         "main-mobile": "10vh",
         "footer": "10vh",
       },
-      fontFamily:{
+      fontFamily: {
         "Raleway": ["Raleway-Light", "sans-serif"],
         "Rubik": ["Rubik", "sans-serif"]
+      },
+      colors: {
+        "Secondary": "#222223",
+        "Tertiary": "#3a3a3c"
       }
     },
   },

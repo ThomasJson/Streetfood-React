@@ -17,8 +17,8 @@ const BaseScreen = () => {
   //   "tName": "theme.dark",
 
   //   "bgPrimary": "bg-zinc-900",
-  //   "bgSecondary": "bg-zinc-800",
-  //   "bgTertiary": "bg-zinc-700",
+  //   "bgSecondary": "bg-Secondary",
+  //   "bgTertiary": "bg-zinc-800",
 
   //   "borderColor": "border-white",
 
@@ -43,7 +43,7 @@ const BaseScreen = () => {
 
   //   "borderColor": "border-black",
 
-  //   "text": "text-black",
+  //   "text": "text-gray-700",
   //   "label": "text-gray-700",
 
   //   "bgHover": "hover:bg-zinc-900",
