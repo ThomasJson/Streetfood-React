@@ -1,6 +1,5 @@
 import './homeScreen.scss'
-import React, { useContext, useState, useEffect } from "react";
-import { ThemeContext } from '../../contexts/ThemeContext';
+import React, { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import { useTranslation } from 'react-i18next';
 import { MdNewReleases, MdTrendingUp } from "react-icons/md";
@@ -11,7 +10,6 @@ import ProductCard from "../../components/productCard/ProductCard";
 
 const HomeScreen = () => {
 
-  const { theme } = useContext(ThemeContext);
   const { t } = useTranslation();
 
   const { data } = useFetch("/product", { method: "GET" })

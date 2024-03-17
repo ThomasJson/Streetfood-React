@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useTranslation } from 'react-i18next';
 
-const SettingsScreen = () => {
+const TermScreen = () => {
 
   const { theme } = useContext(ThemeContext);
   const { t } = useTranslation();
@@ -18,4 +18,4 @@ const SettingsScreen = () => {
   );
 };
 
-export default SettingsScreen;
+export default TermScreen;

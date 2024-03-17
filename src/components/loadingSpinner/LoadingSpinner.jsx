@@ -10,7 +10,7 @@ const LoadingSpinner = () => {
 
   return (
 
-    <div className={`h-full mt-10 flex flex-col gap-4 justify-center items-center font-Rubik ${theme.text}`}>
+    <div className={`h-full mt-20 flex flex-col gap-4 justify-center items-center font-Rubik ${theme.text}`}>
 
       <h1 className='text-8xl'>
         <CgSearchLoading />

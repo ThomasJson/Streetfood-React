@@ -112,7 +112,7 @@ const AccountValidateScreen = () => {
 
       {createUserToken !== null && (
 
-        <div className='flex flex-col w-full h-full justify-center items-center mt-10'>
+        <div className='flex flex-col w-full h-full justify-center items-center mt-20'>
 
           <div className={`relative p-4 rounded-lg w-11/12 sm:max-w-lg mx-auto ${theme.bgPrimary}`}>
 

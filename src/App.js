@@ -8,14 +8,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthContext } from "./contexts/AuthContext";
 
 import BaseScreen from "./screens/baseScreen/BaseScreen";
-// import ProductScreen from "./screens/productScreen/ProductScreen";
-// import ContactScreen from "./screens/contactScreen/ContactScreen";
-import CartScreen from "./screens/cartScreen/CartScreen";
-
 import AdminScreen from "./screens/adminScreen/AdminScreen";
 import AccountValidateScreen from "./screens/accountValidateScreen/AccountValidateScreen";
-import NotFoundScreen from "./screens/notFoundScreen/NotFoundScreen";
 
+import ContactScreen from "./screens/contactScreen/ContactScreen";
+import TermScreen from "./screens/termScreen/TermScreen";
+import PrivacyScreen from './screens/privacyScreen/PrivacyScreen'
+
+import CartScreen from "./screens/cartScreen/CartScreen";
+import NotFoundScreen from "./screens/notFoundScreen/NotFoundScreen";
 import LoadingSpinner from "./components/loadingSpinner/LoadingSpinner";
 import SettingsScreen from "./screens/settingsScreen/SettingsScreen";
 import TrollScreen from "./screens/trollScreen/TrollScreen";
@@ -41,9 +42,6 @@ function App() {
               </Suspense>
             } />
 
-            {/* <Route path="product" element={<ProductScreen />} /> */}
-            {/* <Route path="contact" element={<ContactScreen />} /> */}
-
             <Route path="category" element={
               <Suspense fallback={<LoadingSpinner />}>
                 <CategoryScreen />
@@ -60,6 +58,10 @@ function App() {
             <Route path="settings" element={<SettingsScreen />} />
             <Route path="cart" element={<CartScreen />} />
 
+            <Route path="contact" element={<ContactScreen />} />
+            <Route path="terms" element={<TermScreen />} />
+            <Route path="privacy" element={<PrivacyScreen />} />
+            
             {auth.role === 4 && (
               <Route path="managerPanel" element={<AdminScreen />} />
             )}
