@@ -45,7 +45,7 @@ const AccountValidateScreen = () => {
 
       navigate('/404');
     }
-    
+
   }, [createUserToken, navigate]);
 
   useEffect(() => {
@@ -118,11 +118,16 @@ const AccountValidateScreen = () => {
 
             <div className={`flex rounded-lg p-2 mb-4 ${theme.bgTertiary}`}>
               <h3 className={`flex flex-row justify-center items-center gap-1 w-full rounded-lg py-2.5 font-Rubik text-xl leading-5 ${theme.bgPrimary} ${theme.text}`}>
-                
+
                 {authResult !== null ? (
 
                   authResult.result ?
-                    (<><FaUnlock /> <div>{authResult.message}</div></>)
+                    (<>
+                      <div className='flex flex-row gap-2 items-center'>
+                        <FaUnlock />
+                        {authResult.message}
+                      </div>
+                    </>)
                     :
                     (<><IoKey /> <div>{t('modal.password')}</div></>)
                 )

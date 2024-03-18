@@ -80,7 +80,7 @@ const Header = ({ setShowModal, setUserModal }) => {
               )}
 
               <button
-                className={`rounded-lg pl-2 ${theme.text} hover:text-orange-500`}
+                className={`rounded-lg pl-2 lg:pr-2 ${showSettings ? 'text-orange-500' : `${theme.text} hover:text-orange-500` }`}
                 onClick={() => setShowSettings(!showSettings)}
               >
                 <IoSettingsSharp className="text-2xl" />
@@ -100,7 +100,7 @@ const Header = ({ setShowModal, setUserModal }) => {
               )}
 
               <button
-                className={`rounded-lg py-2 px-2 ${theme.text} hover:text-orange-500`}
+                className={`rounded-lg pl-2 lg:pr-2 ${showSettings ? 'text-orange-500' : `${theme.text} hover:text-orange-500` }`}
                 onClick={() => setShowSettings(!showSettings)}
               >
                 <IoSettingsSharp className="text-2xl" />
