@@ -78,17 +78,21 @@ main {
 }
 
 #mainAndFooterContainer::-webkit-scrollbar {
-  width: 3px;
+  display: none;
 }
 
-#mainAndFooterContainer::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+// #mainAndFooterContainer::-webkit-scrollbar {
+//   width: 3px;
+// }
 
-#mainAndFooterContainer::-webkit-scrollbar-thumb {
-  background: #888;
-}
+// #mainAndFooterContainer::-webkit-scrollbar-track {
+//   background: #f1f1f1;
+// }
 
-#mainAndFooterContainer::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+// #mainAndFooterContainer::-webkit-scrollbar-thumb {
+//   background: #888;
+// }
+
+// #mainAndFooterContainer::-webkit-scrollbar-thumb:hover {
+//   background: #555;
+// }

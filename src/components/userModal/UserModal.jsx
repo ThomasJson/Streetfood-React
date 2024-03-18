@@ -6,7 +6,7 @@ import { deleteCookie } from '../../helpers/cookieHelper';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
-import { IoSettingsOutline } from "react-icons/io5";
+import { IoSettingsSharp } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 
@@ -59,7 +59,7 @@ const UserModal = ({ show, setShow }) => {
                             onClick={closeModal}
                         >
                             <button className={`w-full flex justify-center gap-1 items-center p-2 rounded-lg ${theme.bgTertiary} ${theme.text} ${theme.textHover} hover:bg-orange-400`}>
-                                <IoSettingsOutline className={`text-2xl `} />
+                                <IoSettingsSharp className={`text-2xl `} />
                                 <span className='font-medium'>{t('userModal.settings')}</span>
                             </button>
                         </NavLink>

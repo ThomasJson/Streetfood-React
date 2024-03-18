@@ -34,7 +34,7 @@ const ContextSettings = () => {
     };
 
     return (
-        <div className='flex flex-row gap-4'>
+        <div className={`flex flex-row gap-4 py-1 px-2 rounded-l-lg ${theme.bgSecondary}`}>
 
             <div className='flex flex-row items-center gap-1'>
                 <IoSunnyOutline className={`${theme.text} text-lg`}/>

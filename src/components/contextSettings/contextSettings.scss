@@ -1,3 +1,35 @@
+@keyframes slideFadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFadeOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+}
+
+.slide-fade-in-right {
+    animation: slideFadeInRight 0.5s forwards;
+}
+
+.slide-fade-out-right {
+    animation: slideFadeOutRight 0.5s forwards;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;

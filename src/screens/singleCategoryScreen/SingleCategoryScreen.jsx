@@ -73,44 +73,47 @@ const SingleCategoryScreen = () => {
 
           <div className={`p-4 rounded-lg ${theme.text} ${theme.bgPrimary}`}>
 
-            <h2 className="mb-6 text-center text-xl font-Rubik">
-              {t('filter.filterTitle')}
-            </h2>
+            <div className={`p-4 rounded-lg ${theme.text} ${theme.bgSecondary}`}>
 
-            <div className="flex flex-col items-center gap-2 mb-1">
+              <h2 className="mb-6 text-center text-xl font-Rubik">
+                {t('filter.filterTitle')}
+              </h2>
 
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-yellow-300 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortPrice(sortPrice === 'asc' ? 'desc' : 'asc') }}>
-                {t('filter.price')}
+              <div className="flex flex-col items-center gap-2 mb-1">
 
-                {sortPrice !== null && (
-                  sortPrice === 'asc' ?
-                    (<span className="mt-1"><IoIosArrowDown /></span>) :
-                    (<span><IoIosArrowUp /></span>)
-                )}
-              </button>
+                <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-yellow-300 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortPrice(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+                  {t('filter.price')}
 
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-blue-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortNew(sortPrice === 'asc' ? 'desc' : 'asc') }}>
-                {t('filter.new')}
+                  {sortPrice !== null && (
+                    sortPrice === 'asc' ?
+                      (<span className="mt-1"><IoIosArrowDown /></span>) :
+                      (<span><IoIosArrowUp /></span>)
+                  )}
+                </button>
 
-                {sortNew !== null && (
-                  <span className="mt-1"><MdNewReleases /></span>
-                )}
-              </button>
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-orange-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestOffer(sortPrice === 'asc' ? 'desc' : 'asc') }}>
-                {t('filter.bestOffers')}
+                <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-blue-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortNew(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+                  {t('filter.new')}
 
-                {sortBestOffer !== null && (
-                  <span className="mt-1"><BiDollar /></span>
-                )}
-              </button>
-              <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-green-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestSale(sortPrice === 'asc' ? 'desc' : 'asc') }}>
-                {t('filter.bestSellers')}
+                  {sortNew !== null && (
+                    <span className="mt-1"><MdNewReleases /></span>
+                  )}
+                </button>
+                <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-orange-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestOffer(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+                  {t('filter.bestOffers')}
 
-                {sortBestSale !== null && (
-                  <span className="mt-1"><MdTrendingUp /></span>
-                )}
-              </button>
+                  {sortBestOffer !== null && (
+                    <span className="mt-1"><BiDollar /></span>
+                  )}
+                </button>
+                <button className={`w-49 flex flex-row justify-center items-center gap-1 p-2 border-2 hover:bg-green-400 rounded-lg ${theme.textHover} ${theme.borderColor} hover:border-white`} onClick={() => { resetSorts(); setSortBestSale(sortPrice === 'asc' ? 'desc' : 'asc') }}>
+                  {t('filter.bestSellers')}
 
+                  {sortBestSale !== null && (
+                    <span className="mt-1"><MdTrendingUp /></span>
+                  )}
+                </button>
+
+              </div>
             </div>
 
           </div>

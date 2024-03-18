@@ -19,6 +19,7 @@ const Header = ({ setShowModal, setUserModal }) => {
   const { theme } = useContext(ThemeContext);
   const { auth } = useContext(AuthContext);
   const [pseudo, setPseudo] = useState(null);
+  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
 
@@ -60,36 +61,59 @@ const Header = ({ setShowModal, setUserModal }) => {
     <>
       <header>
 
-        <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-2`}>
+        <div className={`h-full ${theme.bgPrimary} flex flex-row justify-between items-center px-4`}>
 
-          <div className="flex flex-row items-center w-full justify-between sm:w-6/12 sm:justify-start">
+          <div className="flex flex-row items-center w-full justify-between sm:w-4/12 sm:justify-start">
 
             <NavLink to="/" style={{ width: "135px" }}>
-              <div className={`font-Rubik ${theme.text} ml-2 mr-2`}>
+              <div className={`font-Rubik ${theme.text}`}>
                 {t('generic.brand')}
               </div>
             </NavLink>
 
-            <div className="sm:hidden px-2">
-              <ContextSettings />
-            </div>
+            <div className="flex flex-row items-center sm:hidden">
 
-          </div>
+              {showSettings && (
+                <div className={`flex sm:hidden ${showSettings ? 'slide-fade-in-right' : 'slide-fade-out-right'}`}>
+                  <ContextSettings />
+                </div>
+              )}
 
-          <div className="hidden sm:flex flex-row items-center w-6/12 justify-end gap-8">
-
-            <div className="flex flex-row justify-end">
-              <div className="hidden sm:flex px-2">
-                <ContextSettings />
-              </div>
-
-              <button className={`rounded-lg py-2 px-4 ${theme.text} hover:text-orange-500`}>
+              <button
+                className={`rounded-lg pl-2 ${theme.text} hover:text-orange-500`}
+                onClick={() => setShowSettings(!showSettings)}
+              >
                 <IoSettingsSharp className="text-2xl" />
               </button>
             </div>
 
+          </div>
+
+          <div className="hidden sm:flex flex-row items-center w-8/12 justify-end">
+
+            <div className="flex flex-row items-center justify-end">
+
+              {showSettings && (
+                <div className={`hidden sm:flex ${showSettings ? 'slide-fade-in-right' : 'slide-fade-out-right'}`}>
+                  <ContextSettings />
+                </div>
+              )}
+
+              <button
+                className={`rounded-lg py-2 px-2 ${theme.text} hover:text-orange-500`}
+                onClick={() => setShowSettings(!showSettings)}
+              >
+                <IoSettingsSharp className="text-2xl" />
+              </button>
+
+            </div>
+
             {auth.role < 1 && (
-              <button className={`rounded-lg py-1 px-2 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen}`} onClick={() => setShowModal(true)}>
+              <button
+                className={`rounded-lg py-1 px-2 ${theme.text} ${theme.textHover} ${theme.bgHoverGreen}`}
+                onClick={() => setShowModal(true)}
+                style={{ width: "107px" }}>
+
                 <div className={`flex flex-row items-center`}>
 
                   <span><BiLogInCircle className={`text-xl`} /></span>

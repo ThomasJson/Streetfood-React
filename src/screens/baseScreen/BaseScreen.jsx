@@ -41,7 +41,7 @@ const BaseScreen = () => {
   //   "bgSecondary": "bg-gray-100",
   //   "bgTertiary": "bg-gray-200",
 
-  //   "borderColor": "border-black",
+  //   "borderColor": "border-gray-500",
 
   //   "text": "text-gray-700",
   //   "label": "text-gray-700",

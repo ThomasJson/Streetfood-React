@@ -85,8 +85,6 @@ const LogInModalTab = ({ setShow }) => {
 
     }
 
-    console.log(errorMessage)
-
     return (
         <div className={`p-3 rounded-lg ${theme.bgTertiary}`}>
             <form

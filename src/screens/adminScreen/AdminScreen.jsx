@@ -58,7 +58,10 @@ const AdminScreen = () => {
 
   const submitForm = async () => {
 
-    if (!title || !content || !src || !categoryId) return;
+    if (!title || !content || !src || !categoryId) {
+      setResultMsg("Title, Content, FileName & Category. At least")
+      return;
+    } 
 
     const selectedCategory = categories.find(
       (cat) => cat.id === categoryId
@@ -95,7 +98,7 @@ const AdminScreen = () => {
       });
 
       await response.json();
-      setResultMsg("Product added successfully.")
+      setResultMsg("Product added successfully !")
 
     } catch (error) {
       setResultMsg("Error adding the product.")
@@ -129,8 +132,10 @@ const AdminScreen = () => {
         >
 
           <div className="flex items-center justify-between">
+
             <h2 className={`text-2xl mb-4`}>Add new Product</h2>
-            <div className="flex flex-row gap-2">
+
+            <div className="flex flex-row items-center gap-2">
               <div>{resultMsg}</div>
               <button
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -138,6 +143,7 @@ const AdminScreen = () => {
                 Add
               </button>
             </div>
+
           </div>
 
           <div className="flex flex-col w-full lg:flex-row justify-between">
