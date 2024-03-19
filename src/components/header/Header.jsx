@@ -67,7 +67,8 @@ const Header = ({ setShowModal, setUserModal }) => {
 
             <NavLink to="/" style={{ width: "135px" }}>
               <div className={`font-Rubik ${theme.text}`}>
-                {t('generic.brand')}
+                {t('generic.brand1')}
+                {t('generic.brand2')}
               </div>
             </NavLink>
 

@@ -1,6 +1,7 @@
 {
     "generic": {
-        "brand": "StreetFood.com",
+        "brand1": "StreetFood",
+        "brand2": ".Tech",
         "logIn": "Log In",
         "signUp": "Sign Up",
         "cart": "Cart",

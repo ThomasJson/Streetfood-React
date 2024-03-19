@@ -1,6 +1,7 @@
 {
     "generic": {
-        "brand": "สตรีทฟู้ด.คอม",
+        "brand1": "StreetFood",
+        "brand2": ".Tech",
         "logIn": "เข้าสู่ระบบ",
         "signUp": "ลงชื่อ",
         "cart": "รถเข็น",
