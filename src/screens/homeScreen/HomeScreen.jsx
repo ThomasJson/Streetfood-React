@@ -101,14 +101,14 @@ const HomeScreen = () => {
 
         <div className="flex flex-col w-66% h-full gap-4">
 
-          <section className="hidden w-full h-1/2 sm:flex flex-col items-center gap-2 bg-orange-200 p-2">
+          <section className="hidden w-full h-1/2 sm:flex flex-col items-center bg-orange-200 p-2">
             
             <div className="flex flex-row justify-center items-center w-full gap-1 text-2xl text-center font-Rubik bg-orange-400 p-1 text-white">
               <h1>{t('product.bestOffers')}</h1>
               <BiDollar />
             </div>
 
-            <div className="flex flex-row h-full gap-4 overflow-x-auto w-full scrollable-section">
+            <div className="flex flex-row h-full items-center gap-4 overflow-x-auto w-full scrollable-section">
               {bestOffers.map((product) => (
 
                   <ProductCard
@@ -131,14 +131,14 @@ const HomeScreen = () => {
 
           </section>
 
-          <section className="hidden w-full h-1/2 sm:flex flex-col items-center gap-2 bg-green-200 p-2">
+          <section className="hidden w-full h-1/2 sm:flex flex-col items-center bg-green-200 p-2">
 
             <div className="flex flex-row justify-center items-center w-full gap-2 text-2xl text-center font-Rubik bg-green-500 p-1 text-white">
               <h1>{t('product.bestSellers')}</h1>
               <MdTrendingUp />
             </div>
 
-            <div className="flex flex-row h-full gap-4 overflow-x-auto w-full scrollable-section">
+            <div className="flex flex-row h-full items-center gap-4 overflow-x-auto w-full scrollable-section">
               {bestSales.map((product) => (
 
                   <ProductCard

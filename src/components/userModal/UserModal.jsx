@@ -59,7 +59,7 @@ const UserModal = ({ show, setShow }) => {
                             onClick={closeModal}
                         >
                             <button className={`w-full flex justify-center gap-1 items-center p-2 rounded-lg ${theme.bgTertiary} ${theme.text} ${theme.textHover} hover:bg-orange-400`}>
-                                <IoSettingsSharp className={`text-2xl `} />
+                                <IoSettingsSharp className={`text-xl `} />
                                 <span className='font-medium'>{t('userModal.settings')}</span>
                             </button>
                         </NavLink>
