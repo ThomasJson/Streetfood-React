@@ -62,7 +62,7 @@ const Footer = ({ setShowModal, setUserModal }) => {
       <footer className={`footerDesktop ${theme.text} ${theme.bgPrimary}`}>
         <div className="w-full px-4 flex flex-row justify-between items-center">
 
-          <div className="w-1/3">© 2023-2024, StreetFood.com, Inc. {t('footer.footerText')}</div>
+          <div className="w-1/3">© 2023-2024, streetFood.digital, Inc. {t('footer.footerText')}</div>
 
           <div className="w-1/4 flex flex-row justify-between items-center">
 
