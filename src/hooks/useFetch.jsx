@@ -16,8 +16,7 @@ const useFetch = (endpoint, options = {}) => {
       const baseUrl = process.env.REACT_APP_REST_API_BASE_URL;
       const url = `${baseUrl}${endpoint}`;
       
-      // console.log(baseUrl);
-      // console.log(options)
+      console.log(baseUrl);
       
       options.credentials = "include";
       // options.headers = {
