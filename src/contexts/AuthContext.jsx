@@ -15,8 +15,6 @@ const AuthProvider = ({ children }) => {
 
         const url = process.env.REACT_APP_AUTH_API_BASE_URL;
 
-        // console.log('Url to check : ' + url);
-
         const response = await fetch(url + "/auth/check", {
           method: 'GET',
           credentials: 'include',
@@ -27,8 +25,6 @@ const AuthProvider = ({ children }) => {
         });
 
         const data = await response.json();
-
-        // console.log(data)
 
         if (data && data.result) {
 
@@ -42,14 +38,15 @@ const AuthProvider = ({ children }) => {
 
             setAuth({ role: 0, id: "0" });
             deleteCookie("StreetF");
+            
           }
 
         }
       } catch (error) {
-        
-        console.error("An error occurred while checking auth status:", error);
+
         setAuth({ role: 0, id: "0" });
         deleteCookie("StreetF");
+
       }
 
     };
@@ -57,8 +54,6 @@ const AuthProvider = ({ children }) => {
     checkAuth();
 
   }, []);
-
-  // console.log('auth:', auth)
 
   return (
 
