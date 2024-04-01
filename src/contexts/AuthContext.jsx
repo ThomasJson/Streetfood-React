@@ -11,41 +11,46 @@ const AuthProvider = ({ children }) => {
 
     const checkAuth = async () => {
 
-      try {
+      if (auth.role !== 0 || auth.id !== "0") {
 
-        const url = process.env.REACT_APP_AUTH_API_BASE_URL;
+        try {
 
-        const response = await fetch(url + "/auth/check", {
-          method: 'GET',
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': getCookie("StreetF")
-          },
-        });
+          const url = process.env.REACT_APP_AUTH_API_BASE_URL;
 
-        const data = await response.json();
+          const response = await fetch(url + "/auth/check", {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': getCookie("StreetF")
+            },
+          });
 
-        if (data && data.result) {
+          const data = await response.json();
 
-          if (+data.accRole !== auth.role || data.accId !== auth.id) {
-            setAuth({ role: +data.accRole, id: data.accId });
+          if (data && data.result) {
+
+            if (+data.accRole !== auth.role || data.accId !== auth.id) {
+              setAuth({ role: +data.accRole, id: data.accId });
+            }
+
           }
 
-        } else {
+          else {
 
-          if (auth.role !== 0 || auth.id !== "0") {
+            if (auth.role !== 0 || auth.id !== "0") {
+              setAuth({ role: 0, id: "0" });
+              deleteCookie("StreetF");
+            }
 
-            setAuth({ role: 0, id: "0" });
-            deleteCookie("StreetF");
-            
           }
+
+        } catch (error) {
+
+          setAuth({ role: 0, id: "0" });
+          deleteCookie("StreetF");
 
         }
-      } catch (error) {
-
-        setAuth({ role: 0, id: "0" });
-        deleteCookie("StreetF");
 
       }
 
